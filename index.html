@@ -490,8 +490,25 @@
       outline:none; transition:border-color 0.15s;
     }
     .form input:focus { border-color: var(--blue); }
+    .form select, .form textarea {
+      width:100%; padding:0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-family:var(--font-b); font-size:1rem;
+      background:var(--white); color:var(--ink);
+      outline:none; transition:border-color 0.15s;
+    }
+    .form select:focus, .form textarea:focus { border-color: var(--blue); }
+    .form textarea { resize:vertical; min-height:110px; }
+    .form select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
     .form__sub { text-align:center; margin-top:0.5rem; }
     .form-note { font-size:0.8rem; font-style:italic; color:var(--muted); text-align:center; line-height:1.65; max-width:540px; margin:1rem auto 0; }
+    .form-success { display:none; text-align:center; padding:2.5rem 1rem; }
+    .form-success svg { color:var(--blue); margin-bottom:1rem; }
+    .form-success h3 { font-family:var(--font-d); font-size:1.3rem; font-weight:700; margin-bottom:0.5rem; color:var(--navy); }
+    .form-tabs { display:flex; gap:0; border-bottom:2px solid var(--border); margin-bottom:2rem; }
+    .form-tab { padding:0.7rem 1.6rem; font-family:var(--font-d); font-weight:700; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; border:none; background:none; cursor:pointer; color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-2px; transition:color 0.15s,border-color 0.15s; }
+    .form-tab.active { color:var(--blue); border-bottom-color:var(--blue); }
 
     /* ── FOOTER ── */
     .footer { background: var(--white); color: var(--muted); padding: 4.5rem 0 2rem; border-top: 1px solid var(--border); }
@@ -834,6 +851,7 @@
         <li><a href="#program">Program</a></li>
         <li><a href="#sponsors">Sponsors</a></li>
         <li><a href="#awards">Awards</a></li>
+        <li><a href="#nominations">Nominate</a></li>
         <li><a href="#registration">Register</a></li>
       </ul>
       <div class="nav__right">
@@ -1497,10 +1515,111 @@
 
     <div class="reveal" style="text-align:center;margin-top:3rem;">
       <p class="t-small" style="margin-bottom:1.2rem;">Nominations are open to colleagues, patients, and self-nominations. Each candidate requires a separate submission.</p>
-      <a href="#registration" class="btn btn--primary">Submit a Nomination</a>
+      <a href="#nominations" class="btn btn--primary">Submit a Nomination</a>
     </div>
   </div>
 </section>
+
+<!-- ── NOMINATIONS ── -->
+<section class="section" id="nominations" style="background:var(--gray-bg); position:relative; overflow:visible;">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto;">
+      <div style="text-align:center;" class="reveal">
+        <p class="eyebrow">Awards 2026</p>
+        <h2 class="t-h2" style="margin-bottom:0.5rem;">Submit a Nomination</h2>
+        <div class="rule rule--c" style="margin-top:0.8rem;margin-bottom:0.5rem;"></div>
+        <p class="t-small">Nominations open July 6 – 20, 2026 · Each candidate requires a separate submission</p>
+      </div>
+      <form class="form reveal" id="nom-form" name="nomination" action="https://formspree.io/f/NOMINATION_FORM_ID" method="post">
+        <input type="hidden" name="_subject" value="New Nomination — Limitless Abilities Awards 2026">
+
+        <div>
+          <label for="nom-cat">Award Category *</label>
+          <select id="nom-cat" name="category" required>
+            <option value="" disabled selected>Select a category…</option>
+            <option>Prosthetist-Orthotist of the Year</option>
+            <option>Prosthetic-Orthotic Technician of the Year</option>
+            <option>Rehabilitation Team of the Year</option>
+            <option>Student of the Year</option>
+            <option>Manager of the Year</option>
+            <option>Hero / Heroine of the Year</option>
+            <option>Best Service of the Year</option>
+            <option>Leader of the Year</option>
+            <option>International Friend of the Year</option>
+          </select>
+        </div>
+
+        <div style="border-top:1px solid var(--border);padding-top:1.1rem;margin-top:0.2rem;">
+          <p class="eyebrow" style="margin-bottom:1rem;">Nominee Information</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
+            <div>
+              <label for="nom-fn">First Name *</label>
+              <input type="text" id="nom-fn" name="nomineeFirstName" required>
+            </div>
+            <div>
+              <label for="nom-ln">Last Name *</label>
+              <input type="text" id="nom-ln" name="nomineeLastName" required>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="nom-org">Organization / Institution</label>
+          <input type="text" id="nom-org" name="nomineeOrganization" placeholder="Hospital, clinic, university, company…">
+        </div>
+        <div>
+          <label for="nom-country">Country</label>
+          <input type="text" id="nom-country" name="nomineeCountry" placeholder="Ukraine, Poland, UK…">
+        </div>
+        <div>
+          <label for="nom-reason">Why do you nominate this person? *</label>
+          <textarea id="nom-reason" name="nominationReason" required placeholder="Describe their impact, achievements, and why they deserve this award…"></textarea>
+        </div>
+
+        <div style="border-top:1px solid var(--border);padding-top:1.1rem;margin-top:0.2rem;">
+          <p class="eyebrow" style="margin-bottom:1rem;">Your Information</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
+            <div>
+              <label for="sub-name">Your Full Name *</label>
+              <input type="text" id="sub-name" name="submitterName" required>
+            </div>
+            <div>
+              <label for="sub-email">Your Email *</label>
+              <input type="email" id="sub-email" name="submitterEmail" required>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="sub-rel">Your Relationship to Nominee *</label>
+          <select id="sub-rel" name="relationship" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="colleague">Colleague</option>
+            <option value="patient">Patient / Client</option>
+            <option value="supervisor">Supervisor / Manager</option>
+            <option value="partner">Partner organization</option>
+            <option value="self">Self-nomination</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form__sub">
+          <button type="submit" class="btn btn--primary">Submit Nomination</button>
+        </div>
+      </form>
+      <div class="form-success reveal" id="nom-success">
+        <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--blue)"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
+        <h3>Nomination submitted!</h3>
+        <p class="t-small">Thank you. The Protez Hub team will review all nominations after July 20.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: nominations → registration -->
+<div class="wave" aria-hidden="true" style="background:var(--gray-bg);">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-10 80 L-10 34 C140 8 340 52 540 28 C740 4 940 46 1140 24 C1300 6 1400 24 1460 18 L1460 80Z" fill="var(--white)"/>
+  </svg>
+</div>
 
 <!-- ── REGISTRATION ── -->
 <section class="section" id="registration" style="background:var(--white); position:relative; overflow:visible;">
@@ -1511,7 +1630,9 @@
         <div class="rule rule--c" style="margin-top:0.8rem;margin-bottom:0.5rem;"></div>
         <p class="t-small">Only registered participants will receive a certificate</p>
       </div>
-      <form class="form reveal" name="registration" action="#" method="post">
+      <form class="form reveal" id="reg-form" name="registration" action="https://formspree.io/f/REGISTRATION_FORM_ID" method="post">
+        <input type="hidden" name="_subject" value="New Registration — Limitless Abilities 2026">
+        <input type="hidden" name="_next" value="">
         <div>
           <label for="fn">Name / Ім'я *</label>
           <input type="text" id="fn" name="firstName" required>
@@ -1532,10 +1653,23 @@
           <label for="pr">Profession / Ким працюєте і де</label>
           <input type="text" id="pr" name="profession">
         </div>
+        <div>
+          <label for="attend">Attendance / Участь *</label>
+          <select id="attend" name="attendance" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="in-person">In Person · Очно (Ivano-Frankivsk)</option>
+            <option value="online">Online · Онлайн (live stream)</option>
+          </select>
+        </div>
         <div class="form__sub">
           <button type="submit" class="btn btn--primary">Submit Registration</button>
         </div>
       </form>
+      <div class="form-success reveal" id="reg-success">
+        <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
+        <h3>You're registered!</h3>
+        <p class="t-small">Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.</p>
+      </div>
       <p class="form-note reveal">
         As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
         Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
@@ -1839,6 +1973,40 @@
     if (nextBtn) nextBtn.addEventListener('click', () => { pos += STEP; updateSp(); });
     updateSp();
   });
+
+  // ── Formspree AJAX submissions
+  function handleFormspree(formId, successId) {
+    const form = document.getElementById(formId);
+    const success = document.getElementById(successId);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = btn.dataset.label || 'Submit';
+          alert('Something went wrong. Please try again or email info@protezhub.com');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = btn.dataset.label || 'Submit';
+        alert('Network error. Please check your connection and try again.');
+      }
+    });
+  }
+  handleFormspree('reg-form', 'reg-success');
+  handleFormspree('nom-form', 'nom-success');
 
 </script>
 
