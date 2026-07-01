@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Awards & Nominations — Limitless Abilities 2026</title>
+  <meta name="description" content="Submit a nomination for the Limitless Abilities Awards 2026. 9 categories celebrating excellence in prosthetics, orthotics and rehabilitation. Organized by Protez Hub.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://limitlessabilities.com/nominations.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:      #09A4DB;
+      --blue-dark: #0787B5;
+      --navy:      #0D1116;
+      --yellow:    #E0B83C;
+      --white:     #FDFDFD;
+      --gray-bg:   #F4F6F8;
+      --border:    #E2E6EA;
+      --ink:       #1A2535;
+      --muted:     #6B7B8D;
+      --font-d:    'Oswald', sans-serif;
+      --font-b:    'Inter', sans-serif;
+      --r-md:      4px;
+      --r-sm:      3px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 5rem 0; }
+    .section-hd { text-align: center; margin-bottom: 2.5rem; }
+    .rule { display: block; width: 40px; height: 2px; background: var(--blue); border-radius: 2px; }
+    .rule--c { margin: 0 auto; }
+    .rule--yellow { background: var(--yellow); }
+
+    .eyebrow { font-family: var(--font-d); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; display: block; }
+    .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.6rem, 3.5vw, 2.4rem); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.1; color: var(--navy); }
+    .t-small { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-block; font-family: var(--font-d); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.13em; text-transform: uppercase; border-radius: var(--r-sm); padding: 0.8rem 1.8rem; cursor: pointer; border: 2px solid transparent; transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s, border-color 0.18s; }
+    .btn--primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .btn--primary:hover { background: var(--blue-dark); box-shadow: 0 0 22px rgba(9,164,219,0.45), 0 4px 16px rgba(9,164,219,0.2); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--blue); border-color: var(--blue); }
+    .btn--outline:hover { background: var(--blue); color: #fff; box-shadow: 0 0 22px rgba(9,164,219,0.35); transform: translateY(-1px); }
+
+    /* ── NAV ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(253,253,253,0.92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav__inner { display: flex; align-items: center; gap: 2rem; height: 60px; }
+    .nav__logo { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-d); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); text-decoration: none; flex-shrink: 0; }
+    .nav__links { display: flex; align-items: center; gap: 1.8rem; list-style: none; margin-left: auto; }
+    .nav__links a { font-family: var(--font-d); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.15s; }
+    .nav__links a:hover, .nav__links a.active { color: var(--blue); }
+    .nav__right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav__lang { font-family: var(--font-d); font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); }
+    .btn--nav { background: var(--blue); color: #fff; border-color: var(--blue); padding: 0.5rem 1.3rem; font-size: 0.72rem; }
+    .btn--nav:hover { background: var(--blue-dark); }
+    .nav__burger { display: none; background: none; border: none; cursor: pointer; padding: 0.3rem; flex-direction: column; gap: 5px; margin-left: auto; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: 0.2s; }
+    @media (max-width: 768px) {
+      .nav__links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; z-index: 200; }
+      .nav__links.open { display: flex; }
+      .nav__right .nav__lang { display: none; }
+      .nav__burger { display: flex; }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: #0D1116;
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero__eyebrow { font-family: var(--font-d); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.8rem; }
+    .page-hero h1 { font-family: var(--font-d); font-weight: 700; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 0.06em; text-transform: uppercase; color: #fff; line-height: 1.05; margin-bottom: 0.8rem; }
+    .page-hero__sub { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.65; max-width: 500px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-d); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 2rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--blue); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    /* ── AWARDS GRID ── */
+    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; }
+    .award-card { background: var(--white); border-radius: var(--r-md); padding: 1.6rem 1.8rem; border-top: 2px solid var(--blue); transition: box-shadow 0.2s, transform 0.2s; border: 1px solid var(--border); border-top-width: 2px; }
+    .award-card:nth-child(even) { border-top-color: var(--yellow); }
+    .award-card:hover { box-shadow: 0 6px 24px rgba(9,164,219,0.12); transform: translateY(-2px); }
+    .award-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+    .award-title { font-family: var(--font-d); font-size: 0.92rem; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 0.4rem; }
+    .award-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── FORM ── */
+    .form-section { background: var(--gray-bg); padding: 5rem 0; }
+    .form { background: var(--white); border-radius: var(--r-md); padding: 2.5rem; display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2rem; border: 1px solid var(--border); }
+    .form label { display: block; font-family: var(--font-d); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.35rem; }
+    .form input, .form select, .form textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      font-family: var(--font-b); font-size: 1rem;
+      background: var(--white); color: var(--ink);
+      outline: none; transition: border-color 0.15s;
+    }
+    .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--blue); }
+    .form textarea { resize: vertical; min-height: 110px; }
+    .form select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    .form__sub { text-align: center; margin-top: 0.5rem; }
+    .form-divider { border-top: 1px solid var(--border); padding-top: 1.1rem; margin-top: 0.2rem; }
+    .form-divider .eyebrow { margin-bottom: 1rem; }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .form-success { display: none; text-align: center; padding: 3rem 1rem; }
+    .form-success svg { color: var(--blue); margin-bottom: 1rem; }
+    .form-success h3 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--navy); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--white); color: var(--muted); padding: 4.5rem 0 2rem; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3.5rem; }
+    .footer__brand { font-family: var(--font-d); font-weight: 800; font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.85rem; }
+    .footer-col-title { font-family: var(--font-d); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 1rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; }
+    .footer-links a, .footer-links span { color: var(--muted); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-soc { display: flex; gap: 1rem; margin-top: 1.2rem; }
+    .footer-soc a { color: var(--muted); width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transition: color 0.15s; }
+    .footer-soc a:hover { color: var(--blue); }
+    .footer-soc svg { width: 18px; height: 18px; }
+    .footer-div { border: none; border-top: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .footer-bot { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .awards-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .form { padding: 1.5rem 1.1rem; }
+      .page-hero { padding: 3.5rem 0 3rem; }
+    }
+    @media (max-width: 480px) {
+      .awards-grid { grid-template-columns: 1fr; }
+      .footer-bot { flex-direction: column; gap: 0.5rem; }
+      .container { padding: 0 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="Limitless Abilities">
+        <img src="assets/logo-icon-crop.png" alt="Limitless Abilities" height="40" style="width:auto;">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#speakers">Speakers</a></li>
+        <li><a href="index.html#program">Program</a></li>
+        <li><a href="index.html#sponsors">Sponsors</a></li>
+        <li><a href="nominations.html" class="active">Nominate</a></li>
+        <li><a href="index.html#registration">Register</a></li>
+      </ul>
+      <div class="nav__right">
+        <span class="nav__lang">EN | UA</span>
+        <a href="index.html#registration" class="btn btn--nav" style="padding:0.5rem 1.3rem;font-size:0.72rem;">Register</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="container">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Conference
+    </a>
+    <p class="page-hero__eyebrow">Limitless Abilities Awards 2026</p>
+    <h1>Recognize Excellence</h1>
+    <p class="page-hero__sub">9 categories celebrating the people and teams advancing prosthetics, orthotics, and rehabilitation in Ukraine and beyond.</p>
+    <p style="font-family:var(--font-d);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:1.2rem;">Organized by Protez Hub · General Sponsor: Össur · Nominations July 6–20, 2026</p>
+  </div>
+</div>
+
+<!-- ── AWARD CATEGORIES ── -->
+<section class="section" style="background:var(--white);">
+  <div class="container">
+    <div class="section-hd reveal">
+      <span class="eyebrow">Award Categories</span>
+      <h2 class="t-h2">9 Categories · One Stage</h2>
+      <div class="rule rule--c rule--yellow" style="margin-top:0.9rem;"></div>
+      <p class="t-small" style="margin-top:0.8rem; max-width:540px; margin-left:auto; margin-right:auto;">Nominations are open to colleagues, patients, and self-nominations. Each candidate requires a separate submission.</p>
+    </div>
+
+    <div class="awards-grid reveal">
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-title">Prosthetist-Orthotist of the Year</div>
+        <div class="award-desc">For certified clinicians per new Ukrainian professional standards</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🔧</div>
+        <div class="award-title">Prosthetic-Orthotic Technician of the Year</div>
+        <div class="award-desc">For specialists focused on technical fabrication and lamination</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🤝</div>
+        <div class="award-title">Rehabilitation Team of the Year</div>
+        <div class="award-desc">For multidisciplinary teams: physiatrists, therapists, psychologists</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🎓</div>
+        <div class="award-title">Student of the Year</div>
+        <div class="award-desc">For students and interns in accredited P&O master's programs</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">📋</div>
+        <div class="award-title">Manager of the Year</div>
+        <div class="award-desc">For managers, directors of centers, and industry leaders</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">⭐</div>
+        <div class="award-title">Hero / Heroine of the Year</div>
+        <div class="award-desc">For patients whose rehabilitation journey inspires limitless possibilities</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🏅</div>
+        <div class="award-title">Best Service of the Year</div>
+        <div class="award-desc">For enterprises with the highest inclusion and client experience standards</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🌟</div>
+        <div class="award-title">Leader of the Year</div>
+        <div class="award-desc">For systemic reformers and change agents in prosthetics and orthotics</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🌍</div>
+        <div class="award-title">International Friend of the Year</div>
+        <div class="award-desc">For foreign institutions and individuals supporting Ukraine in P&O and rehabilitation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOMINATION FORM ── -->
+<section class="form-section" id="nominations">
+  <div class="container">
+    <div style="max-width:640px; margin:0 auto;">
+      <div style="text-align:center;" class="reveal">
+        <span class="eyebrow">Submit a Nomination</span>
+        <h2 class="t-h2" style="margin-bottom:0.5rem;">Nominate Someone</h2>
+        <div class="rule rule--c" style="margin-top:0.9rem; margin-bottom:0.5rem;"></div>
+        <p class="t-small">Each candidate requires a separate submission. Nominations close July 20, 2026.</p>
+      </div>
+
+      <form class="form reveal" id="nom-form" name="nomination" action="https://formspree.io/f/NOMINATION_FORM_ID" method="post">
+        <input type="hidden" name="_subject" value="New Nomination — Limitless Abilities Awards 2026">
+
+        <div>
+          <label for="nom-cat">Award Category *</label>
+          <select id="nom-cat" name="category" required>
+            <option value="" disabled selected>Select a category…</option>
+            <option>Prosthetist-Orthotist of the Year</option>
+            <option>Prosthetic-Orthotic Technician of the Year</option>
+            <option>Rehabilitation Team of the Year</option>
+            <option>Student of the Year</option>
+            <option>Manager of the Year</option>
+            <option>Hero / Heroine of the Year</option>
+            <option>Best Service of the Year</option>
+            <option>Leader of the Year</option>
+            <option>International Friend of the Year</option>
+          </select>
+        </div>
+
+        <div class="form-divider">
+          <p class="eyebrow">Nominee Information</p>
+          <div class="form-grid-2">
+            <div>
+              <label for="nom-fn">First Name *</label>
+              <input type="text" id="nom-fn" name="nomineeFirstName" required>
+            </div>
+            <div>
+              <label for="nom-ln">Last Name *</label>
+              <input type="text" id="nom-ln" name="nomineeLastName" required>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="nom-org">Organization / Institution</label>
+          <input type="text" id="nom-org" name="nomineeOrganization" placeholder="Hospital, clinic, university, company…">
+        </div>
+        <div>
+          <label for="nom-country">Country</label>
+          <input type="text" id="nom-country" name="nomineeCountry" placeholder="Ukraine, Poland, UK…">
+        </div>
+        <div>
+          <label for="nom-reason">Why do you nominate this person? *</label>
+          <textarea id="nom-reason" name="nominationReason" required placeholder="Describe their impact, achievements, and why they deserve this award…"></textarea>
+        </div>
+
+        <div class="form-divider">
+          <p class="eyebrow">Your Information</p>
+          <div class="form-grid-2">
+            <div>
+              <label for="sub-name">Your Full Name *</label>
+              <input type="text" id="sub-name" name="submitterName" required>
+            </div>
+            <div>
+              <label for="sub-email">Your Email *</label>
+              <input type="email" id="sub-email" name="submitterEmail" required>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="sub-rel">Your Relationship to Nominee *</label>
+          <select id="sub-rel" name="relationship" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="colleague">Colleague</option>
+            <option value="patient">Patient / Client</option>
+            <option value="supervisor">Supervisor / Manager</option>
+            <option value="partner">Partner organization</option>
+            <option value="self">Self-nomination</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form__sub">
+          <button type="submit" class="btn btn--primary" style="font-size:0.85rem;padding:0.85rem 2.2rem;">Submit Nomination</button>
+        </div>
+      </form>
+
+      <div class="form-success" id="nom-success">
+        <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
+        <h3>Nomination submitted!</h3>
+        <p class="t-small" style="margin-top:0.5rem;">Thank you. The Protez Hub team will review all nominations after July 20.</p>
+        <a href="nominations.html" class="btn btn--outline" style="margin-top:1.5rem;">Submit Another</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer__brand"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities" style="height:44px;width:auto;display:block;margin-bottom:0.85rem;"></div>
+        <p style="font-size:0.85rem;max-width:280px;line-height:1.65;">
+          International conference on amputation, rehabilitation, and social adaptation.
+          Organized by Protez Hub - Ukraine.
+        </p>
+        <div class="footer-soc">
+          <a href="https://www.facebook.com/protezhub" target="_blank" rel="noopener" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M24 12.0726C24 5.44354 18.629 0.0725708 12 0.0725708C5.37097 0.0725708 0 5.44354 0 12.0726C0 18.0619 4.38823 23.0264 10.125 23.9274V15.5414H7.07661V12.0726H10.125V9.4287C10.125 6.42144 11.9153 4.76031 14.6574 4.76031C15.9706 4.76031 17.3439 4.99451 17.3439 4.99451V7.94612H15.8303C14.34 7.94612 13.875 8.87128 13.875 9.82015V12.0726H17.2031L16.6708 15.5414H13.875V23.9274C19.6118 23.0264 24 18.0619 24 12.0726Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.instagram.com/protezhub" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12.0027 5.84808C8.59743 5.84808 5.85075 8.59477 5.85075 12C5.85075 15.4053 8.59743 18.1519 12.0027 18.1519C15.4079 18.1519 18.1546 15.4053 18.1546 12C18.1546 8.59477 15.4079 5.84808 12.0027 5.84808ZM12.0027 15.9996C9.80212 15.9996 8.00312 14.2059 8.00312 12C8.00312 9.7941 9.79677 8.00046 12.0027 8.00046C14.2086 8.00046 16.0022 9.7941 16.0022 12C16.0022 14.2059 14.2032 15.9996 12.0027 15.9996ZM19.8412 5.59644C19.8412 6.39421 19.1987 7.03135 18.4062 7.03135C17.6085 7.03135 16.9713 6.38885 16.9713 5.59644C16.9713 4.80402 17.6138 4.16153 18.4062 4.16153C19.1987 4.16153 19.8412 4.80402 19.8412 5.59644ZM23.9157 7.05277C23.8247 5.13063 23.3856 3.42801 21.9775 2.02522C20.5747 0.622429 18.8721 0.183388 16.9499 0.0870135C14.9689 -0.0254238 9.03112 -0.0254238 7.05008 0.0870135C5.1333 0.178034 3.43068 0.617075 2.02253 2.01986C0.614389 3.42265 0.180703 5.12527 0.0843279 7.04742C-0.0281093 9.02845 -0.0281093 14.9662 0.0843279 16.9472C0.175349 18.8694 0.614389 20.572 2.02253 21.9748C3.43068 23.3776 5.12794 23.8166 7.05008 23.913C9.03112 24.0254 14.9689 24.0254 16.9499 23.913C18.8721 23.822 20.5747 23.3829 21.9775 21.9748C23.3803 20.572 23.8193 18.8694 23.9157 16.9472C24.0281 14.9662 24.0281 9.03381 23.9157 7.05277ZM21.3564 19.0728C20.9388 20.1223 20.1303 20.9307 19.0755 21.3537C17.496 21.9802 13.7481 21.8356 12.0027 21.8356C10.2572 21.8356 6.50396 21.9748 4.92984 21.3537C3.88042 20.9361 3.07195 20.1276 2.64897 19.0728C2.02253 17.4934 2.16709 13.7455 2.16709 12C2.16709 10.2546 2.02789 6.50129 2.64897 4.92717C3.06659 3.87776 3.87507 3.06928 4.92984 2.6463C6.50931 2.01986 10.2572 2.16443 12.0027 2.16443C13.7481 2.16443 17.5014 2.02522 19.0755 2.6463C20.1249 3.06392 20.9334 3.8724 21.3564 4.92717C21.9828 6.50665 21.8383 10.2546 21.8383 12C21.8383 13.7455 21.9828 17.4987 21.3564 19.0728Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@protezhub" target="_blank" rel="noopener" title="YouTube">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Event</div>
+        <div class="footer-links">
+          <a href="index.html#about">About</a>
+          <a href="index.html#speakers">Speakers</a>
+          <a href="index.html#program">Program</a>
+          <a href="index.html#sponsors">Sponsors</a>
+          <a href="index.html#registration">Register</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span>+380 50 177 6839</span>
+          <a href="https://protezhub.com" target="_blank" rel="noopener">protezhub.com</a>
+          <a href="mailto:info@protezhub.com">info@protezhub.com</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-div">
+    <div class="footer-bot">
+      <span>© 2026 Protez Hub · Limitless Abilities Conference</span>
+      <span>Ivano-Frankivsk, Ukraine</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav mobile
+  const burger = document.getElementById('navBurger');
+  const links  = document.getElementById('navLinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!burger.contains(e.target) && !links.contains(e.target)) links.classList.remove('open');
+  });
+
+  // Scroll reveals
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Formspree AJAX
+  const form    = document.getElementById('nom-form');
+  const success = document.getElementById('nom-success');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit Nomination';
+        alert('Something went wrong. Please try again or email info@protezhub.com');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Submit Nomination';
+      alert('Network error. Please check your connection and try again.');
+    }
+  });
+</script>
+
+</body>
+</html>

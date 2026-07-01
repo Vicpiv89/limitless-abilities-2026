@@ -285,10 +285,10 @@
     /* ── HERO ── */
     .hero {
       background: #0D1116;
-      padding: 3rem 0;
+      padding: 5rem 0;
       position: relative;
       overflow: hidden;
-      min-height: 80vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
     }
@@ -296,6 +296,8 @@
       position: relative;
       z-index: 1;
       max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
     }
     #hero__blobs {
       position: absolute;
@@ -313,6 +315,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
       gap: 1.4rem;
       margin-bottom: 1.8rem;
     }
@@ -321,6 +324,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 0.5rem 1rem;
       margin-bottom: 1.6rem;
     }
@@ -338,7 +342,7 @@
     .hero__meta-badge svg { width: 13px; height: 13px; flex-shrink: 0; }
     .hero__meta-badge--yellow { color: #E0B83C; }
     .hero__meta-sep { color: var(--border); font-size: 1.1rem; user-select: none; line-height: 1; }
-    .hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+    .hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; justify-content: center; }
     /* ── Countdown ── */
     .countdown {
       margin-top: 1.8rem;
@@ -656,11 +660,11 @@
       .grid-4s     { grid-template-columns: repeat(2,1fr); }
       .stats__grid { grid-template-columns:1fr; gap:2.5rem; }
       .lg-5        { grid-template-columns: repeat(3,1fr); }
-      .hero { padding: 3rem 0; min-height: 95dvh; }
+      .hero { padding: 4rem 0; min-height: 100dvh; }
       .hero__content { max-width: 100%; padding: 1rem 0; text-align: center; }
       .hero__brand { flex-direction: row; align-items: center; justify-content: center; gap: 0.85rem; margin-bottom: 1.4rem; }
-      .hero__icon { height: 72px; width: auto; flex-shrink: 0; }
-      .hero__brand .t-hero { font-size: clamp(1.8rem, 9vw, 2.6rem); line-height: 0.97; text-align: left; }
+      .hero__icon { height: 80px; width: auto; flex-shrink: 0; }
+      .hero__brand .t-hero { font-size: clamp(2.8rem, 14vw, 4rem); line-height: 0.94; text-align: left; }
       .hero__meta { flex-direction: column; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; }
       .hero__meta-sep { display: none; }
       .hero__btns { justify-content: center; margin-top: 1.4rem; }
@@ -678,7 +682,7 @@
       .awards-grid { grid-template-columns: 1fr; }
       .footer-grid  { grid-template-columns:1fr; }
       .footer-bot   { flex-direction:column; gap:0.5rem; }
-      .hero { padding: 3rem 0; min-height: 95dvh; }
+      .hero { padding: 3.5rem 0; min-height: 100dvh; }
       .hero__btns { flex-direction: column; gap: 0.65rem; }
       .hero__btns .btn { flex: none; width: 100%; text-align: center; font-size: 0.75rem; padding: 0.75rem 1.2rem; }
       .section-hd { margin-bottom: 1.6rem; }
@@ -750,7 +754,19 @@
       display: flex; align-items: center; justify-content: center;
       background: transparent; padding: 0; overflow: hidden;
     }
-    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; }
+    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
+    .sp-logo-item img:hover { opacity: 1; }
+    #sponsors .t-h2 { color: #fff; }
+    #sponsors .sp-tier__label { color: rgba(255,255,255,0.55) !important; }
+    #sponsors .sp-tier--gold .sp-tier__label { color: #E0B83C !important; }
+    #sponsors .sp-tier--silver .sp-tier__label { color: #B0C0CC !important; }
+    #sponsors .sp-tier--bronze .sp-tier__label { color: #CD7F32 !important; }
+    #sponsors .sp-tier--awards .sp-tier__label { color: var(--blue) !important; }
+    #sponsors .rule { background: rgba(255,255,255,0.3); }
+    #sponsors .sp-tier--shaded { background: rgba(255,255,255,0.04); }
+    #sponsors .sp-car-btn { border-color: rgba(255,255,255,0.2); color: #fff; }
+    #sponsors .sp-car-btn:hover { background: rgba(255,255,255,0.1); }
+    #sponsors .sp-logo-item--empty { border-color: rgba(255,255,255,0.15); }
     .sp-tier--gold .sp-logo-item img { max-height: 160px; max-width: 320px; }
     .sp-logo-item--empty { border: 1px dashed var(--border); border-radius: var(--r-md); }
     .sp-logo-item--empty:hover { border-color: var(--blue); }
@@ -804,26 +820,26 @@
     .hero__corner--tr {
       top: 0;
       right: 0;
-      width: 270px;
+      width: 220px;
       height: auto;
-      transform: translate(48%, -45%);
+      transform: translate(28%, -28%);
       opacity: 0.72;
     }
     .hero__corner--bl {
       bottom: 0;
       left: 0;
-      width: 310px;
+      width: 250px;
       height: auto;
-      transform: translate(-46%, 44%);
+      transform: translate(-28%, 28%);
       opacity: 0.22;
     }
     @media (max-width: 768px) {
-      .hero__corner--tr { width: 180px; }
-      .hero__corner--bl { width: 200px; }
+      .hero__corner--tr { width: 155px; transform: translate(28%, -28%); }
+      .hero__corner--bl { width: 175px; transform: translate(-28%, 28%); }
     }
     @media (max-width: 480px) {
-      .hero__corner--tr { width: 130px; }
-      .hero__corner--bl { width: 145px; }
+      .hero__corner--tr { width: 115px; }
+      .hero__corner--bl { width: 130px; }
     }
   </style>
 </head>
@@ -851,7 +867,7 @@
         <li><a href="#program">Program</a></li>
         <li><a href="#sponsors">Sponsors</a></li>
         <li><a href="#awards">Awards</a></li>
-        <li><a href="#nominations">Nominate</a></li>
+        <li><a href="nominations.html">Nominate</a></li>
         <li><a href="#registration">Register</a></li>
       </ul>
       <div class="nav__right">
@@ -1038,12 +1054,12 @@
 <!-- Wave: speakers → sponsors -->
 <div class="wave" aria-hidden="true" style="background:var(--white);">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-10 90 L-10 42 C120 16 300 58 500 34 C700 10 880 52 1080 30 C1260 10 1390 34 1460 26 L1460 90Z" fill="#DFF0F9"/>
+    <path d="M-10 90 L-10 42 C120 16 300 58 500 34 C700 10 880 52 1080 30 C1260 10 1390 34 1460 26 L1460 90Z" fill="#0D1116"/>
   </svg>
 </div>
 
 <!-- ── SPONSORS & PARTNERS ── -->
-<section class="section" id="sponsors" style="background:var(--white); position:relative; overflow:visible;">
+<section class="section" id="sponsors" style="background:#0D1116; position:relative; overflow:visible;">
   <div class="container">
     <div class="section-hd reveal">
       <h2 class="t-h2">Sponsors &amp; Partners</h2>
@@ -1103,9 +1119,9 @@
 </section>
 
 <!-- Wave: sponsors → program -->
-<div class="wave" aria-hidden="true" style="background:var(--white);">
+<div class="wave" aria-hidden="true" style="background:#0D1116;">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-10 90 L-10 38 C120 12 300 58 500 32 C700 6 900 52 1100 28 C1270 8 1390 32 1460 24 L1460 90Z" fill="#DFF0F9"/>
+    <path d="M-10 90 L-10 38 C120 12 300 58 500 32 C700 6 900 52 1100 28 C1270 8 1390 32 1460 24 L1460 90Z" fill="var(--white)"/>
   </svg>
 </div>
 
@@ -1465,157 +1481,28 @@
   </div>
 </section>
 
-<!-- ── AWARDS ── -->
-<section class="section" id="awards" style="background:var(--white); position:relative; overflow:visible;">
+<!-- ── AWARDS TEASER ── -->
+<section class="section" id="awards" style="background:#0D1116; position:relative; overflow:visible;">
   <div class="container">
-    <div class="section-hd reveal">
-      <h2 class="t-h2">Limitless Abilities Awards 2026</h2>
-      <div class="rule rule--c rule--yellow" style="margin-top:0.8rem;"></div>
-      <p class="t-small" style="margin-top:0.6rem;">Organized by Protez Hub · General Sponsor: Össur · Nominations open July 6 – 20, 2026</p>
-    </div>
-
-    <div class="awards-grid reveal">
-      <div class="award-card">
-        <div class="award-title">Prosthetist-Orthotist of the Year</div>
-        <div class="award-desc">For certified clinicians per new Ukrainian professional standards</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Prosthetic-Orthotic Technician of the Year</div>
-        <div class="award-desc">For specialists focused on technical fabrication and lamination</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Rehabilitation Team of the Year</div>
-        <div class="award-desc">For multidisciplinary teams: physiatrists, therapists, psychologists</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Student of the Year</div>
-        <div class="award-desc">For students and interns in accredited P&O master's programs</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Manager of the Year</div>
-        <div class="award-desc">For managers, directors of centers, and industry leaders</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Hero / Heroine of the Year</div>
-        <div class="award-desc">For patients whose rehabilitation journey inspires limitless possibilities</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Best Service of the Year</div>
-        <div class="award-desc">For enterprises with the highest inclusion and client experience standards</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">Leader of the Year</div>
-        <div class="award-desc">For systemic reformers and change agents in prosthetics and orthotics</div>
-      </div>
-      <div class="award-card">
-        <div class="award-title">International Friend of the Year</div>
-        <div class="award-desc">For foreign institutions and individuals supporting Ukraine in P&O and rehabilitation</div>
-      </div>
-    </div>
-
-    <div class="reveal" style="text-align:center;margin-top:3rem;">
-      <p class="t-small" style="margin-bottom:1.2rem;">Nominations are open to colleagues, patients, and self-nominations. Each candidate requires a separate submission.</p>
-      <a href="#nominations" class="btn btn--primary">Submit a Nomination</a>
+    <div style="max-width:680px; margin:0 auto; text-align:center;" class="reveal">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#E0B83C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1.4rem;" aria-hidden="true">
+        <path d="M8 21h8M12 17v4M7 4H5a2 2 0 0 0-2 2v2c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V6a2 2 0 0 0-2-2h-2"/>
+        <rect x="7" y="2" width="10" height="11" rx="1"/>
+      </svg>
+      <p class="eyebrow" style="color:rgba(255,255,255,0.55);">Limitless Abilities Awards 2026</p>
+      <h2 class="t-h2" style="color:#fff; margin-bottom:0.6rem;">Recognize the Best in the Field</h2>
+      <div class="rule rule--c rule--yellow" style="margin:0.9rem auto;"></div>
+      <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; margin-bottom:0.5rem;">
+        9 award categories · Organized by Protez Hub · General Sponsor: Össur
+      </p>
+      <p style="color:rgba(255,255,255,0.45); font-size:0.82rem; margin-bottom:2.2rem; font-family:var(--font-d); letter-spacing:0.06em; text-transform:uppercase;">Nominations open July 6 – 20, 2026</p>
+      <a href="nominations.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;">View Categories &amp; Nominate &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ── NOMINATIONS ── -->
-<section class="section" id="nominations" style="background:var(--gray-bg); position:relative; overflow:visible;">
-  <div class="container">
-    <div style="max-width:640px;margin:0 auto;">
-      <div style="text-align:center;" class="reveal">
-        <p class="eyebrow">Awards 2026</p>
-        <h2 class="t-h2" style="margin-bottom:0.5rem;">Submit a Nomination</h2>
-        <div class="rule rule--c" style="margin-top:0.8rem;margin-bottom:0.5rem;"></div>
-        <p class="t-small">Nominations open July 6 – 20, 2026 · Each candidate requires a separate submission</p>
-      </div>
-      <form class="form reveal" id="nom-form" name="nomination" action="https://formspree.io/f/NOMINATION_FORM_ID" method="post">
-        <input type="hidden" name="_subject" value="New Nomination — Limitless Abilities Awards 2026">
-
-        <div>
-          <label for="nom-cat">Award Category *</label>
-          <select id="nom-cat" name="category" required>
-            <option value="" disabled selected>Select a category…</option>
-            <option>Prosthetist-Orthotist of the Year</option>
-            <option>Prosthetic-Orthotic Technician of the Year</option>
-            <option>Rehabilitation Team of the Year</option>
-            <option>Student of the Year</option>
-            <option>Manager of the Year</option>
-            <option>Hero / Heroine of the Year</option>
-            <option>Best Service of the Year</option>
-            <option>Leader of the Year</option>
-            <option>International Friend of the Year</option>
-          </select>
-        </div>
-
-        <div style="border-top:1px solid var(--border);padding-top:1.1rem;margin-top:0.2rem;">
-          <p class="eyebrow" style="margin-bottom:1rem;">Nominee Information</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
-            <div>
-              <label for="nom-fn">First Name *</label>
-              <input type="text" id="nom-fn" name="nomineeFirstName" required>
-            </div>
-            <div>
-              <label for="nom-ln">Last Name *</label>
-              <input type="text" id="nom-ln" name="nomineeLastName" required>
-            </div>
-          </div>
-        </div>
-        <div>
-          <label for="nom-org">Organization / Institution</label>
-          <input type="text" id="nom-org" name="nomineeOrganization" placeholder="Hospital, clinic, university, company…">
-        </div>
-        <div>
-          <label for="nom-country">Country</label>
-          <input type="text" id="nom-country" name="nomineeCountry" placeholder="Ukraine, Poland, UK…">
-        </div>
-        <div>
-          <label for="nom-reason">Why do you nominate this person? *</label>
-          <textarea id="nom-reason" name="nominationReason" required placeholder="Describe their impact, achievements, and why they deserve this award…"></textarea>
-        </div>
-
-        <div style="border-top:1px solid var(--border);padding-top:1.1rem;margin-top:0.2rem;">
-          <p class="eyebrow" style="margin-bottom:1rem;">Your Information</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;">
-            <div>
-              <label for="sub-name">Your Full Name *</label>
-              <input type="text" id="sub-name" name="submitterName" required>
-            </div>
-            <div>
-              <label for="sub-email">Your Email *</label>
-              <input type="email" id="sub-email" name="submitterEmail" required>
-            </div>
-          </div>
-        </div>
-        <div>
-          <label for="sub-rel">Your Relationship to Nominee *</label>
-          <select id="sub-rel" name="relationship" required>
-            <option value="" disabled selected>Select…</option>
-            <option value="colleague">Colleague</option>
-            <option value="patient">Patient / Client</option>
-            <option value="supervisor">Supervisor / Manager</option>
-            <option value="partner">Partner organization</option>
-            <option value="self">Self-nomination</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form__sub">
-          <button type="submit" class="btn btn--primary">Submit Nomination</button>
-        </div>
-      </form>
-      <div class="form-success reveal" id="nom-success">
-        <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--blue)"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-        <h3>Nomination submitted!</h3>
-        <p class="t-small">Thank you. The Protez Hub team will review all nominations after July 20.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Wave: nominations → registration -->
-<div class="wave" aria-hidden="true" style="background:var(--gray-bg);">
+<!-- Wave: awards → registration -->
+<div class="wave" aria-hidden="true" style="background:#0D1116;">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M-10 80 L-10 34 C140 8 340 52 540 28 C740 4 940 46 1140 24 C1300 6 1400 24 1460 18 L1460 80Z" fill="var(--white)"/>
   </svg>
