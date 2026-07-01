@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option B — Spanning SVG Wave</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-blue:    #09A4DB;
+      --brand-blue-20: #E8F7FD;
+      --brand-blue-60: #6ECBEE;
+      --dark-900: #0A111A;
+      --dark-800: #111C29;
+      --dark-700: #1C2C3E;
+      --white:    #FFFFFF;
+      --gray-100: #F4F8FB;
+      --gray-200: #E2EAF0;
+      --gray-500: #7A90A4;
+      --gray-800: #1E2A36;
+      --font-display: 'Raleway', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-pill: 999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--gray-100); color: var(--gray-800); line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 6rem 0; }
+    .section--dark  { background: var(--dark-900); color: var(--white); }
+    .section--light { background: var(--white); }
+    .section--gray  { background: var(--gray-100); }
+
+    /* ── Typography ── */
+    .t-eyebrow {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+    }
+    .t-hero {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      color: var(--white);
+    }
+    .t-h1 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 4vw, 3rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .t-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .t-body  { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; }
+    .t-small { font-family: var(--font-body); font-size: 0.875rem; color: var(--gray-500); }
+
+    /* ── Divider ── */
+    .divider { width: 64px; height: 3px; background: var(--brand-blue); margin: 1rem 0 2rem; }
+    .divider--center { margin-left: auto; margin-right: auto; }
+    .divider--white  { background: rgba(255,255,255,0.35); }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .badge--blue  { background: var(--brand-blue); color: var(--white); }
+    .badge--ghost { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .btn--primary { background: var(--brand-blue); color: var(--white); }
+    .btn--primary:hover { background: var(--brand-blue-60); }
+    .btn--outline { border-color: var(--white); color: var(--white); }
+    .btn--outline:hover { background: var(--white); color: var(--dark-900); }
+    .btn--white { background: var(--white); color: var(--dark-900); }
+    .btn--white:hover { background: var(--gray-100); }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--dark-900);
+      padding: 1.25rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--dark-700);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+    }
+    .nav__logo img { height: 48px; display: block; }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--brand-blue); }
+    .nav__right { display: flex; align-items: center; gap: 1rem; }
+    .nav__lang {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav__lang:hover { color: var(--white); }
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gray-500);
+      border-radius: 2px;
+    }
+
+    /* ── WAVE CANVAS — wraps hero + stats + about ── */
+    /*
+      A single SVG wave ribbon sits behind all three sections.
+      It flows from upper-right through the hero, across the stats bar,
+      and fades out in the about section — one shape, three sections.
+    */
+    .wave-canvas {
+      position: relative;
+      overflow: hidden;
+    }
+    .wave-canvas__svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Sections inside the canvas stack above the SVG */
+    .wave-canvas > .hero,
+    .wave-canvas > .stats,
+    .wave-canvas > #about {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark-900);
+      padding: 6rem 0;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Diagonal pill blob cluster */
+    .hero-blobs {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-blob-pill {
+      position: absolute;
+      background: var(--brand-blue);
+      border-radius: 999px;
+      opacity: 0.9;
+    }
+    .hero-blob-pill:nth-child(1) {
+      width: 440px; height: 115px;
+      top: calc(50% - 175px); left: -30px;
+      transform: rotate(-11deg);
+      transform-origin: left center;
+    }
+    .hero-blob-pill:nth-child(2) {
+      width: 580px; height: 120px;
+      top: calc(50% - 70px); left: 20px;
+      transform: rotate(-11deg);
+      transform-origin: left center;
+    }
+    .hero-blob-pill:nth-child(3) {
+      width: 530px; height: 120px;
+      top: calc(50% + 40px); left: 80px;
+      transform: rotate(-11deg);
+      transform-origin: left center;
+    }
+
+    .hero__content { position: relative; z-index: 1; max-width: 800px; }
+    .hero__eyebrow {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+    .hero__cta    { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--dark-800);
+      padding: 4rem 0;
+    }
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .stat { text-align: center; }
+    .stat__number {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--brand-blue);
+      line-height: 1;
+    }
+    .stat__label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+    }
+
+    /* ── ABOUT — gentle wave entry from the canvas ── */
+    #about {
+      background: var(--white);
+      padding: 6rem 0;
+    }
+
+    /* ── ABOUT CONTENT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-visual {
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      background: var(--dark-800);
+      border: 1px solid var(--dark-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-visual::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 2px solid rgba(9,164,219,0.2);
+    }
+    .about-visual-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 5rem;
+      color: rgba(9,164,219,0.12);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1;
+    }
+
+    /* ── FORMAT CARDS ── */
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(9,164,219,0.08);
+    }
+    .card--accent { border-top: 4px solid var(--brand-blue); }
+
+    /* ── SPEAKERS ── */
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .speaker-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(9,164,219,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .speaker-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(9,164,219,0.14);
+    }
+    .speaker-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .speaker-card__info {
+      padding: 1rem;
+      border-top: 3px solid var(--brand-blue);
+    }
+    .speaker-card__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--dark-900);
+      margin-bottom: 0.25rem;
+    }
+    .speaker-card__role {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      line-height: 1.4;
+    }
+
+    /* ── PROGRAM ── */
+    .program-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .program-tag {
+      padding: 0.5rem 1.25rem;
+      border: 1.5px solid var(--brand-blue);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+    }
+
+    /* ── LOGO GRID ── */
+    .logo-grid {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      justify-items: center;
+    }
+    .logo-grid--5 { grid-template-columns: repeat(5, 1fr); }
+    .logo-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .logo-grid img {
+      width: 100%;
+      max-width: 180px;
+      height: 100px;
+      object-fit: contain;
+      filter: grayscale(30%);
+      opacity: 0.85;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+    .logo-grid img:hover { filter: grayscale(0%); opacity: 1; }
+    .logo-grid--dark img { filter: brightness(0) invert(1); opacity: 0.7; }
+    .logo-grid--dark img:hover { opacity: 1; }
+
+    /* ── FORM ── */
+    .form {
+      background: var(--gray-100);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .form label {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-800);
+      margin-bottom: 0.4rem;
+    }
+    .form input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background: var(--white);
+      color: var(--gray-800);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form input:focus { border-color: var(--brand-blue); }
+    .form__submit { text-align: center; margin-top: 0.5rem; }
+    .form-note {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--gray-500);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 1rem auto 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--dark-900); color: var(--gray-500); padding: 4rem 0 2rem; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+    .footer__brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer__brand span { color: var(--brand-blue); }
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; }
+    .footer-links a { color: var(--gray-500); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--brand-blue); }
+    .footer-divider { border: none; border-top: 1px solid var(--dark-700); margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.8rem; }
+    .footer__social { display: flex; gap: 1.25rem; margin-top: 1.5rem; }
+    .footer__social a { color: var(--gray-500); transition: color 0.15s; }
+    .footer__social a:hover { color: var(--brand-blue); }
+    .footer__social svg { width: 18px; height: 18px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .format-grid  { grid-template-columns: repeat(2, 1fr); }
+      .speaker-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid  { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 1.25rem);
+        left: -2rem; right: -2rem;
+        background: var(--dark-900);
+        padding: 1.25rem 2rem 1.75rem;
+        border-top: 1px solid var(--dark-700);
+        gap: 1rem;
+        z-index: 50;
+      }
+      .nav__burger { display: flex; }
+      .about-grid   { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .speaker-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats__grid  { grid-template-columns: 1fr; gap: 2.5rem; }
+      .logo-grid--5 { grid-template-columns: repeat(3, 1fr); }
+      .hero-blob-pill:nth-child(1) { width: 300px; height: 80px; }
+      .hero-blob-pill:nth-child(2) { width: 380px; height: 85px; }
+      .hero-blob-pill:nth-child(3) { width: 340px; height: 85px; }
+    }
+    @media (max-width: 480px) {
+      .format-grid  { grid-template-columns: 1fr; }
+      .speaker-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .logo-grid--5 { grid-template-columns: repeat(2, 1fr); }
+      .logo-grid--3 { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid  { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; }
+      .hero__cta    { flex-direction: column; }
+      .hero-blob-pill:nth-child(1) { width: 220px; height: 60px; }
+      .hero-blob-pill:nth-child(2) { width: 280px; height: 65px; }
+      .hero-blob-pill:nth-child(3) { width: 250px; height: 65px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop,q=95/YZ9ED41x2lH4P1WD/logo-limitless-abilities-1-YrD4339pZMFgVJ8n.png" alt="Limitless Abilities" style="filter:brightness(0) invert(1);">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#registration">Register</a></li>
+      </ul>
+      <div class="nav__right">
+        <span class="nav__lang">EN | UA</span>
+        <a href="#registration" class="btn btn--primary" style="padding:0.6rem 1.5rem; font-size:0.75rem;">Register</a>
+      </div>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── WAVE CANVAS: hero + stats + about share one spanning SVG wave ── -->
+<div class="wave-canvas">
+
+  <!--
+    THE SPANNING WAVE
+    One SVG ribbon that flows from the top-right of the hero, curves down
+    through the stats bar, and dissolves into the about section.
+    All three sections sit on top of it — the wave belongs to none of them
+    individually; it connects them.
+  -->
+  <svg class="wave-canvas__svg" viewBox="0 0 1440 1600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- Gradient: opaque at top, fades out in the about section -->
+      <linearGradient id="ribbonFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#09A4DB" stop-opacity="0.22"/>
+        <stop offset="55%"  stop-color="#09A4DB" stop-opacity="0.16"/>
+        <stop offset="80%"  stop-color="#09A4DB" stop-opacity="0.06"/>
+        <stop offset="100%" stop-color="#09A4DB" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="accentFade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#09A4DB" stop-opacity="0.30"/>
+        <stop offset="50%"  stop-color="#09A4DB" stop-opacity="0.18"/>
+        <stop offset="80%"  stop-color="#09A4DB" stop-opacity="0.04"/>
+        <stop offset="100%" stop-color="#09A4DB" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <!--
+      PRIMARY RIBBON
+      Wide band flowing from upper-right toward lower-left.
+      Upper edge: M 1440 0 → curves down-left through hero → exits bottom-left around y=1100
+      Lower edge: returns on a parallel path ~220px below
+    -->
+    <path d="
+      M 1440 0
+      C 1440 150, 1280 280, 1080 460
+      C 880  640, 680  780, 460  920
+      C 240  1060, 80  1120, 0   1160
+      L 0    1380
+      C 80   1340, 240  1280, 460  1140
+      C 680  1000, 880  860,  1080 680
+      C 1280 500,  1440 370,  1440 220
+      Z
+    " fill="url(#ribbonFade)"/>
+
+    <!--
+      ACCENT RIBBON
+      Thinner band running slightly inside the primary, adds depth.
+    -->
+    <path d="
+      M 1440 60
+      C 1420 180, 1260 310, 1060 490
+      C 860  670, 660  810, 440  950
+      C 300  1040, 160 1090, 60  1120
+      L 60   1180
+      C 160  1150, 300  1100, 440  1010
+      C 660  870,  860  730,  1060 550
+      C 1260 370,  1420 240,  1440 120
+      Z
+    " fill="url(#accentFade)"/>
+
+    <!--
+      PILL ECHO
+      A single large pill shape on the right side of the hero — extends the
+      existing pill blob design language from the left into the spanning wave.
+    -->
+    <rect x="920" y="80" width="700" height="110" rx="55"
+          transform="rotate(-11 1270 135)"
+          fill="#09A4DB" opacity="0.13"/>
+    <rect x="980" y="205" width="580" height="100" rx="50"
+          transform="rotate(-11 1270 255)"
+          fill="#09A4DB" opacity="0.09"/>
+  </svg>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-blobs">
+      <div class="hero-blob-pill"></div>
+      <div class="hero-blob-pill"></div>
+      <div class="hero-blob-pill"></div>
+    </div>
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Organized by Protez Hub · Ivano-Frankivsk, Ukraine</p>
+        <h1 class="t-hero">Endless<br>Possibilities</h1>
+        <div class="divider"></div>
+        <p style="font-family:var(--font-display); font-weight:400; font-size:clamp(1.1rem,2vw,1.5rem); letter-spacing:0.12em; color:var(--gray-500);">
+          Amputation &nbsp;·&nbsp; Rehabilitation &nbsp;·&nbsp; Social Adaptation
+        </p>
+        <div class="hero__badges">
+          <span class="badge badge--blue">Aug 28–29, 2026</span>
+          <span class="badge badge--ghost">Ivano-Frankivsk, Ukraine</span>
+          <span class="badge badge--ghost">In Person + Online Stream</span>
+        </div>
+        <div class="hero__cta">
+          <a href="#registration" class="btn btn--primary">Register Now</a>
+          <a href="#sponsors" class="btn btn--outline">Become a Sponsor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat">
+          <div class="stat__number">1,600+</div>
+          <div class="stat__label">Participants in 2025</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">2</div>
+          <div class="stat__label">Days of Programming</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number">2026</div>
+          <div class="stat__label">First Offline Edition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="section section--light" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-visual-text">EP<br>2026</div>
+        </div>
+        <div>
+          <p class="t-eyebrow">About the Conference</p>
+          <div class="divider"></div>
+          <h2 class="t-h1" style="color:var(--dark-900); margin-bottom:1.5rem;">Where Possibility Has No Limits</h2>
+          <p class="t-body" style="color:var(--gray-500); margin-bottom:1.25rem;">
+            The international conference <em>'Endless Possibilities: Amputation. Rehabilitation. Social Adaptation.'</em>
+            returns in 2026 — this time in person, with online streaming. In 2025, the two-day online marathon
+            attracted over 1,600 participants from across Ukraine and beyond.
+          </p>
+          <p class="t-body" style="color:var(--gray-500); margin-bottom:2rem;">
+            This year we bring even more people together — on-site in Ivano-Frankivsk and online worldwide.
+            Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
+            A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
+          </p>
+          <a href="#registration" class="btn btn--primary">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end .wave-canvas -->
+
+<!-- ── FORMAT ── -->
+<section class="section section--gray">
+  <div class="container" style="text-align:center;">
+    <p class="t-eyebrow">Conference Format</p>
+    <div class="divider divider--center"></div>
+    <h2 class="t-h1" style="color:var(--dark-900); margin-bottom:3rem;">What to Expect</h2>
+    <div class="format-grid">
+      <div class="card card--accent" style="text-align:left;">
+        <div class="t-label" style="color:var(--brand-blue); margin-bottom:0.75rem;">Masterclasses</div>
+        <p class="t-body" style="color:var(--gray-500); font-size:0.9rem;">Hands-on sessions led by international experts in prosthetics, orthotics, and rehabilitation technology.</p>
+      </div>
+      <div class="card card--accent" style="text-align:left;">
+        <div class="t-label" style="color:var(--brand-blue); margin-bottom:0.75rem;">Seminars</div>
+        <p class="t-body" style="color:var(--gray-500); font-size:0.9rem;">Presentations on the latest clinical developments in amputation care, orthotics, and social adaptation.</p>
+      </div>
+      <div class="card card--accent" style="text-align:left;">
+        <div class="t-label" style="color:var(--brand-blue); margin-bottom:0.75rem;">Career Fair</div>
+        <p class="t-body" style="color:var(--gray-500); font-size:0.9rem;">Employment and opportunity connections for persons with disabilities — first of its kind in Ukraine.</p>
+      </div>
+      <div class="card card--accent" style="text-align:left;">
+        <div class="t-label" style="color:var(--brand-blue); margin-bottom:0.75rem;">Showcase</div>
+        <p class="t-body" style="color:var(--gray-500); font-size:0.9rem;">Live demonstrations from leading prosthetics and rehabilitation companies worldwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPEAKERS ── -->
+<section class="section section--light" id="speakers">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <p class="t-eyebrow">2025 Speakers</p>
+      <div class="divider divider--center"></div>
+      <h2 class="t-h1" style="color:var(--dark-900);">Meet the Experts</h2>
+      <p class="t-small" style="margin-top:0.75rem;">2026 lineup will be announced — shown below are confirmed 2025 speakers</p>
+    </div>
+    <div class="speaker-grid">
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/anton-johannesson-Awv8v7XbexCEQRqm.jpg" alt="Anton Johannesson">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Anton Johannesson</div>
+          <div class="speaker-card__role">PhD, CPO, Ossur Clinical Manager — Sweden</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/jon-1-Yle4e3GXXxIeb4V2.jpg" alt="Jon Batzdorff">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Jon Batzdorff</div>
+          <div class="speaker-card__role">CPO, Prosthetika President, ISPO Treasurer — USA</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/tetiana-m5K8KV534MfKajRL.jpg" alt="Tetiana Lomakina">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Tetiana Lomakina</div>
+          <div class="speaker-card__role">PhD, Advisor – Presidential Commissioner for Barrier-Free Environment — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/olha-YyvDq4e02phX0Eex.jpg" alt="Olha Shchehliuk">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Olha Shchehliuk</div>
+          <div class="speaker-card__role">Lt. Colonel, Head of Rehabilitation Dept, Military Clinical Center (Irpin) — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/nastya-1-YD0E56Z9QGcryZJ3.jpg" alt="Anastasiia Boichuk">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Anastasiia Boichuk</div>
+          <div class="speaker-card__role">Strategic Lead, War Trauma Rehabilitation Initiative — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/vadym-mP43Ln7VWVh3Nbjm.jpg" alt="Vadym Svyrydenko">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Vadym Svyrydenko</div>
+          <div class="speaker-card__role">Advisor – Presidential Commissioner for Rehabilitation of Veterans — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/taras-ALp2Gn89QnUy4QrX.jpg" alt="Taras Tarasenko">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Taras Tarasenko</div>
+          <div class="speaker-card__role">Member of Parliament, Social and Veterans Affairs Committee — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/christoffer-m5K8gwpk9MFzXX15.jpg" alt="Christoffer Lindhe">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Christoffer Lindhe</div>
+          <div class="speaker-card__role">MSc, Founder and Vice President, Lindhe Xtend — Sweden</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/robert-YbN4NoDnOGsMrEP7.jpg" alt="Robert Westergren">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Robert Westergren</div>
+          <div class="speaker-card__role">CPO and Team Lead (Prosthetics) — Norway</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/iryna-m6L21Jnjb8uvNDaL.jpg" alt="Iryna Tkach">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Iryna Tkach</div>
+          <div class="speaker-card__role">CPO and Team Lead (Prosthetics), Dniproprotez State Center — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/claudia-1-mxB25by3yzt0Rr32.jpg" alt="Claudia Ghidini">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Claudia Ghidini</div>
+          <div class="speaker-card__role">MSc, PhD candidate, Imperial College London — United Kingdom</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/oleksandr-1-A1azDqDlvBc6pWB6.jpg" alt="Oleksandr Popenko">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Oleksandr Popenko</div>
+          <div class="speaker-card__role">CPO and Team Lead (Prosthetics), Ortoped Center — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/volynets-mP4352nz2RIW5vkn.jpg" alt="Olena Volynets">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Olena Volynets</div>
+          <div class="speaker-card__role">Physiatrist, University Clinic of M. I. Pirogov National Medical University — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/simon-1-mv0PynpBB6UEyn1r.jpg" alt="Simon Ramstrand">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Simon Ramstrand</div>
+          <div class="speaker-card__role">Head of Department, Jönköping University / Örebro University — Sweden</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/jaroslav-AzGM0qo8MwF034rw.jpg" alt="Yaroslav Pavlovskyi">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Yaroslav Pavlovskyi</div>
+          <div class="speaker-card__role">Board member, NGO Prostir Mozhlyvostei — Ukraine</div>
+        </div>
+      </div>
+      <div class="speaker-card">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka">
+        <div class="speaker-card__info">
+          <div class="speaker-card__name">Antonina Kumka</div>
+          <div class="speaker-card__role">Moderator · MEd, Protez Hub Chief Director — Ukraine</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAM ── -->
+<section class="section section--gray" id="program">
+  <div class="container" style="text-align:center;">
+    <p class="t-eyebrow">Event Schedule</p>
+    <div class="divider divider--center"></div>
+    <h2 class="t-h1" style="color:var(--dark-900); margin-bottom:1rem;">Conference Program</h2>
+    <p class="t-body" style="color:var(--gray-500); max-width:500px; margin:0 auto 2.5rem;">
+      August 28–29, 2026 · Ivano-Frankivsk · Full schedule with simultaneous translation
+    </p>
+    <a href="#" class="btn btn--primary">View Full Program</a>
+    <div class="program-tags">
+      <span class="program-tag">Masterclasses</span>
+      <span class="program-tag">Seminars</span>
+      <span class="program-tag">Career Fair</span>
+      <span class="program-tag">Simultaneous Translation</span>
+      <span class="program-tag">Online Stream</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PARTNERS ── -->
+<section class="section section--light">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <p class="t-eyebrow">Partners</p>
+      <div class="divider divider--center"></div>
+      <h2 class="t-h1" style="color:var(--dark-900);">Our Partners</h2>
+    </div>
+    <div class="logo-grid logo-grid--5">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=375,fit=crop/YZ9ED41x2lH4P1WD/bezbarjernist-1-YD0EjL9ZZrFqkpKP.jpg" alt="Bezbarjernist">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=375,fit=crop/YZ9ED41x2lH4P1WD/bpd-1-Yle407rabpf32gZ3.jpg" alt="BPD">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=375,fit=crop/YZ9ED41x2lH4P1WD/enabel-A3Ql4yzDpLClwVOM.jpg" alt="Enabel">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=375,fit=crop/YZ9ED41x2lH4P1WD/rtv-mv0PXMv1WKCkRPR0.jpg" alt="RTV">
+      <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=375,fit=crop/YZ9ED41x2lH4P1WD/pu-YBgjxDPv4VS41z1k.jpg" alt="Patients of Ukraine">
+    </div>
+  </div>
+</section>
+
+<!-- ── SPONSORS ── -->
+<section class="section section--dark" id="sponsors">
+  <div class="container" style="text-align:center;">
+    <p class="t-eyebrow">Sponsorship</p>
+    <div class="divider divider--center divider--white"></div>
+    <h2 class="t-h1" style="color:var(--white); margin-bottom:1rem;">Partner With Us</h2>
+    <p class="t-body" style="color:var(--gray-500); max-width:520px; margin:0 auto 2.5rem;">
+      Join leading organizations in making this conference impactful and memorable.
+      Contact us to learn about available sponsorship opportunities.
+    </p>
+    <a href="mailto:contact@protezhub.com" class="btn btn--primary">Apply to be a Sponsor</a>
+    <div style="margin-top:4rem;">
+      <p class="t-eyebrow" style="margin-bottom:2rem;">2025 Supporters</p>
+      <div class="logo-grid logo-grid--3 logo-grid--dark">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=768,fit=crop/YZ9ED41x2lH4P1WD/bpd-1-Yle407rabpf32gZ3.jpg" alt="BPD">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=768,fit=crop/YZ9ED41x2lH4P1WD/enabel-A3Ql4yzDpLClwVOM.jpg" alt="Enabel">
+        <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=768,fit=crop/YZ9ED41x2lH4P1WD/steeper-1-Aq2GyDrwV1Hgagz6.jpg" alt="Steeper">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTRATION ── -->
+<section class="section section--light" id="registration">
+  <div class="container">
+    <div style="max-width:640px; margin:0 auto;">
+      <div style="text-align:center;">
+        <p class="t-eyebrow">Participation</p>
+        <div class="divider divider--center"></div>
+        <h2 class="t-h1" style="color:var(--dark-900); margin-bottom:0.5rem;">Register Now</h2>
+        <p class="t-small">Only registered participants will receive a certificate</p>
+      </div>
+      <form class="form" name="registration" action="#" method="post">
+        <div>
+          <label for="firstName">Ім'я / Name *</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+          <label for="lastName">Прізвище / Last Name *</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="phone">Номер телефону / Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        <div>
+          <label for="profession">Ким працюєте і де / Profession</label>
+          <input type="text" id="profession" name="profession">
+        </div>
+        <div class="form__submit">
+          <button type="submit" class="btn btn--primary">Submit Registration</button>
+        </div>
+      </form>
+      <p class="form-note">
+        As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
+        Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
+        the Belgian Agency for International Cooperation Enabel.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer__brand">Endless <span>Possibilities</span></div>
+        <p style="font-size:0.875rem; max-width:300px; line-height:1.6;">
+          International conference on amputation, rehabilitation, and social adaptation.
+          Organized by Protez Hub — Ukraine.
+        </p>
+        <div class="footer__social">
+          <a href="https://linkedin.com/company/protezhub" target="_blank" rel="noopener" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.20156 21H1.84688V6.97969H6.20156V21ZM4.02187 5.06719C2.62969 5.06719 1.5 3.91406 1.5 2.52187C1.5 1.85303 1.7657 1.21158 2.23864 0.73864C2.71158 0.265697 3.35303 0 4.02187 0C4.69072 0 5.33217 0.265697 5.80511 0.73864C6.27805 1.21158 6.54375 1.85303 6.54375 2.52187C6.54375 3.91406 5.41406 5.06719 4.02187 5.06719ZM22.4953 21H18.15V14.175C18.15 12.5484 18.1172 10.4625 15.8859 10.4625C13.6219 10.4625 13.275 12.2297 13.275 14.0578V21H8.925V6.97969H13.1016V8.89219H13.1625C13.7438 7.79062 15.1641 6.62812 17.2828 6.62812C21.6891 6.62812 22.5 9.52969 22.5 13.2984V21H22.4953Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/protezhub" target="_blank" rel="noopener" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.0726C24 5.44354 18.629 0.0725708 12 0.0725708C5.37097 0.0725708 0 5.44354 0 12.0726C0 18.0619 4.38823 23.0264 10.125 23.9274V15.5414H7.07661V12.0726H10.125V9.4287C10.125 6.42144 11.9153 4.76031 14.6574 4.76031C15.9706 4.76031 17.3439 4.99451 17.3439 4.99451V7.94612H15.8303C14.34 7.94612 13.875 8.87128 13.875 9.82015V12.0726H17.2031L16.6708 15.5414H13.875V23.9274C19.6118 23.0264 24 18.0619 24 12.0726Z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.instagram.com/protezhub" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.0027 5.84808C8.59743 5.84808 5.85075 8.59477 5.85075 12C5.85075 15.4053 8.59743 18.1519 12.0027 18.1519C15.4079 18.1519 18.1546 15.4053 18.1546 12C18.1546 8.59477 15.4079 5.84808 12.0027 5.84808ZM12.0027 15.9996C9.80212 15.9996 8.00312 14.2059 8.00312 12C8.00312 9.7941 9.79677 8.00046 12.0027 8.00046C14.2086 8.00046 16.0022 9.7941 16.0022 12C16.0022 14.2059 14.2032 15.9996 12.0027 15.9996ZM19.8412 5.59644C19.8412 6.39421 19.1987 7.03135 18.4062 7.03135C17.6085 7.03135 16.9713 6.38885 16.9713 5.59644C16.9713 4.80402 17.6138 4.16153 18.4062 4.16153C19.1987 4.16153 19.8412 4.80402 19.8412 5.59644ZM23.9157 7.05277C23.8247 5.13063 23.3856 3.42801 21.9775 2.02522C20.5747 0.622429 18.8721 0.183388 16.9499 0.0870135C14.9689 -0.0254238 9.03112 -0.0254238 7.05008 0.0870135C5.1333 0.178034 3.43068 0.617075 2.02253 2.01986C0.614389 3.42265 0.180703 5.12527 0.0843279 7.04742C-0.0281093 9.02845 -0.0281093 14.9662 0.0843279 16.9472C0.175349 18.8694 0.614389 20.572 2.02253 21.9748C3.43068 23.3776 5.12794 23.8166 7.05008 23.913C9.03112 24.0254 14.9689 24.0254 16.9499 23.913C18.8721 23.822 20.5747 23.3829 21.9775 21.9748C23.3803 20.572 23.8193 18.8694 23.9157 16.9472C24.0281 14.9662 24.0281 9.03381 23.9157 7.05277ZM21.3564 19.0728C20.9388 20.1223 20.1303 20.9307 19.0755 21.3537C17.496 21.9802 13.7481 21.8356 12.0027 21.8356C10.2572 21.8356 6.50396 21.9748 4.92984 21.3537C3.88042 20.9361 3.07195 20.1276 2.64897 19.0728C2.02253 17.4934 2.16709 13.7455 2.16709 12C2.16709 10.2546 2.02789 6.50129 2.64897 4.92717C3.06659 3.87776 3.87507 3.06928 4.92984 2.6463C6.50931 2.01986 10.2572 2.16443 12.0027 2.16443C13.7481 2.16443 17.5014 2.02522 19.0755 2.6463C20.1249 3.06392 20.9334 3.8724 21.3564 4.92717C21.9828 6.50665 21.8383 10.2546 21.8383 12C21.8383 13.7455 21.9828 17.4987 21.3564 19.0728Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Event</div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#speakers">Speakers</a>
+          <a href="#program">Program</a>
+          <a href="#sponsors">Sponsors</a>
+          <a href="#registration">Register</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <span style="color:var(--gray-500);">+380 50 177 6839</span>
+          <a href="https://protezhub.com" target="_blank" rel="noopener">protezhub.com</a>
+          <a href="mailto:contact@protezhub.com">contact@protezhub.com</a>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>© 2026 Protez Hub · Endless Possibilities Conference</span>
+      <span>Ivano-Frankivsk, Ukraine</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('navBurger');
+  const links  = document.getElementById('navLinks');
+  burger.addEventListener('click', () => links.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!burger.contains(e.target) && !links.contains(e.target)) {
+      links.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
