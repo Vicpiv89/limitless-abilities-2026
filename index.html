@@ -260,13 +260,17 @@
     .nav__lang {
       font-family: var(--font-d);
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--muted);
+      color: var(--blue);
       cursor: pointer;
       transition: color 0.2s;
+      user-select: none;
+      border: 1.5px solid var(--blue);
+      border-radius: 4px;
+      padding: 0.2rem 0.5rem;
     }
-    .nav__lang:hover { color: var(--blue); }
+    .nav__lang:hover { background: var(--blue); color: #fff; }
     .btn--nav {
       background: transparent;
       color: var(--navy);
@@ -874,16 +878,16 @@
         <img src="assets/logo-icon-crop.png" alt="Limitless Abilities" height="40" style="width:auto;">
       </a>
       <ul class="nav__links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#speakers">Speakers</a></li>
-        <li><a href="#program">Program</a></li>
-        <li><a href="#sponsors">Sponsors</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="nominations.html">Nominate</a></li>
-        <li><a href="#registration">Register</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#speakers" data-i18n="nav.speakers">Speakers</a></li>
+        <li><a href="#program" data-i18n="nav.program">Program</a></li>
+        <li><a href="#sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
+        <li><a href="nominations.html" data-i18n="nav.nominate">Nominate</a></li>
+        <li><a href="#registration" data-i18n="nav.register">Register</a></li>
       </ul>
       <div class="nav__right">
-        <span class="nav__lang">EN | UA</span>
+        <span class="nav__lang" id="langBtn" role="button" tabindex="0">EN | UA</span>
         <a href="#registration" class="btn btn--nav" style="padding:0.5rem 1.3rem;font-size:0.72rem;">Register</a>
       </div>
       <button class="nav__burger" id="navBurger" aria-label="Open menu">
@@ -939,19 +943,19 @@
       <div class="countdown ha ha-5">
         <div class="cd-unit">
           <span class="cd-n" id="cd-days">00</span>
-          <span class="cd-l">Days</span>
+          <span class="cd-l" data-i18n="cd.days">Days</span>
         </div>
         <div class="cd-unit">
           <span class="cd-n" id="cd-hours">00</span>
-          <span class="cd-l">Hours</span>
+          <span class="cd-l" data-i18n="cd.hours">Hours</span>
         </div>
         <div class="cd-unit">
           <span class="cd-n" id="cd-mins">00</span>
-          <span class="cd-l">Minutes</span>
+          <span class="cd-l" data-i18n="cd.mins">Minutes</span>
         </div>
         <div class="cd-unit">
           <span class="cd-n" id="cd-secs">00</span>
-          <span class="cd-l">Seconds</span>
+          <span class="cd-l" data-i18n="cd.secs">Seconds</span>
         </div>
       </div>
 
@@ -979,14 +983,14 @@
   <div class="cshape cshape--waves" aria-hidden="true"><svg width="100%" height="100%" viewBox="17 56 380 314" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M 43.285156 223.859375 C 83.015625 185.648438 111.648438 163.316406 135.359375 146.628906 C 158.882812 130.089844 184.238281 115.132812 207.804688 100.964844 C 229.75 87.613281 254.394531 70.199219 271.996094 63.242188 C 283.191406 58.875 291.140625 57.492188 300.839844 57 C 310.375 56.488281 320.722656 57.597656 330.03125 60.273438 C 339.339844 62.945312 348.609375 67.304688 356.734375 72.707031 C 364.695312 78.085938 372.09375 85.257812 377.914062 92.910156 C 383.710938 100.730469 388.511719 109.78125 391.601562 118.957031 C 394.695312 128.132812 396.3125 138.3125 396.304688 147.949219 C 396.277344 157.753906 394.519531 167.851562 391.535156 176.953125 C 388.363281 186.199219 383.523438 195.242188 377.664062 202.972656 C 371.804688 210.703125 364.171875 217.707031 356.226562 223.152344 C 348.136719 228.410156 338.796875 232.835938 329.515625 235.40625 C 320.234375 237.980469 309.949219 239.078125 300.230469 238.382812 C 290.652344 237.875 280.613281 235.617188 271.597656 231.964844 C 262.558594 228.480469 253.746094 223.164062 246.410156 216.84375 C 239.070312 210.527344 232.441406 202.605469 227.539062 194.386719 C 222.488281 185.984375 218.773438 176.390625 216.71875 167.007812 C 214.667969 157.621094 214.089844 147.234375 215.097656 137.71875 C 216.292969 128.058594 219.046875 118.082031 223.179688 109.292969 C 227.125 100.648438 233.085938 92.085938 239.695312 85.121094 C 246.328125 77.992188 254.523438 71.90625 263.195312 67.398438 C 271.707031 62.867188 281.421875 59.503906 291.078125 57.992188 C 300.570312 56.460938 310.875 56.550781 320.496094 58.078125 C 329.925781 59.75 339.671875 62.984375 348.234375 67.597656 C 356.796875 72.207031 364.988281 78.460938 371.554688 85.53125 C 378.308594 92.453125 384.003906 101.105469 387.988281 109.886719 C 391.976562 118.664062 394.800781 128.652344 395.8125 138.25 C 396.824219 147.84375 396.234375 158.085938 394.042969 167.625 C 392.035156 177.015625 388.152344 186.511719 383.066406 194.847656 C 378.164062 203.035156 374.839844 208.035156 364.066406 217.1875 C 335.558594 241.226562 217.4375 299.339844 186.28125 322.882812 C 173.785156 332.332031 169.714844 339.269531 162.351562 345.460938 C 156.507812 350.320312 151.769531 354.46875 145.945312 357.804688 C 140.097656 361.3125 133.671875 364.066406 127.15625 366.136719 C 120.664062 368.039062 113.753906 369.214844 106.949219 369.558594 C 100.140625 369.898438 93.269531 369.386719 86.503906 368.042969 C 79.902344 366.71875 73.238281 364.542969 66.988281 361.742188 C 60.90625 358.960938 54.949219 355.179688 49.550781 350.960938 C 44.320312 346.761719 39.359375 341.753906 35.292969 336.34375 C 31.226562 330.9375 27.574219 324.90625 24.796875 318.644531 C 22.1875 312.402344 20.140625 305.722656 18.945312 298.980469 C 17.914062 292.257812 17.59375 285.28125 17.917969 278.558594 C 18.429688 271.6875 19.792969 264.753906 21.929688 258.421875 C 24.085938 251.925781 26.90625 245.511719 30.5 239.695312 C 34.074219 234.050781 43.449219 223.878906 43.449219 223.878906 Z" fill="#09A4DB"/></svg></div>
   <div class="container">
     <div class="section-hd reveal">
-      <h2 class="t-h2">Where Possibility Has No Limits</h2>
+      <h2 class="t-h2" data-i18n="about.h2">Where Possibility Has No Limits</h2>
       <div class="rule rule--c rule--yellow" style="margin-top:0.8rem;"></div>
     </div>
     <div class="about-grid">
       <div class="about-img reveal">
         <img src="https://picsum.photos/seed/ukraine-conference/700/700" alt="Limitless Abilities 2026 Conference" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
-      <div class="reveal">
+      <div class="reveal" id="about-body">
         <p class="t-body" style="margin-bottom:1.2rem;">
           The international conference <em>'Limitless Abilities: Amputation. Rehabilitation. Social Adaptation.'</em>
           returns in 2026 - this time in person, with online streaming. In 2025, the two-day online marathon
@@ -997,7 +1001,7 @@
           Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
           A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
         </p>
-        <a href="#registration" class="btn btn--primary">Register Now</a>
+        <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Register Now</a>
       </div>
     </div>
   </div>
@@ -1017,7 +1021,7 @@
   </svg></div>
   <div class="container">
     <div class="section-hd reveal">
-      <h2 class="t-h2">2026 Speakers</h2>
+      <h2 class="t-h2" data-i18n="spk.h2">2026 Speakers</h2>
       <div class="rule rule--c" style="margin-top:0.8rem;"></div>
     </div>
     <div class="spk-carousel reveal">
@@ -1051,7 +1055,7 @@
         </button>
       </div>
       <div style="text-align:center;margin-top:2rem;">
-        <a href="#program" class="btn btn--outline spk-prog-link">See Full Program</a>
+        <a href="#program" class="btn btn--outline spk-prog-link" data-i18n="spk.cta">See Full Program</a>
       </div>
     </div>
   </div>
@@ -1068,12 +1072,12 @@
 <section class="section" id="sponsors" style="background:#0D1116; position:relative; overflow:visible;">
   <div class="container">
     <div class="section-hd reveal">
-      <h2 class="t-h2">Sponsors &amp; Partners</h2>
+      <h2 class="t-h2" data-i18n="sp.h2">Sponsors &amp; Partners</h2>
       <div class="rule rule--c" style="margin-top:0.8rem;"></div>
     </div>
 
     <div class="sp-tier sp-tier--gold sp-tier--shaded reveal">
-      <div class="sp-tier__label">Gold Sponsors</div>
+      <div class="sp-tier__label" data-i18n="sp.gold">Gold Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
@@ -1085,7 +1089,7 @@
     </div>
 
     <div class="sp-tier sp-tier--silver reveal">
-      <div class="sp-tier__label">Silver Sponsors</div>
+      <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
@@ -1096,7 +1100,7 @@
     </div>
 
     <div class="sp-tier sp-tier--bronze sp-tier--shaded reveal">
-      <div class="sp-tier__label">Bronze Sponsors</div>
+      <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
@@ -1108,7 +1112,7 @@
     </div>
 
     <div class="sp-tier sp-tier--awards reveal">
-      <div class="sp-tier__label">Awards Partners</div>
+      <div class="sp-tier__label" data-i18n="sp.partners">Awards Partners</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
@@ -1119,7 +1123,7 @@
     </div>
 
     <div class="reveal" style="text-align:center;margin-top:2.5rem;">
-      <a href="mailto:info@protezhub.com" class="btn btn--primary">Apply to Become a Sponsor</a>
+      <a href="mailto:info@protezhub.com" class="btn btn--primary" data-i18n="sp.apply">Apply to Become a Sponsor</a>
     </div>
   </div>
 </section>
@@ -1136,19 +1140,19 @@
   <div class="cshape cshape--waves" aria-hidden="true"><svg width="100%" height="100%" viewBox="17 56 380 314" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M 43.285156 223.859375 C 83.015625 185.648438 111.648438 163.316406 135.359375 146.628906 C 158.882812 130.089844 184.238281 115.132812 207.804688 100.964844 C 229.75 87.613281 254.394531 70.199219 271.996094 63.242188 C 283.191406 58.875 291.140625 57.492188 300.839844 57 C 310.375 56.488281 320.722656 57.597656 330.03125 60.273438 C 339.339844 62.945312 348.609375 67.304688 356.734375 72.707031 C 364.695312 78.085938 372.09375 85.257812 377.914062 92.910156 C 383.710938 100.730469 388.511719 109.78125 391.601562 118.957031 C 394.695312 128.132812 396.3125 138.3125 396.304688 147.949219 C 396.277344 157.753906 394.519531 167.851562 391.535156 176.953125 C 388.363281 186.199219 383.523438 195.242188 377.664062 202.972656 C 371.804688 210.703125 364.171875 217.707031 356.226562 223.152344 C 348.136719 228.410156 338.796875 232.835938 329.515625 235.40625 C 320.234375 237.980469 309.949219 239.078125 300.230469 238.382812 C 290.652344 237.875 280.613281 235.617188 271.597656 231.964844 C 262.558594 228.480469 253.746094 223.164062 246.410156 216.84375 C 239.070312 210.527344 232.441406 202.605469 227.539062 194.386719 C 222.488281 185.984375 218.773438 176.390625 216.71875 167.007812 C 214.667969 157.621094 214.089844 147.234375 215.097656 137.71875 C 216.292969 128.058594 219.046875 118.082031 223.179688 109.292969 C 227.125 100.648438 233.085938 92.085938 239.695312 85.121094 C 246.328125 77.992188 254.523438 71.90625 263.195312 67.398438 C 271.707031 62.867188 281.421875 59.503906 291.078125 57.992188 C 300.570312 56.460938 310.875 56.550781 320.496094 58.078125 C 329.925781 59.75 339.671875 62.984375 348.234375 67.597656 C 356.796875 72.207031 364.988281 78.460938 371.554688 85.53125 C 378.308594 92.453125 384.003906 101.105469 387.988281 109.886719 C 391.976562 118.664062 394.800781 128.652344 395.8125 138.25 C 396.824219 147.84375 396.234375 158.085938 394.042969 167.625 C 392.035156 177.015625 388.152344 186.511719 383.066406 194.847656 C 378.164062 203.035156 374.839844 208.035156 364.066406 217.1875 C 335.558594 241.226562 217.4375 299.339844 186.28125 322.882812 C 173.785156 332.332031 169.714844 339.269531 162.351562 345.460938 C 156.507812 350.320312 151.769531 354.46875 145.945312 357.804688 C 140.097656 361.3125 133.671875 364.066406 127.15625 366.136719 C 120.664062 368.039062 113.753906 369.214844 106.949219 369.558594 C 100.140625 369.898438 93.269531 369.386719 86.503906 368.042969 C 79.902344 366.71875 73.238281 364.542969 66.988281 361.742188 C 60.90625 358.960938 54.949219 355.179688 49.550781 350.960938 C 44.320312 346.761719 39.359375 341.753906 35.292969 336.34375 C 31.226562 330.9375 27.574219 324.90625 24.796875 318.644531 C 22.1875 312.402344 20.140625 305.722656 18.945312 298.980469 C 17.914062 292.257812 17.59375 285.28125 17.917969 278.558594 C 18.429688 271.6875 19.792969 264.753906 21.929688 258.421875 C 24.085938 251.925781 26.90625 245.511719 30.5 239.695312 C 34.074219 234.050781 43.449219 223.878906 43.449219 223.878906 Z" fill="#09A4DB" opacity="0.08"/></svg></div>
   <div class="container">
     <div class="section-hd reveal">
-      <h2 class="t-h2">Conference Program</h2>
+      <h2 class="t-h2" data-i18n="prog.h2">Conference Program</h2>
       <div class="rule rule--c" style="margin-top:0.8rem;"></div>
     </div>
 
     <div class="sched-tabs reveal">
-      <button class="sched-tab active" data-day="1">Day 1 · Aug 28</button>
-      <button class="sched-tab" data-day="2">Day 2 · Aug 29</button>
+      <button class="sched-tab active" data-day="1" data-i18n="prog.day1">Day 1 · Aug 28</button>
+      <button class="sched-tab" data-day="2" data-i18n="prog.day2">Day 2 · Aug 29</button>
     </div>
     <div class="sched-legend reveal">
-      <span class="sched-leg sched-leg--1">Zone 1 - Specialists</span>
-      <span class="sched-leg sched-leg--2">Zone 2 - Specialists</span>
-      <span class="sched-leg sched-leg--m">Main Hall</span>
-      <span class="sched-leg sched-leg--3">Zone 3 - Persons with Amputation</span>
+      <span class="sched-leg sched-leg--1" data-i18n="prog.leg1">Zone 1 - Specialists</span>
+      <span class="sched-leg sched-leg--2" data-i18n="prog.leg2">Zone 2 - Specialists</span>
+      <span class="sched-leg sched-leg--m" data-i18n="prog.legm">Main Hall</span>
+      <span class="sched-leg sched-leg--3" data-i18n="prog.leg3">Zone 3 - Persons with Amputation</span>
     </div>
 
     <!-- ── Day 1 ── -->
@@ -1168,7 +1172,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-1">
                     <p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Moment of Silence · Welcome: Protez Hub, Presidential Commissioners (Rehabilitation &amp; Barrier-Free), Ministries of Social Policy and Health, Oblast Administration, City Hall · Keynote: <strong style="color:var(--ink);">Jakob Kepka</strong></p>
         </div>
       </div>
@@ -1181,7 +1185,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-2">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Amputation stumps of lower limbs: surgical methods for better rehabilitation and prosthetics.<em>Vasyl Malytskyi</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>State of rehabilitation aid provision for amputation in Ukraine.<em>Antonina Kumka</em></p></div>
@@ -1205,7 +1209,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-3">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Infection control in prosthetics: international practices</p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Osseointegration: experience, advantages and disadvantages.<em>Jakob Kepka</em></p></div>
@@ -1229,7 +1233,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-4">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Liners - selection and sizing guide.<em>Alps Ukraine</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetist-orthotist &amp; physical therapist collaboration during fitting.<em>Iryna Tkach</em></p></div>
@@ -1253,7 +1257,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-5">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Rehabilitation protocols for bilateral and multiple limb amputation.<em>Kateryna Zahorodnia</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>New approaches to chronic pain management.<em>Roman Smolynets</em></p></div>
@@ -1277,7 +1281,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-6">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Assessment tools in rehabilitation practice.<em>Maksym Pashchyn</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: ADL training - daily skills and international assessment scales (Box &amp; Block Test, DASH).<em>Nataliia Bahyrych</em></p></div>
@@ -1301,7 +1305,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-7">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Team approach to veteran rehabilitation with amputation.<em>Maryna Mykhailovska</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Rehabilitation department development: from local ward to center of excellence.<em>Kateryna Zahorodnia</em></p></div>
@@ -1335,7 +1339,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-8">
                     <p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Moment of Silence · Awards in prosthetics-orthotics and associated rehabilitation</p>
         </div>
       </div>
@@ -1348,7 +1352,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-9">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Sport as physical and psychological recovery.<em>Jakob Kepka</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Ethical approaches to working with amputation patients and understanding psychological vulnerability.<em>Serhii Maltsev</em></p></div>
@@ -1372,7 +1376,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-10">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Effective prosthetics solutions for partial foot amputation</p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Theater arts as a means of reintegration.<em>Yurii Vietkin</em></p></div>
@@ -1396,7 +1400,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-11">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Live 3D scanning demonstration with portable scanner.<em>Ortotop Center</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Role of the veteran support specialist.<em>Coalition of Veteran Spaces</em></p></div>
@@ -1420,7 +1424,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-12">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Socket material overview for prosthetic fabrication.<em>Oleksandr Popenko</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Dynamic alignment lab - real-time prosthesis correction.<em>Iryna Tkach</em></p></div>
@@ -1444,7 +1448,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-13">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Upper limb occupational therapy and powered terminal device integration</p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetic component selection for transhumeral amputation.<em>Oksana Lytvynenko</em></p></div>
@@ -1468,7 +1472,7 @@
           </div>
           <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="acc-body">
+        <div class="acc-body" id="ab-14">
                     <div class="sched-tracks">
             <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Prosthetic foot selection by mobility level.<em>Ossur</em></p></div>
             <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetic component selection for transfemoral amputation</p></div>
@@ -1496,14 +1500,14 @@
         <path d="M8 21h8M12 17v4M7 4H5a2 2 0 0 0-2 2v2c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V6a2 2 0 0 0-2-2h-2"/>
         <rect x="7" y="2" width="10" height="11" rx="1"/>
       </svg>
-      <p class="eyebrow" style="color:rgba(255,255,255,0.55);">Awards 2026</p>
-      <h2 class="t-h2" style="color:#fff; margin-bottom:0.6rem;">Limitless Abilities Awards 2026</h2>
+      <p class="eyebrow" style="color:rgba(255,255,255,0.55);" data-i18n="aw.eye">Awards 2026</p>
+      <h2 class="t-h2" style="color:#fff; margin-bottom:0.6rem;" data-i18n="aw.h2">Limitless Abilities Awards 2026</h2>
       <div class="rule rule--c rule--yellow" style="margin:0.9rem auto;"></div>
       <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; margin-bottom:0.5rem;">
         9 award categories · Organized by Protez Hub · General Sponsor: Össur
       </p>
-      <p style="color:rgba(255,255,255,0.45); font-size:0.82rem; margin-bottom:2.2rem; font-family:var(--font-d); letter-spacing:0.06em; text-transform:uppercase;">Nominations open July 6 – 20, 2026</p>
-      <a href="nominations.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;">View Categories &amp; Nominate &rarr;</a>
+      <p style="color:rgba(255,255,255,0.45); font-size:0.82rem; margin-bottom:2.2rem; font-family:var(--font-d); letter-spacing:0.06em; text-transform:uppercase;" data-i18n="aw.dates">Nominations open July 6 – 20, 2026</p>
+      <a href="nominations.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;" data-i18n="aw.cta">View Categories &amp; Nominate &rarr;</a>
     </div>
   </div>
 </section>
@@ -1520,51 +1524,51 @@
   <div class="container">
     <div style="max-width:600px;margin:0 auto;">
       <div style="text-align:center;" class="reveal">
-        <h2 class="t-h2" style="margin-bottom:0.5rem;">Register Now</h2>
+        <h2 class="t-h2" style="margin-bottom:0.5rem;" data-i18n="reg.h2">Register Now</h2>
         <div class="rule rule--c" style="margin-top:0.8rem;margin-bottom:0.5rem;"></div>
-        <p class="t-small">Only registered participants will receive a certificate</p>
+        <p class="t-small" data-i18n="reg.cert">Only registered participants will receive a certificate</p>
       </div>
       <form class="form reveal" id="reg-form" name="registration" action="https://formspree.io/f/REGISTRATION_FORM_ID" method="post">
         <input type="hidden" name="_subject" value="New Registration — Limitless Abilities 2026">
         <input type="hidden" name="_next" value="">
         <div>
-          <label for="fn">Name / Ім'я *</label>
+          <label for="fn" data-i18n="reg.fn">Name / Ім'я *</label>
           <input type="text" id="fn" name="firstName" required>
         </div>
         <div>
-          <label for="ln">Last Name / Прізвище *</label>
+          <label for="ln" data-i18n="reg.ln">Last Name / Прізвище *</label>
           <input type="text" id="ln" name="lastName" required>
         </div>
         <div>
-          <label for="em">Email *</label>
+          <label for="em" data-i18n="reg.em">Email *</label>
           <input type="email" id="em" name="email" required>
         </div>
         <div>
-          <label for="ph">Phone Number / Номер телефону</label>
+          <label for="ph" data-i18n="reg.ph">Phone Number / Номер телефону</label>
           <input type="tel" id="ph" name="phone">
         </div>
         <div>
-          <label for="pr">Profession / Ким працюєте і де</label>
+          <label for="pr" data-i18n="reg.pr">Profession / Ким працюєте і де</label>
           <input type="text" id="pr" name="profession">
         </div>
         <div>
-          <label for="attend">Attendance / Участь *</label>
+          <label for="attend" data-i18n="reg.att">Attendance / Участь *</label>
           <select id="attend" name="attendance" required>
-            <option value="" disabled selected>Select…</option>
+            <option value="" disabled selected data-i18n="reg.sel">Select…</option>
             <option value="in-person">In Person · Очно (Ivano-Frankivsk)</option>
             <option value="online">Online · Онлайн (live stream)</option>
           </select>
         </div>
         <div class="form__sub">
-          <button type="submit" class="btn btn--primary">Submit Registration</button>
+          <button type="submit" class="btn btn--primary" data-i18n="reg.submit">Submit Registration</button>
         </div>
       </form>
       <div class="form-success reveal" id="reg-success">
         <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-        <h3>You're registered!</h3>
-        <p class="t-small">Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.</p>
+        <h3 data-i18n="reg.ok.h3">You're registered!</h3>
+        <p class="t-small" data-i18n="reg.ok.p">Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.</p>
       </div>
-      <p class="form-note reveal">
+      <p class="form-note reveal" id="form-note">
         As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
         Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
         the Belgian Agency for International Cooperation Enabel.
@@ -1586,7 +1590,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer__brand"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities" style="height:44px;width:auto;display:block;margin-bottom:0.85rem;"></div>
-        <p style="font-size:0.85rem;max-width:280px;line-height:1.65;">
+        <p style="font-size:0.85rem;max-width:280px;line-height:1.65;" id="footer-desc">
           International conference on amputation, rehabilitation, and social adaptation.
           Organized by Protez Hub - Ukraine.
         </p>
@@ -1603,17 +1607,17 @@
         </div>
       </div>
       <div>
-        <div class="footer-col-title">Event</div>
+        <div class="footer-col-title" data-i18n="ft.event">Event</div>
         <div class="footer-links">
-          <a href="#about">About</a>
-          <a href="#speakers">Speakers</a>
-          <a href="#program">Program</a>
-          <a href="#sponsors">Sponsors</a>
-          <a href="#registration">Register</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#speakers" data-i18n="nav.speakers">Speakers</a>
+          <a href="#program" data-i18n="nav.program">Program</a>
+          <a href="#sponsors" data-i18n="nav.sponsors">Sponsors</a>
+          <a href="#registration" data-i18n="nav.register">Register</a>
         </div>
       </div>
       <div>
-        <div class="footer-col-title">Contact</div>
+        <div class="footer-col-title" data-i18n="ft.contact">Contact</div>
         <div class="footer-links">
           <span>+380 50 177 6839</span>
           <a href="https://protezhub.com" target="_blank" rel="noopener">protezhub.com</a>
@@ -1623,8 +1627,8 @@
     </div>
     <hr class="footer-div">
     <div class="footer-bot">
-      <span>© 2026 Protez Hub · Limitless Abilities Conference</span>
-      <span>Ivano-Frankivsk, Ukraine</span>
+      <span data-i18n="ft.copy">© 2026 Protez Hub · Limitless Abilities Conference</span>
+      <span data-i18n="ft.city">Ivano-Frankivsk, Ukraine</span>
     </div>
   </div>
 </footer>
@@ -1924,6 +1928,407 @@
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
     update();
+  })();
+
+
+  // ── EN / UA Language Toggle ─────────────────────────────────────────────
+  (function() {
+    const T = {
+      en: {
+        // nav
+        'nav.about':    'About',
+        'nav.speakers': 'Speakers',
+        'nav.program':  'Program',
+        'nav.sponsors': 'Sponsors',
+        'nav.awards':   'Awards',
+        'nav.nominate': 'Nominate',
+        'nav.register': 'Register',
+        // countdown
+        'cd.days':  'Days',
+        'cd.hours': 'Hours',
+        'cd.mins':  'Minutes',
+        'cd.secs':  'Seconds',
+        // about
+        'about.h2':  'Where Possibility Has No Limits',
+        'about.cta': 'Register Now',
+        // speakers
+        'spk.h2':  '2026 Speakers',
+        'spk.cta': 'See Full Program',
+        // sponsors
+        'sp.h2':       'Sponsors &amp; Partners',
+        'sp.gold':     'Gold Sponsors',
+        'sp.silver':   'Silver Sponsors',
+        'sp.bronze':   'Bronze Sponsors',
+        'sp.partners': 'Awards Partners',
+        'sp.apply':    'Apply to Become a Sponsor',
+        // program
+        'prog.h2':   'Conference Program',
+        'prog.day1': 'Day 1 · Aug 28',
+        'prog.day2': 'Day 2 · Aug 29',
+        'prog.leg1': 'Zone 1 - Specialists',
+        'prog.leg2': 'Zone 2 - Specialists',
+        'prog.legm': 'Main Hall',
+        'prog.leg3': 'Zone 3 - Persons with Amputation',
+        // awards
+        'aw.eye':   'Awards 2026',
+        'aw.h2':    'Limitless Abilities Awards 2026',
+        'aw.info':  '9 award categories · Organized by Protez Hub · General Sponsor: Össur',
+        'aw.dates': 'Nominations open July 6 – 20, 2026',
+        'aw.cta':   'View Categories &amp; Nominate &rarr;',
+        // registration
+        'reg.h2':     'Register Now',
+        'reg.cert':   'Only registered participants will receive a certificate',
+        'reg.fn':     'Name / Ім\'ya *',
+        'reg.ln':     'Last Name / Прізвище *',
+        'reg.em':     'Email *',
+        'reg.ph':     'Phone Number / Номер телефону',
+        'reg.pr':     'Profession / Ким працюєте і де',
+        'reg.att':    'Attendance / Участь *',
+        'reg.sel':    'Select…',
+        'reg.submit': 'Submit Registration',
+        'reg.ok.h3':  'You\'re registered!',
+        'reg.ok.p':   'Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.',
+        // footer
+        'ft.event':   'Event',
+        'ft.contact': 'Contact',
+        'ft.copy':    '© 2026 Protez Hub · Limitless Abilities Conference',
+        'ft.city':    'Ivano-Frankivsk, Ukraine',
+      },
+      ua: {
+        // nav
+        'nav.about':    'Про нас',
+        'nav.speakers': 'Спікери',
+        'nav.program':  'Програма',
+        'nav.sponsors': 'Спонсори',
+        'nav.awards':   'Нагороди',
+        'nav.nominate': 'Номінувати',
+        'nav.register': 'Реєстрація',
+        // countdown
+        'cd.days':  'Днів',
+        'cd.hours': 'Годин',
+        'cd.mins':  'Хвилин',
+        'cd.secs':  'Секунд',
+        // about
+        'about.h2':  'Де Можливості Не Знають Меж',
+        'about.cta': 'Зареєструватись',
+        // speakers
+        'spk.h2':  'Спікери 2026',
+        'spk.cta': 'Переглянути програму',
+        // sponsors
+        'sp.h2':       'Спонсори та партнери',
+        'sp.gold':     'Золоті спонсори',
+        'sp.silver':   'Срібні спонсори',
+        'sp.bronze':   'Бронзові спонсори',
+        'sp.partners': 'Партнери нагород',
+        'sp.apply':    'Стати спонсором',
+        // program
+        'prog.h2':   'Програма конференції',
+        'prog.day1': 'День 1 · 28 серп',
+        'prog.day2': 'День 2 · 29 серп',
+        'prog.leg1': 'Зона 1 – Фахівці',
+        'prog.leg2': 'Зона 2 – Фахівці',
+        'prog.legm': 'Головна зала',
+        'prog.leg3': 'Зона 3 – Люди з ампутацією',
+        // awards
+        'aw.eye':   'Нагороди 2026',
+        'aw.h2':    'Нагороди «Безмежні Можливості» 2026',
+        'aw.info':  '9 категорій нагород · Організатор: Протез Хаб · Генеральний спонсор: Össur',
+        'aw.dates': 'Номінації: 6–20 липня 2026',
+        'aw.cta':   'Категорії та номінація &rarr;',
+        // registration
+        'reg.h2':     'Зареєструватись',
+        'reg.cert':   'Лише зареєстровані учасники отримають сертифікат',
+        'reg.fn':     'Ім\'я / Name *',
+        'reg.ln':     'Прізвище / Last Name *',
+        'reg.em':     'Email *',
+        'reg.ph':     'Номер телефону / Phone Number',
+        'reg.pr':     'Ким працюєте і де / Profession',
+        'reg.att':    'Участь / Attendance *',
+        'reg.sel':    'Оберіть…',
+        'reg.submit': 'Надіслати реєстрацію',
+        'reg.ok.h3':  'Ви зареєстровані!',
+        'reg.ok.p':   'Перевірте пошту для підтвердження. До зустрічі 28–29 серпня в Івано-Франківську.',
+        // footer
+        'ft.event':   'Захід',
+        'ft.contact': 'Контакти',
+        'ft.copy':    '© 2026 Протез Хаб · Конференція «Безмежні Можливості»',
+        'ft.city':    'Івано-Франківськ, Україна',
+      }
+    };
+
+    // innerHTML replacements for richer content blocks
+    const HTML = {
+      en: {
+        'about-body': `<p class="t-body" style="margin-bottom:1.2rem;">
+          The international conference <em>'Limitless Abilities: Amputation. Rehabilitation. Social Adaptation.'</em>
+          returns in 2026 - this time in person, with online streaming. In 2025, the two-day online marathon
+          attracted over 1,600 participants from across Ukraine and beyond.
+        </p>
+        <p class="t-body" style="margin-bottom:2rem;">
+          This year we bring even more people together - on-site in Ivano-Frankivsk and online worldwide.
+          Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
+          A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
+        </p>
+        <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Register Now</a>`,
+
+        'footer-desc': 'International conference on amputation, rehabilitation, and social adaptation. Organized by Protez Hub - Ukraine.',
+
+        'form-note': `As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
+        Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
+        the Belgian Agency for International Cooperation Enabel.`,
+
+        // Day 1 acc-bodies (ab-1 through ab-7)
+        'ab-1': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Moment of Silence · Welcome: Protez Hub, Presidential Commissioners (Rehabilitation &amp; Barrier-Free), Ministries of Social Policy and Health, Oblast Administration, City Hall · Keynote: <strong style="color:var(--ink);">Jakob Kepka</strong></p>`,
+        'ab-2': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Amputation stumps of lower limbs: surgical methods for better rehabilitation and prosthetics.<em>Vasyl Malytskyi</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>State of rehabilitation aid provision for amputation in Ukraine.<em>Antonina Kumka</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Panel Discussion: Innovation or reasonableness - effective rehabilitation aid selection</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Importance of physical activity at all rehabilitation stages.<em>Lesia Lohush</em></p></div>
+        </div>`,
+        'ab-3': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Infection control in prosthetics: international practices</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Osseointegration: experience, advantages and disadvantages.<em>Jakob Kepka</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Amputation rehabilitation standards: what every specialist should know.<em>Olha Shchehliuk</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: Stump skin care and prosthesis maintenance.<em>Alps Ukraine</em></p></div>
+        </div>`,
+        'ab-4': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Liners - selection and sizing guide.<em>Alps Ukraine</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetist-orthotist &amp; physical therapist collaboration during fitting.<em>Iryna Tkach</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Masterclass: Gait training with prosthesis and movement dynamics - Video Motion Analysis.<em>Liliia Hviаzdovska</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: IT skills and life hacks in polytrauma rehabilitation.<em>Andrii Danio</em></p></div>
+        </div>`,
+        'ab-5': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Rehabilitation protocols for bilateral and multiple limb amputation.<em>Kateryna Zahorodnia</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>New approaches to chronic pain management.<em>Roman Smolynets</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Panel Discussion: The patient's amputation pathway - successes and gaps</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Rehabilitation aid provision: opportunities, conditions, timelines.<em>Vitaliy Muzychenko</em></p></div>
+        </div>`,
+        'ab-6': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Assessment tools in rehabilitation practice.<em>Maksym Pashchyn</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: ADL training - daily skills and international assessment scales (Box &amp; Block Test, DASH).<em>Nataliia Bahyrych</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Panel Discussion: Training quality specialists in prosthetics-orthotics</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Optimal nutrition for stump formation and wound healing.<em>Anastasiia Syvachenko</em></p></div>
+        </div>`,
+        'ab-7': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Team approach to veteran rehabilitation with amputation.<em>Maryna Mykhailovska</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Rehabilitation department development: from local ward to center of excellence.<em>Kateryna Zahorodnia</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Coordinating rehabilitation aid provision: national, regional, and community levels</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: Why the most expensive prosthesis isn't always the best.<em>Vadym Svyrydenko</em></p></div>
+        </div>`,
+        // Day 2 acc-bodies (ab-8 through ab-14)
+        'ab-8': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Moment of Silence · Awards in prosthetics-orthotics and associated rehabilitation</p>`,
+        'ab-9': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Sport as physical and psychological recovery.<em>Jakob Kepka</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Ethical approaches to working with amputation patients and understanding psychological vulnerability.<em>Serhii Maltsev</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Interactive Panel: "Patient Goal"</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Creating an adapted work environment and advocating for your rights</p></div>
+        </div>`,
+        'ab-10': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Effective prosthetics solutions for partial foot amputation</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Theater arts as a means of reintegration.<em>Yurii Vietkin</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Panel Discussion: Building an effective long-term support system for persons with amputation</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: Navigating the Diia government app for benefits and services.<em>Ministry of Digital Transformation</em></p></div>
+        </div>`,
+        'ab-11': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Live 3D scanning demonstration with portable scanner.<em>Ortotop Center</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Role of the veteran support specialist.<em>Coalition of Veteran Spaces</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Masterclass: Adaptation Challenge - practical examples and assistive technology.<em>Oleksandr Tereshchenko</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Universal skills and retraining pathways.<em>Forvis Mazars</em></p></div>
+        </div>`,
+        'ab-12': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Socket material overview for prosthetic fabrication.<em>Oleksandr Popenko</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Dynamic alignment lab - real-time prosthesis correction.<em>Iryna Tkach</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Panel Discussion: What does accessibility look like for a patient with amputation?</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: Mock interviews and resume writing.<em>State Employment Center</em></p></div>
+        </div>`,
+        'ab-13': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Upper limb occupational therapy and powered terminal device integration</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetic component selection for transhumeral amputation.<em>Oksana Lytvynenko</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>International support for veteran reintegration.<em>IREX</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Masterclass: Amputation is not a barrier to reaching new horizons.<em>Dignitas Foundation</em></p></div>
+        </div>`,
+        'ab-14': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Zone 1</div><p>Masterclass: Prosthetic foot selection by mobility level.<em>Ossur</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Zone 2</div><p>Masterclass: Prosthetic component selection for transfemoral amputation</p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Main Hall</div><p>Return to community: regional-level support examples for persons with amputation</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Zone 3</div><p>Successful employment cases and state support for persons with amputation.<em>State Employment Center</em></p></div>
+        </div>`,
+      },
+      ua: {
+        'about-body': `<p class="t-body" style="margin-bottom:1.2rem;">
+          Міжнародна конференція <em>«Безмежні Можливості: Ампутація. Реабілітація. Соціальна Адаптація.»</em>
+          повертається у 2026 році — цього разу очно, з онлайн-трансляцією. У 2025 році дводенний
+          онлайн-марафон зібрав понад 1&nbsp;600 учасників з усієї України та інших країн.
+        </p>
+        <p class="t-body" style="margin-bottom:2rem;">
+          Цього року ми об'єднуємо ще більше людей — очно в Івано-Франківську та онлайн по всьому світу.
+          Два дні майстер-класів, семінарів, демонстрацій рішень та ярмарку вакансій для людей з інвалідністю.
+          Каталізатор системних змін у протезуванні, ортезуванні та реабілітації.
+        </p>
+        <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Зареєструватись</a>`,
+
+        'footer-desc': 'Міжнародна конференція з ампутації, реабілітації та соціальної адаптації. Організатор: Протез Хаб – Україна.',
+
+        'form-note': `У рамках проєкту «Дорога до реабілітації: від регіону до громади», який реалізується Пацієнтами України та Протез Хабом у рамках ініціативи «Реабілітація після воєнної травми» за підтримки Бельгійського агентства міжнародного співробітництва Enabel.`,
+
+        // Day 1 acc-bodies
+        'ab-1': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Хвилина мовчання · Привітання: Протез Хаб, Уповноважені Президента (Реабілітація &amp; Безбар'єрність), Міністерства соціальної політики та охорони здоров'я, Обласна адміністрація, Міська рада · Доповідь: <strong style="color:var(--ink);">Jakob Kepka</strong></p>`,
+        'ab-2': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Кукси нижніх кінцівок: хірургічні методи для кращої реабілітації та протезування.<em>Vasyl Malytskyi</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Стан забезпечення засобами реабілітації при ампутації в Україні.<em>Antonina Kumka</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Панельна дискусія: Інновації чи доцільність — ефективний вибір засобів реабілітації</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Важливість фізичної активності на всіх етапах реабілітації.<em>Lesia Lohush</em></p></div>
+        </div>`,
+        'ab-3': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Інфекційний контроль у протезуванні: міжнародний досвід</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Оссеоінтеграція: досвід, переваги та недоліки.<em>Jakob Kepka</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Стандарти реабілітації при ампутації: що повинен знати кожен фахівець.<em>Olha Shchehliuk</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: Догляд за шкірою кукси та обслуговування протеза.<em>Alps Ukraine</em></p></div>
+        </div>`,
+        'ab-4': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Лайнери — керівництво з вибору та розміру.<em>Alps Ukraine</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Майстер-клас: Співпраця протезиста-ортезиста та фізичного терапевта під час підбору.<em>Iryna Tkach</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Майстер-клас: Тренування ходьби з протезом та динаміка рухів — відеоаналіз руху.<em>Liliia Hviаzdovska</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: ІТ-навички та лайфхаки у реабілітації після політравми.<em>Andrii Danio</em></p></div>
+        </div>`,
+        'ab-5': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Протоколи реабілітації при двосторонній та множинній ампутації кінцівок.<em>Kateryna Zahorodnia</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Нові підходи до лікування хронічного болю.<em>Roman Smolynets</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Панельна дискусія: Шлях пацієнта з ампутацією — успіхи та прогалини</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Забезпечення засобами реабілітації: можливості, умови, терміни.<em>Vitaliy Muzychenko</em></p></div>
+        </div>`,
+        'ab-6': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Інструменти оцінки в реабілітаційній практиці.<em>Maksym Pashchyn</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Майстер-клас: Тренування повсякденної активності — щоденні навички та міжнародні шкали оцінки (Box &amp; Block Test, DASH).<em>Nataliia Bahyrych</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Панельна дискусія: Підготовка якісних фахівців у галузі протезування-ортезування</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Оптимальне харчування для формування кукси та загоєння ран.<em>Anastasiia Syvachenko</em></p></div>
+        </div>`,
+        'ab-7': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Командний підхід до реабілітації ветеранів з ампутацією.<em>Maryna Mykhailovska</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Розвиток реабілітаційного відділення: від локального відділу до центру досконалості.<em>Kateryna Zahorodnia</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Координація забезпечення засобами реабілітації: національний, регіональний та громадський рівні</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: Чому найдорожчий протез не завжди найкращий.<em>Vadym Svyrydenko</em></p></div>
+        </div>`,
+        // Day 2 acc-bodies
+        'ab-8': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Хвилина мовчання · Нагороди у протезуванні-ортезуванні та суміжній реабілітації</p>`,
+        'ab-9': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Спорт як фізичне та психологічне відновлення.<em>Jakob Kepka</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Етичні підходи до роботи з пацієнтами з ампутацією та розуміння психологічної вразливості.<em>Serhii Maltsev</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Інтерактивна панель: «Мета пацієнта»</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Створення адаптованого робочого середовища та відстоювання своїх прав</p></div>
+        </div>`,
+        'ab-10': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Ефективні протезні рішення при частковій ампутації стопи</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Театральне мистецтво як засіб реінтеграції.<em>Yurii Vietkin</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Панельна дискусія: Побудова ефективної довгострокової системи підтримки людей з ампутацією</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: Орієнтування у державному додатку Дія для отримання пільг і послуг.<em>Міністерство цифрової трансформації</em></p></div>
+        </div>`,
+        'ab-11': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Демонстрація 3D-сканування портативним сканером у режимі реального часу.<em>Ortotop Center</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Роль фахівця з підтримки ветеранів.<em>Коаліція ветеранських просторів</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Майстер-клас: Виклик адаптації — практичні приклади та допоміжні технології.<em>Oleksandr Tereshchenko</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Універсальні навички та шляхи перекваліфікації.<em>Forvis Mazars</em></p></div>
+        </div>`,
+        'ab-12': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Огляд матеріалів гільзи для виготовлення протезів.<em>Oleksandr Popenko</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Майстер-клас: Лабораторія динамічного вирівнювання — корекція протеза в режимі реального часу.<em>Iryna Tkach</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Панельна дискусія: Як виглядає доступність для пацієнта з ампутацією?</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: Тренувальні співбесіди та написання резюме.<em>Державний центр зайнятості</em></p></div>
+        </div>`,
+        'ab-13': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Ерготерапія верхніх кінцівок та інтеграція активних кінцевих пристроїв</p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Майстер-клас: Вибір протезних компонентів при трансгумеральній ампутації.<em>Oksana Lytvynenko</em></p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Міжнародна підтримка реінтеграції ветеранів.<em>IREX</em></p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Майстер-клас: Ампутація — не перешкода для досягнення нових горизонтів.<em>Dignitas Foundation</em></p></div>
+        </div>`,
+        'ab-14': `<div class="sched-tracks">
+          <div class="sched-track sched-track--1"><div class="track-hd">Зона 1</div><p>Майстер-клас: Вибір протезної стопи залежно від рівня рухливості.<em>Ossur</em></p></div>
+          <div class="sched-track sched-track--2"><div class="track-hd">Зона 2</div><p>Майстер-клас: Вибір протезних компонентів при трансфеморальній ампутації</p></div>
+          <div class="sched-track sched-track--m"><div class="track-hd">Головна зала</div><p>Повернення до громади: регіональні приклади підтримки людей з ампутацією</p></div>
+          <div class="sched-track sched-track--3"><div class="track-hd">Зона 3</div><p>Успішні випадки працевлаштування та державна підтримка людей з ампутацією.<em>Державний центр зайнятості</em></p></div>
+        </div>`,
+      }
+    };
+
+    // Schedule title strings to swap (repeating pattern)
+    const SCHED_STRINGS = {
+      en: {
+        'Registration &amp; Coffee': 'Registration &amp; Coffee',
+        'EXPO Break': 'EXPO Break',
+        'Lunch': 'Lunch',
+        'Networking &amp; Free Communication': 'Networking &amp; Free Communication',
+        'Closing Ceremony': 'Closing Ceremony',
+        'Break': 'Break',
+        'Opening Ceremony - Main Hall': 'Opening Ceremony - Main Hall',
+        'Award Ceremony - Main Hall': 'Award Ceremony - Main Hall',
+        'Parallel Sessions': 'Parallel Sessions',
+        'Welcome · Keynote: Jakob Kepka': 'Welcome · Keynote: Jakob Kepka',
+        'Awards in prosthetics-orthotics and rehabilitation': 'Awards in prosthetics-orthotics and rehabilitation',
+        '4 simultaneous tracks - Zone 1 · Zone 2 · Main Hall · Zone 3': '4 simultaneous tracks - Zone 1 · Zone 2 · Main Hall · Zone 3',
+      },
+      ua: {
+        'Registration &amp; Coffee': 'Реєстрація та кава',
+        'EXPO Break': 'EXPO перерва',
+        'Lunch': 'Обід',
+        'Networking &amp; Free Communication': 'Нетворкінг та вільне спілкування',
+        'Closing Ceremony': 'Закриття конференції',
+        'Break': 'Перерва',
+        'Opening Ceremony - Main Hall': 'Урочисте відкриття — Головна зала',
+        'Award Ceremony - Main Hall': 'Церемонія нагородження — Головна зала',
+        'Parallel Sessions': 'Паралельні сесії',
+        'Welcome · Keynote: Jakob Kepka': 'Привітання · Доповідь: Jakob Kepka',
+        'Awards in prosthetics-orthotics and rehabilitation': 'Нагороди у протезуванні-ортезуванні та реабілітації',
+        '4 simultaneous tracks - Zone 1 · Zone 2 · Main Hall · Zone 3': '4 одночасні треки — Зона 1 · Зона 2 · Головна зала · Зона 3',
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      const t = T[lang];
+      // data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      // innerHTML blocks (about body, acc-bodies, footer desc, form note)
+      const htmlT = HTML[lang];
+      Object.keys(htmlT).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = htmlT[id];
+      });
+
+      // Schedule title strings (acc-title-col divs and acc-meta divs)
+      const schedMap = SCHED_STRINGS[lang];
+      const enMap = SCHED_STRINGS['en'];
+      document.querySelectorAll('.acc-title-col > div, .acc-meta').forEach(el => {
+        const html = el.innerHTML.trim();
+        // Find the matching EN string and replace with target lang
+        for (const [enStr, uaStr] of Object.entries(schedMap)) {
+          if (html === enStr || html === SCHED_STRINGS['ua'][enStr]) {
+            el.innerHTML = uaStr;
+            break;
+          }
+        }
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = lang === 'ua' ? 'uk' : 'en';
+
+      // Update button label
+      const btn = document.getElementById('langBtn');
+      if (btn) btn.textContent = lang === 'ua' ? 'UA | EN' : 'EN | UA';
+
+      currentLang = lang;
+    }
+
+    // Wire up button
+    const btn = document.getElementById('langBtn');
+    if (btn) {
+      btn.addEventListener('click', () => setLang(currentLang === 'en' ? 'ua' : 'en'));
+      btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLang(currentLang === 'en' ? 'ua' : 'en'); } });
+    }
   })();
 
 </script>
