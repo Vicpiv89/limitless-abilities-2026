@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Limitless Abilities 2026 - International Conference on Amputation & Rehabilitation</title>
-  <meta name="description" content="International conference on amputation, rehabilitation, and social adaptation. Aug 28–29, 2026 · Ivano-Frankivsk, Ukraine. In person + online stream. Organized by Protez Hub.">
+  <meta name="description" content="International conference on amputation, rehabilitation, and social adaptation. Aug 28–29, 2026. In person + online stream. Organized by Protez Hub.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://limitlessabilities.com/">
 
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://limitlessabilities.com/">
   <meta property="og:title" content="Limitless Abilities 2026 - International Conference on Amputation & Rehabilitation">
-  <meta property="og:description" content="Aug 28–29, 2026 · Ivano-Frankivsk, Ukraine. Two days of masterclasses, seminars, and a career fair. In person + online stream. Organized by Protez Hub.">
+  <meta property="og:description" content="Aug 28–29, 2026. Two days of masterclasses, seminars, and a career fair. In person + online stream. Organized by Protez Hub.">
   <meta property="og:image" content="https://limitlessabilities.com/og-image.jpg">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="uk_UA">
@@ -20,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Limitless Abilities 2026 - International Conference">
-  <meta name="twitter:description" content="Aug 28–29, 2026 · Ivano-Frankivsk, Ukraine. Amputation · Rehabilitation · Social Adaptation.">
+  <meta name="twitter:description" content="Aug 28–29, 2026. Amputation · Rehabilitation · Social Adaptation.">
   <meta name="twitter:image" content="https://limitlessabilities.com/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -922,21 +922,16 @@
           Aug 28–29, 2026
         </span>
         <span class="hero__meta-sep" aria-hidden="true">·</span>
-        <span class="hero__meta-badge hero__meta-badge--yellow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Ivano-Frankivsk, Ukraine
-        </span>
-        <span class="hero__meta-sep" aria-hidden="true">·</span>
         <span class="hero__meta-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-          Online Stream
+          <span data-i18n="hero.stream">Online Stream</span>
         </span>
       </div>
 
       <!-- CTA buttons -->
       <div class="hero__btns ha ha-4">
-        <a href="#registration" class="btn btn--black-outline">Register Now &rarr;</a>
-        <a href="#program" class="btn btn--black">View Program</a>
+        <a href="#registration" class="btn btn--black-outline" data-i18n="hero.reg">Register Now &rarr;</a>
+        <a href="#program" class="btn btn--black" data-i18n="hero.prog">View Program</a>
       </div>
 
       <!-- Countdown -->
@@ -997,7 +992,7 @@
           attracted over 1,600 participants from across Ukraine and beyond.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          This year we bring even more people together - on-site in Ivano-Frankivsk and online worldwide.
+          This year we bring even more people together - in person and online worldwide.
           Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
           A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
         </p>
@@ -1555,8 +1550,8 @@
           <label for="attend" data-i18n="reg.att">Attendance / Участь *</label>
           <select id="attend" name="attendance" required>
             <option value="" disabled selected data-i18n="reg.sel">Select…</option>
-            <option value="in-person">In Person · Очно (Ivano-Frankivsk)</option>
-            <option value="online">Online · Онлайн (live stream)</option>
+            <option value="in-person" data-i18n="reg.opt.inperson">In Person · Очно</option>
+            <option value="online" data-i18n="reg.opt.online">Online · Онлайн</option>
           </select>
         </div>
         <div class="form__sub">
@@ -1566,7 +1561,7 @@
       <div class="form-success reveal" id="reg-success">
         <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
         <h3 data-i18n="reg.ok.h3">You're registered!</h3>
-        <p class="t-small" data-i18n="reg.ok.p">Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.</p>
+        <p class="t-small" data-i18n="reg.ok.p">Check your email for a confirmation. See you Aug 28–29!</p>
       </div>
       <p class="form-note reveal" id="form-note">
         As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
@@ -1628,7 +1623,6 @@
     <hr class="footer-div">
     <div class="footer-bot">
       <span data-i18n="ft.copy">© 2026 Protez Hub · Limitless Abilities Conference</span>
-      <span data-i18n="ft.city">Ivano-Frankivsk, Ukraine</span>
     </div>
   </div>
 </footer>
@@ -1935,6 +1929,10 @@
   (function() {
     const T = {
       en: {
+        // hero
+        'hero.stream': 'Online Stream',
+        'hero.reg':    'Register Now &rarr;',
+        'hero.prog':   'View Program',
         // nav
         'nav.about':    'About',
         'nav.speakers': 'Speakers',
@@ -1978,23 +1976,28 @@
         // registration
         'reg.h2':     'Register Now',
         'reg.cert':   'Only registered participants will receive a certificate',
-        'reg.fn':     'Name / Ім\'ya *',
+        'reg.fn':     'Name / Ім\'я *',
         'reg.ln':     'Last Name / Прізвище *',
         'reg.em':     'Email *',
         'reg.ph':     'Phone Number / Номер телефону',
         'reg.pr':     'Profession / Ким працюєте і де',
         'reg.att':    'Attendance / Участь *',
-        'reg.sel':    'Select…',
-        'reg.submit': 'Submit Registration',
-        'reg.ok.h3':  'You\'re registered!',
-        'reg.ok.p':   'Check your email for a confirmation. See you Aug 28–29 in Ivano-Frankivsk.',
+        'reg.sel':             'Select…',
+        'reg.opt.inperson':    'In Person · Очно',
+        'reg.opt.online':      'Online · Онлайн',
+        'reg.submit':          'Submit Registration',
+        'reg.ok.h3':           'You\'re registered!',
+        'reg.ok.p':            'Check your email for a confirmation. See you Aug 28–29!',
         // footer
         'ft.event':   'Event',
         'ft.contact': 'Contact',
         'ft.copy':    '© 2026 Protez Hub · Limitless Abilities Conference',
-        'ft.city':    'Ivano-Frankivsk, Ukraine',
       },
       ua: {
+        // hero
+        'hero.stream': 'Онлайн трансляція',
+        'hero.reg':    'Зареєструватись &rarr;',
+        'hero.prog':   'Програма',
         // nav
         'nav.about':    'Про нас',
         'nav.speakers': 'Спікери',
@@ -2044,15 +2047,16 @@
         'reg.ph':     'Номер телефону / Phone Number',
         'reg.pr':     'Ким працюєте і де / Profession',
         'reg.att':    'Участь / Attendance *',
-        'reg.sel':    'Оберіть…',
-        'reg.submit': 'Надіслати реєстрацію',
-        'reg.ok.h3':  'Ви зареєстровані!',
-        'reg.ok.p':   'Перевірте пошту для підтвердження. До зустрічі 28–29 серпня в Івано-Франківську.',
+        'reg.sel':             'Оберіть…',
+        'reg.opt.inperson':    'Очно · In Person',
+        'reg.opt.online':      'Онлайн · Online',
+        'reg.submit':          'Надіслати реєстрацію',
+        'reg.ok.h3':           'Ви зареєстровані!',
+        'reg.ok.p':            'Перевірте пошту для підтвердження. До зустрічі 28–29 серпня!',
         // footer
         'ft.event':   'Захід',
         'ft.contact': 'Контакти',
         'ft.copy':    '© 2026 Протез Хаб · Конференція «Безмежні Можливості»',
-        'ft.city':    'Івано-Франківськ, Україна',
       }
     };
 
@@ -2065,7 +2069,7 @@
           attracted over 1,600 participants from across Ukraine and beyond.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          This year we bring even more people together - on-site in Ivano-Frankivsk and online worldwide.
+          This year we bring even more people together - in person and online worldwide.
           Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
           A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
         </p>
@@ -2161,7 +2165,7 @@
           онлайн-марафон зібрав понад 1&nbsp;600 учасників з усієї України та інших країн.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          Цього року ми об'єднуємо ще більше людей — очно в Івано-Франківську та онлайн по всьому світу.
+          Цього року ми об'єднуємо ще більше людей — очно та онлайн по всьому світу.
           Два дні майстер-класів, семінарів, демонстрацій рішень та ярмарку вакансій для людей з інвалідністю.
           Каталізатор системних змін у протезуванні, ортезуванні та реабілітації.
         </p>
