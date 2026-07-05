@@ -546,23 +546,18 @@
       overflow: hidden;
     }
     #curtain__word {
-      position: fixed;
+      position: fixed; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       font-family: var(--font-d); font-weight: 700;
       letter-spacing: 0.04em; text-transform: uppercase;
       line-height: 0.97;
       color: #fff;
       text-align: center;
-      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
-    #curtain__word span {
-      display: block;
-      animation: curtain-word-in 0.55s cubic-bezier(0.16,1,0.3,1) 0.3s both;
-    }
-    #curtain__word span:nth-child(2) { animation-delay: 0.44s; }
-    @keyframes curtain-word-in {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    #curtain__word span { display: block; }
     #curtain__blobs {
       position: absolute; inset: 0; width: 100%; height: 100%;
       opacity: 0.28;
@@ -822,6 +817,12 @@
     .sp-tier--silver .sp-tier__label { color: #B0C0CC; }
     .sp-tier--bronze .sp-tier__label { color: #CD7F32; }
     .sp-tier--awards .sp-tier__label { color: var(--blue); }
+    .sp-partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
+    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; opacity: 0.7; transition: opacity 0.2s; }
+    .sp-partner-item:hover { opacity: 1; }
+    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; }
+    @media (max-width: 768px) { .sp-partners-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 480px) { .sp-partners-grid { grid-template-columns: repeat(3, 1fr); } }
 
     .sp-logo-item--empty { background: transparent !important; }
 
@@ -981,10 +982,7 @@
       <h2 class="t-h2" data-i18n="about.h2">Where Possibility Has No Limits</h2>
       <div class="rule rule--c rule--yellow" style="margin-top:0.8rem;"></div>
     </div>
-    <div class="about-grid">
-      <div class="about-img reveal">
-        <img src="https://picsum.photos/seed/ukraine-conference/700/700" alt="Limitless Abilities 2026 Conference" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
+    <div style="max-width:720px; margin:0 auto;">
       <div class="reveal" id="about-body">
         <p class="t-body" style="margin-bottom:1.2rem;">
           The international conference <em>'Limitless Abilities: Amputation. Rehabilitation. Social Adaptation.'</em>
@@ -1022,22 +1020,16 @@
     <div class="spk-carousel reveal">
       <div class="spk-car-wrap" id="spkWrap">
         <div class="spk-car-track" id="spkTrack">
-          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/anton-johannesson-Awv8v7XbexCEQRqm.jpg" alt="Anton Johannesson"><div class="speaker__info"><div class="speaker__name">Anton Johannesson</div><div class="speaker__role">PhD, CPO, Ossur Clinical Manager - Sweden</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/jon-1-Yle4e3GXXxIeb4V2.jpg" alt="Jon Batzdorff"><div class="speaker__info"><div class="speaker__name">Jon Batzdorff</div><div class="speaker__role">CPO, Prosthetika President, ISPO Treasurer - USA</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/tetiana-m5K8KV534MfKajRL.jpg" alt="Tetiana Lomakina"><div class="speaker__info"><div class="speaker__name">Tetiana Lomakina</div><div class="speaker__role">PhD, Advisor – Presidential Commissioner for Barrier-Free - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/olha-YyvDq4e02phX0Eex.jpg" alt="Olha Shchehliuk"><div class="speaker__info"><div class="speaker__name">Olha Shchehliuk</div><div class="speaker__role">Lt. Colonel, Head of Rehabilitation Dept (Irpin) - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/nastya-1-YD0E56Z9QGcryZJ3.jpg" alt="Anastasiia Boichuk"><div class="speaker__info"><div class="speaker__name">Anastasiia Boichuk</div><div class="speaker__role">Strategic Lead, War Trauma Rehabilitation Initiative - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/vadym-mP43Ln7VWVh3Nbjm.jpg" alt="Vadym Svyrydenko"><div class="speaker__info"><div class="speaker__name">Vadym Svyrydenko</div><div class="speaker__role">Advisor – Presidential Commissioner, Veterans - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/taras-ALp2Gn89QnUy4QrX.jpg" alt="Taras Tarasenko"><div class="speaker__info"><div class="speaker__name">Taras Tarasenko</div><div class="speaker__role">Member of Parliament, Social &amp; Veterans Affairs - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/christoffer-m5K8gwpk9MFzXX15.jpg" alt="Christoffer Lindhe"><div class="speaker__info"><div class="speaker__name">Christoffer Lindhe</div><div class="speaker__role">MSc, Founder &amp; VP, Lindhe Xtend - Sweden</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/robert-YbN4NoDnOGsMrEP7.jpg" alt="Robert Westergren"><div class="speaker__info"><div class="speaker__name">Robert Westergren</div><div class="speaker__role">CPO and Team Lead (Prosthetics) - Norway</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/iryna-m6L21Jnjb8uvNDaL.jpg" alt="Iryna Tkach"><div class="speaker__info"><div class="speaker__name">Iryna Tkach</div><div class="speaker__role">CPO and Team Lead, Dniproprotez State Center - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/claudia-1-mxB25by3yzt0Rr32.jpg" alt="Claudia Ghidini"><div class="speaker__info"><div class="speaker__name">Claudia Ghidini</div><div class="speaker__role">MSc, PhD candidate, Imperial College London - UK</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/oleksandr-1-A1azDqDlvBc6pWB6.jpg" alt="Oleksandr Popenko"><div class="speaker__info"><div class="speaker__name">Oleksandr Popenko</div><div class="speaker__role">CPO and Team Lead, Ortoped Center - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/volynets-mP4352nz2RIW5vkn.jpg" alt="Olena Volynets"><div class="speaker__info"><div class="speaker__name">Olena Volynets</div><div class="speaker__role">Physiatrist, Pirogov National Medical University - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/simon-1-mv0PynpBB6UEyn1r.jpg" alt="Simon Ramstrand"><div class="speaker__info"><div class="speaker__name">Simon Ramstrand</div><div class="speaker__role">Head of Dept, Jönköping / Örebro University - Sweden</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/jaroslav-AzGM0qo8MwF034rw.jpg" alt="Yaroslav Pavlovskyi"><div class="speaker__info"><div class="speaker__name">Yaroslav Pavlovskyi</div><div class="speaker__role">Board member, NGO Prostir Mozhlyvostei - Ukraine</div></div></div>
-      <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">Moderator · MEd, Protez Hub Chief Director - Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/jakob.png" alt="Jakob Kepka"><div class="speaker__info"><div class="speaker__name">Jakob Kepka</div><div class="speaker__role">Cyclist &amp; former US Marine · Prosthetics User · Day 1 Keynote</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/nerrolyn.png" alt="Nerrolyn Ramstrand"><div class="speaker__info"><div class="speaker__name">Nerrolyn Ramstrand</div><div class="speaker__role">Prosthetist &amp; Orthotist · Professor, Jönköping University, Sweden · Day 2 Keynote</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/eriks.png" alt="Eriks Svede"><div class="speaker__info"><div class="speaker__name">Eriks Svede</div><div class="speaker__role">Certified Prosthetist-Orthotist · Manager, Vaivaru O&amp;P Center, Latvia</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/eric.jpg" alt="Eric Ramcharran"><div class="speaker__info"><div class="speaker__name">Eric Ramcharran</div><div class="speaker__role">Certified Prosthetist-Orthotist (USA) · Upper Limb Specialist, Fillauer</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/andriy.png" alt="Andriy Odarenko"><div class="speaker__info"><div class="speaker__name">Andriy Odarenko</div><div class="speaker__role">Ukrainian War Veteran · Civil Society Activist &amp; Entrepreneur</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/oksana.png" alt="Oksana Lytvynenko"><div class="speaker__info"><div class="speaker__name">Oksana Lytvynenko</div><div class="speaker__role">Certified Prosthetist-Orthotist · Upper Limb Specialist, CPO Vilni</div></div></div>
+          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/vadym-mP43Ln7VWVh3Nbjm.jpg" alt="Vadym Svyrydenko"><div class="speaker__info"><div class="speaker__name">Vadym Svyrydenko</div><div class="speaker__role">Advisor – Presidential Commissioner, Veterans · Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/iryna-m6L21Jnjb8uvNDaL.jpg" alt="Iryna Tkach"><div class="speaker__info"><div class="speaker__name">Iryna Tkach</div><div class="speaker__role">CPO and Team Lead, Dniproprotez State Center · Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/olha-YyvDq4e02phX0Eex.jpg" alt="Olha Shchehliuk"><div class="speaker__info"><div class="speaker__name">Olha Shchehliuk</div><div class="speaker__role">Lt. Colonel, Head of Rehabilitation Dept (Irpin) · Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">Moderator · MEd, Protez Hub Chief Director · Ukraine</div></div></div>
         </div>
       </div>
       <div class="spk-car-nav">
@@ -1071,49 +1063,85 @@
       <div class="rule rule--c" style="margin-top:0.8rem;"></div>
     </div>
 
-    <div class="sp-tier sp-tier--gold sp-tier--shaded reveal">
+    <div class="sp-tier sp-tier--awards sp-tier--shaded reveal">
+      <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
+      <div class="sp-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-logo-item"><img src="assets/logos/ossur.png" alt="Össur"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-tier sp-tier--gold reveal">
       <div class="sp-tier__label" data-i18n="sp.gold">Gold Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/bpd.png" alt="BPD"></div>
-          <div class="sp-logo-item"><img src="assets/logos/enabel.png" alt="Enabel"></div>
+          <div class="sp-logo-item"><img src="assets/logos/alps.png" alt="Alps Ukraine"></div>
+          <div class="sp-logo-item"><img src="assets/logos/fillauer.png" alt="Fillauer"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--silver reveal">
+    <div class="sp-tier sp-tier--silver sp-tier--shaded reveal">
       <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/steeper.png" alt="Steeper"></div>
+          <div class="sp-logo-item"><img src="assets/logos/yourhealth.png" alt="Your Health Trading"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--bronze sp-tier--shaded reveal">
+    <div class="sp-tier sp-tier--bronze reveal">
       <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/bezbarjernist.png" alt="Bezbarjernist"></div>
-          <div class="sp-logo-item"><img src="assets/logos/rtv.png" alt="RTV"></div>
+          <div class="sp-logo-item"><img src="assets/logos/ortoped-new.png" alt="Ortoped"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--awards reveal">
-      <div class="sp-tier__label" data-i18n="sp.partners">Awards Partners</div>
+    <div class="sp-tier sp-tier--shaded reveal">
+      <div class="sp-tier__label" data-i18n="sp.simulation">Simulation Area Sponsor</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/pu.png" alt="Patients of Ukraine"></div>
+          <div class="sp-logo-item"><img src="assets/logos/dniproprotez.png" alt="Dniproprotez"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-tier reveal" style="margin-top:2.5rem;">
+      <div class="sp-tier__label" data-i18n="sp.partnerslabel" style="margin-bottom:1.2rem;">Partners</div>
+      <div class="sp-partners-grid">
+        <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
+        <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
+        <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
+        <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
+        <div class="sp-partner-item"><img src="assets/partners/GMKA.png" alt="GMKA"></div>
+        <div class="sp-partner-item"><img src="assets/partners/GUForum.png" alt="GU Forum"></div>
+        <div class="sp-partner-item"><img src="assets/partners/HNMU.png" alt="HNMU"></div>
+        <div class="sp-partner-item"><img src="assets/partners/HospPart.png" alt="Hospital Partners"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Jonkoping.png" alt="Jönköping University"></div>
+        <div class="sp-partner-item"><img src="assets/partners/LANG.png" alt="LANG"></div>
+        <div class="sp-partner-item"><img src="assets/partners/MinDig.png" alt="Ministry of Digital Transformation"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Prosthetika.png" alt="Prosthetika"></div>
+        <div class="sp-partner-item"><img src="assets/partners/PU.png" alt="Patients of Ukraine"></div>
+        <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
+        <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
+        <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
+        <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
       </div>
     </div>
 
@@ -1633,58 +1661,18 @@
   const cw      = document.getElementById('curtain__word');
 
   document.fonts.ready.then(() => {
-    const h1    = document.querySelector('.t-hero');
-    const brand = document.querySelector('.hero__brand');
+    const fs = getComputedStyle(document.querySelector('.t-hero')).fontSize;
+    cw.style.fontSize = fs;
 
-    // Freeze to measure final layout position of h1
-    const freeze = 'animation:none!important;opacity:1!important;transform:none!important;transition:none!important;';
-    const prevH1 = h1.style.cssText, prevBrand = brand.style.cssText;
-    brand.style.cssText = freeze;
-    h1.style.cssText    = freeze;
-    void h1.offsetHeight;
+    // Fade word in
+    requestAnimationFrame(() => { cw.style.opacity = '1'; });
 
-    const rect = h1.getBoundingClientRect();
-    const fs   = getComputedStyle(h1).fontSize;
-
-    h1.style.cssText    = prevH1;
-    brand.style.cssText = prevBrand;
-
-    const vw   = window.innerWidth;
-    const vh   = window.innerHeight;
-    const fsPx = parseFloat(fs);
-    const cwH  = fsPx * 1.04 * 2;
-
-    // Anchor word at h1's exact position, offset to screen center via transform
-    cw.style.fontSize   = fs;
-    cw.style.width      = rect.width + 'px';
-    cw.style.left       = rect.left  + 'px';
-    cw.style.top        = rect.top   + 'px';
-    const dx = Math.round(vw / 2 - rect.width / 2) - rect.left;
-    const dy = Math.round(vh / 2 - cwH / 2)        - rect.top;
-    cw.style.transform  = `translate(${dx}px,${dy}px)`;
-    cw.style.visibility = 'visible';
-
-    // Phase-shift: animate word back to h1's actual position
+    // Hold, then fade whole curtain out
     setTimeout(() => {
-      cw.style.transition = 'transform 0.42s cubic-bezier(0.4,0,0.2,1)';
-      cw.style.transform  = 'translate(0,0)';
-    }, 900);
-
-    // After shift: reveal all hero content at once, fade curtain, restore lines
-    setTimeout(() => {
-      // Reveal every ha element simultaneously (logo enters with everything else)
-      document.querySelectorAll('.ha').forEach(el => {
-        el.style.animation = 'none';
-        el.style.opacity   = '1';
-        el.style.transform = 'none';
-      });
-
-      // Fade the whole curtain (word + bg together)
-      curtain.style.transition = 'opacity 0.85s ease';
+      curtain.style.transition = 'opacity 0.75s ease';
       curtain.style.opacity    = '0';
-
-      setTimeout(() => curtain.remove(), 900);
-    }, 1380);
+      setTimeout(() => curtain.remove(), 800);
+    }, 900);
   });
 
   // ── Nav shadow on scroll
@@ -1953,12 +1941,15 @@
         'spk.h2':  '2026 Speakers',
         'spk.cta': 'See Full Program',
         // sponsors
-        'sp.h2':       'Sponsors &amp; Partners',
-        'sp.gold':     'Gold Sponsors',
-        'sp.silver':   'Silver Sponsors',
-        'sp.bronze':   'Bronze Sponsors',
-        'sp.partners': 'Awards Partners',
-        'sp.apply':    'Apply to Become a Sponsor',
+        'sp.h2':           'Sponsors &amp; Partners',
+        'sp.awards':       'Awards Sponsor',
+        'sp.gold':         'Gold Sponsors',
+        'sp.silver':       'Silver Sponsors',
+        'sp.bronze':       'Bronze Sponsors',
+        'sp.simulation':   'Simulation Area Sponsor',
+        'sp.partnerslabel':'Partners',
+        'sp.partners':     'Awards Partners',
+        'sp.apply':        'Apply to Become a Sponsor',
         // program
         'prog.h2':   'Conference Program',
         'prog.day1': 'Day 1 · Aug 28',
@@ -2018,12 +2009,15 @@
         'spk.h2':  'Спікери 2026',
         'spk.cta': 'Переглянути програму',
         // sponsors
-        'sp.h2':       'Спонсори та партнери',
-        'sp.gold':     'Золоті спонсори',
-        'sp.silver':   'Срібні спонсори',
-        'sp.bronze':   'Бронзові спонсори',
-        'sp.partners': 'Партнери нагород',
-        'sp.apply':    'Стати спонсором',
+        'sp.h2':           'Спонсори та партнери',
+        'sp.awards':       'Спонсор нагород',
+        'sp.gold':         'Золоті спонсори',
+        'sp.silver':       'Срібні спонсори',
+        'sp.bronze':       'Бронзові спонсори',
+        'sp.simulation':   'Спонсор зони симуляції',
+        'sp.partnerslabel':'Партнери',
+        'sp.partners':     'Партнери нагород',
+        'sp.apply':        'Стати спонсором',
         // program
         'prog.h2':   'Програма конференції',
         'prog.day1': 'День 1 · 28 серп',
