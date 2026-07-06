@@ -39,7 +39,7 @@
       --muted:     #6A8A9A;
       --border:    #1E2E3A;
       --gray-bg:   #141E26;
-      --white:     #090C11;
+      --white:     #000000;
       --font-d: 'Phenomena', sans-serif;
       --font-b: 'Akrobat', sans-serif;
       --r-sm: 8px;
@@ -314,7 +314,7 @@
     #hero__blobs {
       width: 100%;
       height: 100%;
-      opacity: 0.13;
+      opacity: 1;
       transform-origin: center center;
       animation: blob-breathe 6s ease-in-out infinite alternate;
     }
@@ -1654,7 +1654,7 @@
   // Transition background from lighter blue to site dark
   setTimeout(() => {
     curtain.style.transition      = 'background-color 0.9s ease';
-    curtain.style.backgroundColor = '#090C11';
+    curtain.style.backgroundColor = '#000000';
   }, 500);
 
   // Fade out curtain, let other hero elements animate in
