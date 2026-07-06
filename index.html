@@ -483,7 +483,7 @@
       transition: filter 0.2s, opacity 0.2s;
     }
     .logo-grid img:hover { filter:grayscale(0); opacity:1; }
-    .lg-inv img { filter: brightness(0) invert(1); opacity:0.65; }
+    .lg-inv img { filter: invert(1); mix-blend-mode: screen; opacity:0.65; }
     .lg-inv img:hover { opacity:1; }
 
     /* ── SPONSOR / CTA SECTION ── */
@@ -745,7 +745,7 @@
       display: flex; align-items: center; justify-content: center;
       background: transparent; padding: 0; overflow: hidden;
     }
-    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
+    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; filter: invert(1); mix-blend-mode: screen; opacity: 0.85; transition: opacity 0.2s; }
     .sp-logo-item img:hover { opacity: 1; }
     #sponsors .t-h2 { color: #fff; }
     #sponsors .sp-tier__label { color: rgba(255,255,255,0.55) !important; }
@@ -800,7 +800,7 @@
     .sp-partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
     .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; opacity: 0.7; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
-    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; filter: brightness(0) invert(1); }
+    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; filter: invert(1); mix-blend-mode: screen; }
     @media (max-width: 768px) { .sp-partners-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 480px) { .sp-partners-grid { grid-template-columns: repeat(3, 1fr); } }
 
