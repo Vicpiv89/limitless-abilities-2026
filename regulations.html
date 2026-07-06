@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Award Regulations — Limitless Abilities Awards 2026</title>
+  <meta name="description" content="Official regulations for the Limitless Abilities Awards 2026, organized by Protez Hub.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://limitlessabilities.com/regulations.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Phenomena:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=akrobat:400,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:#13AEE5; --blue-dark:#0E8FBD; --yellow:#F6C416;
+      --navy:#D6EAF6; --ink:#BACCD8; --muted:#6A8A9A;
+      --border:#1E2E3A; --gray-bg:#141E26; --white:#0D1116;
+      --font-d:'Phenomena',sans-serif; --font-b:'Akrobat',sans-serif;
+      --r-sm:8px; --r-md:16px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{font-size:16px;scroll-behavior:smooth;}
+    body{font-family:var(--font-b);background:var(--white);color:var(--ink);line-height:1.6;}
+    img{display:block;max-width:100%;}
+    a{color:var(--blue);}
+    .container{max-width:820px;margin:0 auto;padding:0 2rem;}
+    .container--wide{max-width:1140px;margin:0 auto;padding:0 2rem;}
+    .eyebrow{font-family:var(--font-d);font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);}
+    .t-h2{font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.02em;text-transform:uppercase;color:var(--navy);}
+    .rule{width:48px;height:3px;background:var(--blue);border-radius:2px;}
+    .rule--c{margin-left:auto;margin-right:auto;}
+    @keyframes rule-glow{0%,100%{box-shadow:0 0 6px rgba(19,174,229,.4);}50%{box-shadow:0 0 20px rgba(19,174,229,.8);}}
+    .rule{animation:rule-glow 2s ease-in-out infinite;}
+
+    /* NAV */
+    .nav{background:rgba(13,17,22,.92);backdrop-filter:blur(14px);padding:1.1rem 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(19,174,229,.12);}
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;}
+    .nav__logo img{height:44px;display:block;}
+    .nav__links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav__links a{font-family:var(--font-d);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;}
+    .nav__links a:hover,.nav__links a.active{color:var(--blue);}
+    .nav__right{display:flex;align-items:center;gap:1rem;}
+    .nav__lang{font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--blue);cursor:pointer;user-select:none;border:1.5px solid var(--blue);border-radius:4px;padding:.2rem .5rem;transition:background .2s,color .2s;}
+    .nav__lang:hover{background:var(--blue);color:#fff;}
+    .nav__burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+    .nav__burger span{display:block;width:24px;height:2px;background:var(--muted);border-radius:2px;}
+    @media(max-width:768px){
+      .nav__links{display:none;}
+      .nav__links.open{display:flex;flex-direction:column;align-items:flex-start;gap:0;position:absolute;top:100%;left:0;right:0;background:rgba(13,17,22,.97);padding:.5rem 0;border-bottom:1px solid var(--border);z-index:99;}
+      .nav__links.open li{width:100%;padding:.7rem 2rem;border-bottom:1px solid rgba(255,255,255,.05);}
+      .nav__links.open a{font-size:.9rem;}
+      .nav__burger{display:flex;}
+    }
+
+    /* HERO */
+    .page-hero{background:#0D1116;padding:4rem 0 3.5rem;text-align:center;border-bottom:1px solid var(--border);}
+    .page-hero__icon{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(19,174,229,.1);margin:0 auto 1.2rem;}
+
+    /* TOC */
+    .toc{background:var(--gray-bg);border:1px solid var(--border);border-radius:var(--r-md);padding:1.6rem 1.8rem;margin:3rem 0 2rem;}
+    .toc__title{font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;}
+    .toc__list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.3rem .5rem;}
+    @media(max-width:500px){.toc__list{grid-template-columns:1fr;}}
+    .toc__list a{font-size:.82rem;color:var(--muted);transition:color .2s;}
+    .toc__list a:hover{color:var(--blue);}
+
+    /* ACCORDION */
+    .acc-list{display:flex;flex-direction:column;gap:.6rem;margin-bottom:4rem;}
+    .acc-item{background:var(--gray-bg);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color .2s;}
+    .acc-item.open{border-color:rgba(19,174,229,.35);}
+    .acc-hd{width:100%;display:flex;align-items:flex-start;gap:1rem;padding:1.3rem 1.5rem;background:none;border:none;cursor:pointer;text-align:left;}
+    .acc-hd:hover .acc-hd__title{color:var(--navy);}
+    .acc-hd__num{font-family:var(--font-d);font-weight:700;font-size:.75rem;color:var(--blue);min-width:28px;padding-top:.15rem;flex-shrink:0;}
+    .acc-hd__title{font-family:var(--font-d);font-weight:700;font-size:.95rem;color:var(--ink);letter-spacing:.01em;flex:1;line-height:1.4;}
+    .acc-hd__chevron{width:16px;height:16px;color:var(--muted);flex-shrink:0;transition:transform .25s;margin-top:.1rem;}
+    .acc-item.open .acc-hd__chevron{transform:rotate(180deg);}
+    .acc-body{display:none;padding:0 1.5rem 1.4rem 3.8rem;}
+    .acc-item.open .acc-body{display:block;}
+    .acc-body p{font-size:.88rem;color:var(--muted);line-height:1.72;}
+    .acc-body p+p{margin-top:.55rem;}
+    .acc-body ul{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-top:.5rem;}
+    .acc-body li{font-size:.87rem;color:var(--muted);padding-left:1rem;position:relative;line-height:1.55;}
+    .acc-body li::before{content:'·';position:absolute;left:0;color:var(--blue);}
+
+    /* EXPAND ALL */
+    .expand-all{font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;transition:color .2s;padding:0;}
+    .expand-all:hover{color:var(--blue);}
+
+    /* FOOTER */
+    .footer{background:var(--gray-bg);padding:3rem 0;border-top:1px solid var(--border);}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
+    .footer-logo img{height:36px;opacity:.7;}
+    .footer-back{font-family:var(--font-d);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;transition:color .2s;}
+    .footer-back:hover{color:var(--blue);}
+    .footer-copy{font-size:.75rem;color:var(--muted);opacity:.45;}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container--wide">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#awards">Awards</a></li>
+        <li><a href="nominations.html">Nominate</a></li>
+        <li><a href="regulations.html" class="active">Regulations</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#registration">Register</a></li>
+      </ul>
+      <div class="nav__right">
+        <span class="nav__lang" id="langToggle">UA</span>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#13AEE5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <p class="eyebrow" id="hero-eye">Awards 2026</p>
+    <h1 class="t-h2" style="color:#fff;margin:.5rem 0;" id="hero-h1">Award Regulations</h1>
+    <div class="rule rule--c" style="margin:1rem auto;"></div>
+    <p style="color:rgba(255,255,255,.6);font-size:.9rem;max-width:520px;margin:0 auto;" id="hero-sub">Official rules of participation for the Limitless Abilities Awards 2026, organized by CO CF Protez Hub.</p>
+  </div>
+</section>
+
+<section style="padding:3rem 0 1rem;">
+  <div class="container">
+    <div class="toc" id="tocBox">
+      <div class="toc__title" id="toc-title">Contents</div>
+      <ol class="toc__list" id="tocList"></ol>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-bottom:1.2rem;">
+      <button class="expand-all" id="expandBtn"></button>
+    </div>
+    <div class="acc-list" id="accList"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container--wide">
+    <div class="footer-inner">
+      <a href="nominations.html" class="footer-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span id="back-text">All nominations</span>
+      </a>
+      <div class="footer-logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></div>
+      <div class="footer-copy">&copy; 2026 Protez Hub</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const REGS = [
+  {
+    h:'1. General Provisions',
+    hUa:'1. Загальні положення',
+    body:[
+      {type:'p',t:'Limitless Abilities Awards is a professional award in prosthetics and orthotics, founded by CO CF "Protez Hub". Its goal is to recognize specialists, teams, and organizations demonstrating high professional mastery, implementing modern practices, and making significant contributions to prosthetics and orthotics.'},
+      {type:'p',t:'The award aims to develop the professional community, promote high service standards, support innovation, international cooperation, and professional experience exchange.'},
+      {type:'p',t:'Submitting an application means the applicant has read and agrees to these Rules of Participation and confirms the accuracy of all provided information.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Limitless Abilities Awards — професійна премія у сфері протезування та ортезування, заснована БО БФ "Протез Хаб", метою якої є відзначення фахівців, команд та організацій, що демонструють високий рівень професійної майстерності, впроваджують сучасні практики та роблять вагомий внесок у розвиток сфери протезування та ортезування.'},
+      {type:'p',t:'Премія спрямована на розвиток професійної спільноти, популяризацію високих стандартів надання послуг, підтримку інновацій, міжнародної співпраці та обміну професійним досвідом.'},
+      {type:'p',t:'Подання заявки означає, що заявник ознайомився з цими Правилами участі, погоджується з ними та підтверджує достовірність усієї наданої інформації.'}
+    ]
+  },
+  {
+    h:'2. Terms',
+    hUa:'2. Терміни',
+    body:[
+      {type:'p',t:'In these Rules, terms are used with the following meanings:'},
+      {type:'ul',items:['Applicant: A physical or legal entity submitting an application for the Award.','Nominee: A physical person, team, or organization for whom the application is submitted.','Organizer: CO CF "Protez Hub".','International Expert Jury: An independent group of international experts formed by the Organizer to evaluate applications.']}
+    ],
+    bodyUa:[
+      {type:'p',t:'У цих Правилах терміни вживаються в такому значенні:'},
+      {type:'ul',items:['Заявник — фізична або юридична особа, яка подає заявку на участь у Премії.','Номінант — фізична особа, команда або організація, щодо яких подано заявку.','Організатор — БО БФ "Протез Хаб".','Міжнародне експертне журі — незалежна група міжнародних експертів, сформована Організатором для оцінювання заявок.']}
+    ]
+  },
+  {
+    h:'3. Award Participants',
+    hUa:'3. Учасники Премії',
+    body:[
+      {type:'p',t:'The following may participate in the Award:'},
+      {type:'ul',items:['Prosthetists-orthotists','Prosthetic-orthotic technicians','Multidisciplinary rehabilitation teams','Heads of institutions and organizations','Students of educational programs in prosthetics and orthotics','Prosthetics and orthotics centers','People who have undergone the rehabilitation journey','Ukrainian and international organizations','Foreign specialists']},
+      {type:'p',t:'Nominees who meet the requirements of the respective nomination and submit an application according to these Rules are admitted to participate.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Участь у Премії можуть брати:'},
+      {type:'ul',items:['протезисти-ортезисти','техніки-протезисти-ортезисти','мультидисциплінарні реабілітаційні команди','керівники закладів та організацій','студенти освітніх програм у сфері протезування та ортезування','центри протезування та ортезування','люди, які пройшли шлях реабілітації','українські та міжнародні організації','іноземні фахівці']},
+      {type:'p',t:'До участі допускаються номінанти, які відповідають вимогам відповідної номінації та подали заявку згідно з цими Правилами участі.'}
+    ]
+  },
+  {
+    h:'4. Nominations',
+    hUa:'4. Номінації',
+    body:[
+      {type:'p',t:'The Award is granted in categories approved by the Organizer. The list of nominations, evaluation criteria, and supporting material requirements are published on the official Award website and form an integral part of these Rules.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Премія присуджується у номінаціях, затверджених Організатором. Перелік номінацій, критерії оцінювання та вимоги до підтверджувальних матеріалів оприлюднюються на офіційному вебсайті Премії та є невід\'ємною частиною Правил участі.'}
+    ]
+  },
+  {
+    h:'5. Submission of Applications',
+    hUa:'5. Подання заявок',
+    body:[
+      {type:'p',t:'Applications may be submitted by:'},
+      {type:'ul',items:['The nominee','An employer','An institution or organization','A professional association','Colleagues','A partner organization','Other persons wishing to nominate the nominee']},
+      {type:'p',t:'For team and organizational nominations, the application is submitted by an authorized representative. All application materials must be submitted in English. The applicant is responsible for providing the translation.'},
+      {type:'p',t:'Applications must be submitted within deadlines set by the Organizer. Submitting an application does not guarantee its admission to evaluation by the international expert jury.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Заявку на участь у Премії можуть подати:'},
+      {type:'ul',items:['номінант','роботодавець','заклад або організація','професійне об\'єднання','колеги','партнерська організація','інші особи, які бажають номінувати номінанта']},
+      {type:'p',t:'Для командних та організаційних номінацій заявку подає уповноважений представник. Усі матеріали заявки подаються англійською мовою. Переклад матеріалів забезпечує заявник.'},
+      {type:'p',t:'Заявки подаються у строки, визначені Організатором. Подання заявки не гарантує її допуску до оцінювання міжнародним експертним журі.'}
+    ]
+  },
+  {
+    h:'6. Application Requirements',
+    hUa:'6. Вимоги до заявки',
+    body:[
+      {type:'p',t:'The application must contain:'},
+      {type:'ul',items:['A completed application form','A description of achievements according to the evaluation criteria','Supporting materials','The applicant\'s contact details']},
+      {type:'p',t:'Contact details are used exclusively by the Organizer for communication and are not shared with the international expert jury. The Organizer reserves the right to request additional documents or information. If not provided within the set timeframe, the application may be rejected.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Заявка повинна містити:'},
+      {type:'ul',items:['заповнену форму заявки','опис досягнень відповідно до критеріїв оцінювання','підтверджувальні матеріали','контактні дані заявника']},
+      {type:'p',t:'Контактні дані використовуються виключно Організатором для комунікації та не передаються міжнародному експертному журі. Організатор залишає за собою право запросити додаткові документи. У разі ненадання інформації у встановлений строк заявка може бути відхилена.'}
+    ]
+  },
+  {
+    h:'7. Supporting Materials',
+    hUa:'7. Підтверджувальні матеріали',
+    body:[
+      {type:'p',t:'The following may be attached to the application:'},
+      {type:'ul',items:['Portfolios','Descriptions of implemented projects','Clinical cases','Certificates and diplomas','Scientific papers and publications','Photo and video materials','Internal documents and research results','Letters of recommendation and reviews','Links to open sources','Other materials confirming compliance with evaluation criteria']},
+      {type:'p',t:'The list is for guidance only and is not exhaustive. The Organizer may request additional supporting materials if needed.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'До заявки можуть додаватися:'},
+      {type:'ul',items:['портфоліо','описи реалізованих проєктів','клінічні кейси','сертифікати та дипломи','наукові роботи та публікації','фото- та відеоматеріали','внутрішні документи та результати досліджень','рекомендаційні листи та відгуки','посилання на відкриті джерела','інші матеріали, що підтверджують відповідність критеріям оцінювання']},
+      {type:'p',t:'Перелік є орієнтовним і не є вичерпним. Організатор має право запросити додаткові матеріали за необхідності.'}
+    ]
+  },
+  {
+    h:'8. Material Requirements',
+    hUa:'8. Вимоги до матеріалів',
+    body:[
+      {type:'p',t:'Materials submitted for review must:'},
+      {type:'ul',items:['Correspond to the stated nomination category','Be accurate, up-to-date, and complete','Not violate copyrights, related rights, or third-party rights','Comply with the requirements of current legislation']},
+      {type:'p',t:'The applicant bears full responsibility for the legality of all submitted materials, including those containing personal data, patient information, and multimedia content. When submitting such materials, the applicant confirms they hold all required consents and permissions.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Матеріали, подані на розгляд, повинні:'},
+      {type:'ul',items:['відповідати заявленій номінації','бути достовірними, актуальними та повними','не порушувати авторські права та права третіх осіб','відповідати вимогам чинного законодавства']},
+      {type:'p',t:'Заявник несе повну відповідальність за законність використання всіх матеріалів, включаючи персональні дані та інформацію про пацієнтів. Подаючи такі матеріали, заявник підтверджує наявність усіх необхідних згод та дозволів.'}
+    ]
+  },
+  {
+    h:'9. Anonymity of Evaluation',
+    hUa:'9. Анонімність оцінювання',
+    body:[
+      {type:'p',t:'To ensure objectivity and impartiality, all applications are sent to the international expert jury in an anonymized form. Application materials reviewed by the jury must not contain details that directly or indirectly identify the nominee. Prohibited identifiers include:'},
+      {type:'ul',items:['First name, last name, or other personal data','Name of the organization or institution','Logos, corporate symbols, or branding elements','Contact information','Links to websites or social media that identify the nominee','Names of programs or facilities that reveal the nominee\'s identity']},
+      {type:'p',t:'Protez Hub ensures the anonymization of applications before passing them for evaluation. If identifying information is found, the Organizer may remove it or return the application for revision before the deadline.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Для забезпечення об\'єктивності всі заявки передаються журі в анонімізованому вигляді. Матеріали заявки не повинні містити інформації, яка дозволяє ідентифікувати номінанта:'},
+      {type:'ul',items:['ім\'я, прізвище або інші персональні дані','назва організації чи закладу','логотипи, фірмова символіка або елементи брендування','контактні дані','посилання на вебсайти чи соціальні мережі','назви програм або закладів, якщо вони розкривають особу номінанта']},
+      {type:'p',t:'Protez Hub забезпечує анонімізацію заявок перед їх передачею на оцінювання. У разі виявлення ідентифікувальних даних Організатор може їх вилучити або повернути заявку на доопрацювання до завершення строку прийому.'}
+    ]
+  },
+  {
+    h:'10. Technical Screening of Applications',
+    hUa:'10. Технічна перевірка заявок',
+    body:[
+      {type:'p',t:'After the submission deadline, Protez Hub performs a technical check on every application, evaluating:'},
+      {type:'ul',items:['Compliance with these Rules of Participation','Completeness of submitted materials','Compliance with anonymity requirements','Presence of required supporting materials','Compliance with the chosen nomination requirements']},
+      {type:'p',t:'If necessary, Protez Hub may contact the applicant for clarification or corrections. Only applications that successfully pass the technical screening are admitted for evaluation by the international expert jury.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Після завершення строку прийому заявок Protez Hub здійснює технічну перевірку кожної заявки:'},
+      {type:'ul',items:['відповідність заявки цим Правилам участі','повнота поданих матеріалів','відповідність матеріалів вимогам анонімності','наявність підтверджувальних матеріалів','відповідність заявки вимогам обраної номінації']},
+      {type:'p',t:'За необхідності Protez Hub може звернутися до заявника для уточнення або виправлення. До оцінювання журі допускаються лише заявки, що успішно пройшли технічну перевірку.'}
+    ]
+  },
+  {
+    h:'11. Evaluation',
+    hUa:'11. Оцінювання',
+    body:[
+      {type:'p',t:'Evaluation is carried out according to the approved assessment criteria. Each member of the international expert jury evaluates applications individually and independently. The maximum score for a single application is 100 points. The procedure for evaluation and determining winners is established by the Organizer.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Оцінювання заявок здійснюється відповідно до затверджених критеріїв. Кожен член журі оцінює заявки індивідуально та незалежно. Максимальна оцінка однієї заявки становить 100 балів. Порядок оцінювання та визначення переможців встановлюється Організатором.'}
+    ]
+  },
+  {
+    h:'12. International Expert Jury',
+    hUa:'12. Міжнародне експертне журі',
+    body:[
+      {type:'p',t:'Applications are evaluated by an independent international expert jury consisting of leading international specialists in prosthetics, orthotics, rehabilitation, medicine, and related fields.'},
+      {type:'p',t:'Jury members evaluate submissions based on approved criteria, guided by principles of independence, objectivity, impartiality, and confidentiality. Members are not required to provide individual comments or justifications for assigned scores. The decision of the international expert jury is final and not subject to appeal.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Оцінювання заявок здійснює незалежне міжнародне експертне журі у складі провідних міжнародних фахівців у сфері протезування, ортезування, реабілітації, медицини та суміжних напрямів.'},
+      {type:'p',t:'Члени журі керуються принципами незалежності, об\'єктивності, неупередженості та конфіденційності. Члени журі не зобов\'язані надавати індивідуальні коментарі або обґрунтування виставлених оцінок. Рішення міжнародного експертного журі є остаточним та оскарженню не підлягає.'}
+    ]
+  },
+  {
+    h:'13. Conflict of Interest',
+    hUa:'13. Конфлікт інтересів',
+    body:[
+      {type:'p',t:'To ensure independent evaluation, CO CF Protez Hub transfers applications to the jury in anonymized form and pre-screens applications to exclude potential conflicts of interest.'},
+      {type:'p',t:'If a jury member identifies a nominee or uncovers a conflict of interest during evaluation, they must promptly notify the Organizer and recuse themselves from further evaluation of that specific application.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'З метою забезпечення незалежності Protez Hub передає заявки журі в анонімізованому вигляді та здійснює попередню перевірку для виключення потенційного конфлікту інтересів.'},
+      {type:'p',t:'Якщо під час оцінювання член журі ідентифікував номінанта або виявив конфлікт інтересів, він зобов\'язаний невідкладно повідомити Організатора та утриматися від подальшого оцінювання відповідної заявки.'}
+    ]
+  },
+  {
+    h:'14. Use of Materials',
+    hUa:'14. Використання матеріалів',
+    body:[
+      {type:'p',t:'By submitting an application, the applicant confirms they hold all necessary rights to the submitted materials and the right to provide them to the Organizer for the purposes of conducting the Award.'},
+      {type:'p',t:'CO CF "Protez Hub" has the right to use application materials free of charge solely for informational purposes related to organizing, conducting, and promoting the Award, with authorship credited unless otherwise agreed. The Organizer does not acquire intellectual property ownership rights beyond this scope.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Подаючи заявку, заявник підтверджує, що має всі необхідні права на використання матеріалів та право надавати їх Організатору для цілей проведення Премії.'},
+      {type:'p',t:'БО БФ "Протез Хаб" має право безоплатно використовувати матеріали заявки виключно в інформаційних цілях, пов\'язаних з організацією та популяризацією премії, із зазначенням авторства. Організатор не набуває майнових прав інтелектуальної власності на подані матеріали понад обсяг, визначений цими Правилами.'}
+    ]
+  },
+  {
+    h:'15. Processing of Personal Data',
+    hUa:'15. Обробка персональних даних',
+    body:[
+      {type:'p',t:'By submitting an application, the applicant consents to personal data processing solely for organizing, conducting, and promoting the Award, in compliance with the Law of Ukraine "On Personal Data Protection" and other applicable regulatory acts. Personal data processing is carried out only to the extent necessary to conduct the Award.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'Подаючи заявку, заявник надає згоду на обробку персональних даних виключно з метою організації, проведення та популяризації Премії відповідно до Закону України "Про захист персональних даних" та інших застосовних нормативно-правових актів. Обробка персональних даних здійснюється лише в обсязі, необхідному для проведення Премії.'}
+    ]
+  },
+  {
+    h:'16. Rights of CO CF "Protez Hub"',
+    hUa:'16. Права БО БФ "Протез Хаб"',
+    body:[
+      {type:'p',t:'CO CF "Protez Hub" reserves the right to:'},
+      {type:'ul',items:['Verify the accuracy of information provided in applications','Request additional documents, explanations, or supporting materials','Clarify technical requirements for formatting applications and materials','Reject applications that do not comply with these Rules','Refuse to consider an application submitted after the closing deadline','Change the dates and schedule for conducting the Award','Merge, modify, or cancel individual nomination categories if necessary','Choose not to name a winner in a specific category if no applications meet the established criteria','Revoke finalist or winner status if inaccurate information is discovered after evaluation concludes']}
+    ],
+    bodyUa:[
+      {type:'p',t:'БО БФ "Протез Хаб" залишає за собою право:'},
+      {type:'ul',items:['перевіряти достовірність інформації, зазначеної у заявках','запитувати додаткові документи, пояснення або підтверджувальні матеріали','уточнювати технічні вимоги до оформлення заявок та матеріалів','відхиляти заявки, що не відповідають цим Правилам','відмовляти у розгляді заявок, поданих після завершення строку прийому','змінювати дати та графік проведення Премії','об\'єднувати, змінювати або скасовувати окремі номінації','не визначати переможця у конкретній номінації, якщо жодна заявка не відповідає критеріям','анулювати статус фіналіста або переможця, якщо після оцінювання виявлено недостовірну інформацію']}
+    ]
+  },
+  {
+    h:'17. Ethical Principles',
+    hUa:'17. Етичні принципи',
+    body:[
+      {type:'p',t:'CO CF "Protez Hub" reserves the right to refuse or terminate the review of an application if it is established that:'},
+      {type:'ul',items:['The application contains inaccurate information','Materials were submitted without proper rights or permissions','The nominee\'s activities contradict professional or ethical standards','The submitted materials could damage the reputation of the Limitless Abilities Awards or its Organizer']}
+    ],
+    bodyUa:[
+      {type:'p',t:'БО БФ "Протез Хаб" залишає за собою право відмовити у розгляді або припинити розгляд заявки, якщо встановлено, що:'},
+      {type:'ul',items:['заявка містить недостовірну інформацію','матеріали подані без належних прав або дозволів','діяльність номінанта суперечить професійним або етичним стандартам','подані матеріали можуть завдати шкоди репутації Премії або Організатора']}
+    ]
+  },
+  {
+    h:'18. Force Majeure',
+    hUa:'18. Форс-мажор',
+    body:[
+      {type:'p',t:'CO CF "Protez Hub" bears no responsibility for total or partial failure to fulfill its obligations to conduct the Award in the event of force majeure. In such cases, the Organizer reserves the right to change the dates, format, or procedure of individual stages. Participants will be notified through the official Award website.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'БО БФ "Протез Хаб" не несе відповідальності за повне або часткове невиконання зобов\'язань щодо проведення Премії у разі форс-мажорних обставин. Організатор залишає за собою право змінити дати, формат або порядок проведення окремих етапів. Учасники будуть повідомлені через офіційний вебсайт Премії.'}
+    ]
+  },
+  {
+    h:'19. Final Provisions',
+    hUa:'19. Прикінцеві положення',
+    body:[
+      {type:'p',t:'For matters not regulated by these Rules, decisions are made by CO CF "Protez Hub". The Organizer reserves the right to introduce amendments to these Rules. The updated version comes into force from the moment it is published on the official Limitless Abilities Awards website. The official version of the Rules is the version published on the official website.'}
+    ],
+    bodyUa:[
+      {type:'p',t:'З питань, не врегульованих цими Правилами, рішення приймає БО БФ "Протез Хаб". Організатор залишає за собою право вносити зміни до цих Правил. Оновлена версія набирає чинності з моменту її публікації на офіційному вебсайті премії Limitless Abilities Awards.'}
+    ]
+  }
+];
+
+let lang = 'en';
+let allOpen = false;
+
+function renderBody(items) {
+  return items.map(item => {
+    if (item.type === 'p') return `<p>${item.t}</p>`;
+    if (item.type === 'ul') return `<ul>${item.items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    return '';
+  }).join('');
+}
+
+function build() {
+  const toc = document.getElementById('tocList');
+  const acc = document.getElementById('accList');
+  toc.innerHTML = '';
+  acc.innerHTML = '';
+
+  REGS.forEach((s, i) => {
+    const h = lang === 'ua' ? s.hUa : s.h;
+    const body = lang === 'ua' ? s.bodyUa : s.body;
+
+    const li = document.createElement('li');
+    li.innerHTML = `<a href="#sec-${i+1}">${h}</a>`;
+    toc.appendChild(li);
+
+    const item = document.createElement('div');
+    item.className = 'acc-item';
+    item.id = `sec-${i+1}`;
+    item.innerHTML = `
+      <button class="acc-hd">
+        <span class="acc-hd__num">${String(i+1).padStart(2,'0')}</span>
+        <span class="acc-hd__title">${h.replace(/^\d+\.\s*/,'')}</span>
+        <svg class="acc-hd__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="acc-body">${renderBody(body)}</div>
+    `;
+    item.querySelector('.acc-hd').addEventListener('click', () => item.classList.toggle('open'));
+    acc.appendChild(item);
+  });
+
+  document.getElementById('toc-title').textContent = lang === 'ua' ? 'Зміст' : 'Contents';
+  document.getElementById('expandBtn').textContent = lang === 'ua' ? 'Розгорнути всі' : 'Expand all';
+}
+
+function updateLang(l) {
+  lang = l;
+  document.getElementById('langToggle').textContent = lang === 'en' ? 'UA' : 'EN';
+  document.getElementById('hero-eye').textContent = lang === 'ua' ? 'Нагороди 2026' : 'Awards 2026';
+  document.getElementById('hero-h1').textContent = lang === 'ua' ? 'Регламент премії' : 'Award Regulations';
+  document.getElementById('hero-sub').textContent = lang === 'ua'
+    ? 'Офіційні правила участі у премії Limitless Abilities Awards 2026, організованій БО БФ "Протез Хаб".'
+    : 'Official rules of participation for the Limitless Abilities Awards 2026, organized by CO CF Protez Hub.';
+  document.getElementById('back-text').textContent = lang === 'ua' ? 'Усі номінації' : 'All nominations';
+  build();
+}
+
+build();
+
+document.getElementById('expandBtn').addEventListener('click', () => {
+  allOpen = !allOpen;
+  document.querySelectorAll('.acc-item').forEach(el => el.classList.toggle('open', allOpen));
+  document.getElementById('expandBtn').textContent = allOpen
+    ? (lang === 'ua' ? 'Згорнути всі' : 'Collapse all')
+    : (lang === 'ua' ? 'Розгорнути всі' : 'Expand all');
+});
+
+document.getElementById('langToggle').addEventListener('click', () => updateLang(lang === 'en' ? 'ua' : 'en'));
+document.getElementById('burger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+
+// TOC anchor clicks open the item
+document.getElementById('tocList').addEventListener('click', e => {
+  const a = e.target.closest('a');
+  if (!a) return;
+  e.preventDefault();
+  const target = document.querySelector(a.getAttribute('href'));
+  if (target) { target.classList.add('open'); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+});
+</script>
+</body>
+</html>
