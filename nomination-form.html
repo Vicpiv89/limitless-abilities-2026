@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Apply — Limitless Abilities Awards 2026</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Phenomena:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=akrobat:400,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:      #13AEE5;
+      --blue-dark: #0E8FBD;
+      --yellow:    #F6C416;
+      --navy:      #D6EAF6;
+      --ink:       #BACCD8;
+      --muted:     #6A8A9A;
+      --border:    #1E2E3A;
+      --gray-bg:   #141E26;
+      --white:     #0D1116;
+      --font-d: 'Phenomena', sans-serif;
+      --font-b: 'Akrobat', sans-serif;
+      --r-sm: 8px;
+      --r-md: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-b); background: var(--white); color: var(--ink); line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+    .eyebrow { font-family: var(--font-d); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); }
+    .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); }
+    .rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin: 0.9rem 0 1.8rem; }
+    @keyframes rule-glow { 0%,100%{box-shadow:0 0 6px rgba(19,174,229,0.4);}50%{box-shadow:0 0 20px rgba(19,174,229,0.8);} }
+    .rule { animation: rule-glow 2s ease-in-out infinite; }
+
+    .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--r-sm); font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; }
+    .btn--primary { background: var(--blue); color: #fff; }
+    .btn--primary:hover { background: var(--blue-dark); box-shadow: 0 0 22px rgba(19,174,229,0.45); transform: translateY(-1px); }
+    .btn--outline { border-color: var(--muted); color: var(--muted); background: transparent; font-size: 0.78rem; padding: 0.6rem 1.4rem; }
+    .btn--outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* NAV */
+    .nav { background: rgba(13,17,22,0.92); backdrop-filter: blur(14px); padding: 1.1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(19,174,229,0.12); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo img { height: 40px; display: block; }
+    .nav__right { display: flex; align-items: center; gap: 1rem; }
+    .nav__lang { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--blue); cursor: pointer; user-select: none; border: 1.5px solid var(--blue); border-radius: 4px; padding: 0.2rem 0.5rem; transition: background 0.2s, color 0.2s; }
+    .nav__lang:hover { background: var(--blue); color: #fff; }
+    .nav__back { font-family: var(--font-d); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+    .nav__back:hover { color: var(--blue); }
+
+    /* HEADER */
+    .form-header { background: #0D1116; padding: 3.5rem 0 3rem; border-bottom: 1px solid var(--border); }
+    .form-header__cat { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(19,174,229,0.1); border: 1px solid rgba(19,174,229,0.2); border-radius: 999px; padding: 0.3rem 0.9rem 0.3rem 0.5rem; margin-bottom: 1.2rem; }
+    .form-header__num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; font-family: var(--font-d); font-weight: 700; font-size: 0.8rem; }
+    .form-header__cat-name { font-family: var(--font-d); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
+    .form-header__desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; max-width: 600px; margin-top: 0.8rem; }
+
+    /* CRITERIA BOX */
+    .criteria-box { background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .criteria-box__title { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; }
+    .criteria-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .criteria-box li { font-size: 0.85rem; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.5; }
+    .criteria-box li::before { content: '·'; position: absolute; left: 0; color: var(--blue); }
+    .criteria-box li strong { color: var(--ink); }
+
+    /* FORM */
+    .form-section { padding: 3rem 0 5rem; }
+    .form-block { background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 2rem; margin-bottom: 1.5rem; }
+    .form-block__title { font-family: var(--font-d); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-family: var(--font-d); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .form-group label span { color: var(--blue); margin-left: 0.2rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: var(--r-sm);
+      color: var(--ink); font-family: var(--font-b); font-size: 0.95rem; padding: 0.7rem 0.9rem;
+      width: 100%; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); }
+    .form-group select option { background: #141E26; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group .hint { font-size: 0.75rem; color: var(--muted); opacity: 0.65; margin-top: 0.15rem; }
+    .form-full { grid-column: 1 / -1; }
+
+    /* CRITERIA FIELDS */
+    .criteria-fields { display: flex; flex-direction: column; gap: 1.2rem; }
+    .criteria-field-label { font-size: 0.8rem; color: var(--ink); line-height: 1.5; margin-bottom: 0.3rem; }
+    .criteria-field-label strong { color: var(--blue); display: block; font-family: var(--font-d); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
+
+    /* CONSENT */
+    .consent-group { display: flex; gap: 0.8rem; align-items: flex-start; padding: 1.2rem; background: rgba(255,255,255,0.03); border-radius: var(--r-sm); border: 1px solid var(--border); }
+    .consent-group input[type=checkbox] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--blue); }
+    .consent-group label { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+    .consent-group a { color: var(--blue); }
+
+    /* SUBMIT */
+    .form-submit { margin-top: 2rem; display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+    .form-submit .btn--primary { padding: 0.95rem 2.5rem; font-size: 0.9rem; }
+
+    /* SUCCESS */
+    .form-success { display: none; text-align: center; padding: 3rem 2rem; background: var(--gray-bg); border: 1px solid rgba(19,174,229,0.25); border-radius: var(--r-md); }
+    .form-success svg { margin: 0 auto 1.2rem; color: var(--blue); }
+    .form-success h3 { font-family: var(--font-d); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .form-success p { color: var(--muted); font-size: 0.9rem; }
+
+    /* FOOTER */
+    .footer { background: var(--gray-bg); padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-back { font-family: var(--font-d); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .footer-back:hover { color: var(--blue); }
+    .footer-logo img { height: 34px; opacity: 0.6; }
+    .footer-copy { font-size: 0.75rem; color: var(--muted); opacity: 0.45; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container" style="max-width:1140px;">
+    <div class="nav__inner">
+      <a href="nominations.html" class="nav__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span id="nav-back-text">All nominations</span>
+      </a>
+      <a href="index.html" class="nav__logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></a>
+      <div class="nav__right">
+        <span class="nav__lang" id="langToggle">UA</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="form-header">
+  <div class="container">
+    <div class="form-header__cat">
+      <span class="form-header__num" id="hdr-num">1</span>
+      <span class="form-header__cat-name" id="hdr-cat">Clinical Excellence</span>
+    </div>
+    <p class="eyebrow" id="hdr-eye">Award Application</p>
+    <h1 class="t-h2" id="hdr-title" style="margin:0.4rem 0 0;"></h1>
+    <p class="form-header__desc" id="hdr-desc"></p>
+
+    <div class="criteria-box" id="criteriaBox">
+      <div class="criteria-box__title" id="criteria-title">Evaluation Criteria (25% each)</div>
+      <ul id="criteriaList"></ul>
+    </div>
+  </div>
+</div>
+
+<section class="form-section">
+  <div class="container">
+    <form id="nomForm" action="https://formspree.io/f/NOMINATION_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" id="formSubject" value="Nomination — Limitless Abilities Awards 2026">
+      <input type="hidden" name="nomination_id" id="hiddenNomId">
+      <input type="hidden" name="nomination_name" id="hiddenNomName">
+
+      <!-- BLOCK 1: Nominee info -->
+      <div class="form-block">
+        <div class="form-block__title" id="block1-title">Nominee Information</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label id="lbl-fn">First Name<span>*</span></label>
+            <input type="text" name="firstName" id="fn" required>
+          </div>
+          <div class="form-group">
+            <label id="lbl-ln">Last Name<span>*</span></label>
+            <input type="text" name="lastName" id="ln" required>
+          </div>
+          <div class="form-group">
+            <label id="lbl-org">Organization / Institution<span>*</span></label>
+            <input type="text" name="organization" id="org" required>
+          </div>
+          <div class="form-group">
+            <label id="lbl-pos">Position / Title</label>
+            <input type="text" name="position" id="pos">
+          </div>
+          <div class="form-group">
+            <label id="lbl-country">Country<span>*</span></label>
+            <input type="text" name="country" id="country" required>
+          </div>
+          <div class="form-group">
+            <label id="lbl-city">City</label>
+            <input type="text" name="city" id="city">
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 2: Contact info -->
+      <div class="form-block">
+        <div class="form-block__title" id="block2-title">Contact Information (Applicant)</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label id="lbl-em">Email<span>*</span></label>
+            <input type="email" name="email" id="em" required>
+          </div>
+          <div class="form-group">
+            <label id="lbl-ph">Phone</label>
+            <input type="tel" name="phone" id="ph">
+          </div>
+          <div class="form-group form-full">
+            <label id="lbl-rel">Relationship to Nominee<span>*</span></label>
+            <select name="relationship" id="rel" required>
+              <option value="" disabled selected id="rel-placeholder">Select…</option>
+              <option value="self" id="rel-self">I am nominating myself</option>
+              <option value="colleague" id="rel-col">Colleague</option>
+              <option value="supervisor" id="rel-sup">Supervisor / Manager</option>
+              <option value="patient" id="rel-pat">Patient or family member</option>
+              <option value="partner" id="rel-par">Partner organization</option>
+              <option value="other" id="rel-oth">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3: Criteria responses -->
+      <div class="form-block">
+        <div class="form-block__title" id="block3-title">Nomination Justification</div>
+        <div class="criteria-fields" id="criteriaFields">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+
+      <!-- BLOCK 4: Supporting materials -->
+      <div class="form-block">
+        <div class="form-block__title" id="block4-title">Supporting Materials</div>
+        <div class="form-group">
+          <label id="lbl-mat">List supporting materials you plan to submit</label>
+          <textarea name="materials" id="mat" rows="4" placeholder="e.g. Portfolio PDF, recommendation letter from Dr. X, clinical outcome data, certificates..."></textarea>
+          <div class="hint" id="mat-hint">Note: detailed documents can be sent separately to awards@protezhub.com after submitting this form.</div>
+        </div>
+        <div class="form-group" style="margin-top:1rem;">
+          <label id="lbl-extra">Additional Comments</label>
+          <textarea name="extraComments" id="extra" rows="3"></textarea>
+        </div>
+      </div>
+
+      <!-- CONSENT -->
+      <div class="consent-group">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent" id="lbl-consent">
+          I confirm that the information provided is accurate and that I have the nominee's permission to submit this application (or I am nominating myself). I agree to the <a href="index.html" target="_blank">Privacy Policy</a> and consent to processing of personal data for the purpose of this award.
+        </label>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn--primary" id="submit-btn">Submit Application &rarr;</button>
+        <a href="nominations.html" class="btn btn--outline" id="cancel-btn">Cancel</a>
+      </div>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
+      <h3 id="success-h3">Application Submitted!</h3>
+      <p id="success-p">Thank you. We'll review your submission and be in touch by email. The winners will be announced at the Awards Ceremony on Aug 29, 2026.</p>
+      <a href="nominations.html" class="btn btn--primary" style="margin-top:1.5rem;" id="success-back">View all nominations &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container" style="max-width:1140px;">
+    <div class="footer-inner">
+      <a href="nominations.html" class="footer-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        <span id="footer-back-text">All nominations</span>
+      </a>
+      <div class="footer-logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></div>
+      <div class="footer-copy">&copy; 2026 Protez Hub</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const NOMINATIONS = [
+  {id:1,en:'Clinical Excellence',ua:'Клінічна майстерність',orig:'Протезист-ортезист року',desc:"Recognizes prosthetists and orthotists who demonstrate high professional expertise and outstanding patient care outcomes.",descUa:"Номінація об'єднує протезистів-ортезистів, які демонструють високий рівень професійної експертизи та досягають визначних результатів у роботі з пацієнтами.",criteria:['Clinical outcomes & complexity of cases','Professional expertise & evidence-based practice','Continuing professional development','Contribution to the profession (mentorship, publications, teaching)'],criteriaUa:['Клінічні результати та складність клінічних випадків','Професійна експертиза та сучасні доказові практики','Безперервний розвиток та підвищення кваліфікації','Внесок у розвиток професії: менторство, публікації, викладання']},
+  {id:2,en:'Technical Excellence',ua:'Технічна майстерність',orig:'Технік-протезист-ортезист року',desc:'For prosthetic and orthotic technicians who create high-quality technical solutions and implement modern manufacturing approaches.',descUa:'Присвячена технікам-протезистам-ортезистам, які створюють високоякісні технічні рішення та впроваджують сучасні виробничі підходи.',criteria:['Quality of fabricated devices','Use of modern technologies (CAD/CAM, advanced materials)','Quality of technical decisions in complex cases','Adaptation of solutions to individual patient needs'],criteriaUa:['Якість виготовлення виробів','Використання сучасних технологій (CAD/CAM, нові матеріали)','Якість технічних рішень у складних випадках','Адаптація рішень до індивідуальних потреб пацієнтів']},
+  {id:3,en:'Effective Multidisciplinary Collaboration',ua:'Ефективна мультидисциплінарна взаємодія',orig:'Реабілітаційна команда року (ампутації)',desc:'For rehabilitation teams that provide comprehensive support at every recovery stage through effective interdisciplinary collaboration.',descUa:'Відзначає реабілітаційні команди, які забезпечують комплексний супровід людини на всіх етапах відновлення завдяки ефективній взаємодії фахівців.',criteria:['Interdisciplinary coordination model','Rehabilitation outcomes (patient results)','Comprehensive patient journey support','Implementation of evidence-based international protocols'],criteriaUa:['Організація міждисциплінарної взаємодії','Результати реабілітації пацієнтів','Комплексний супровід на всіх етапах','Використання сучасних доказових практик']},
+  {id:4,en:'Professional Potential',ua:'Професійний потенціал',orig:'Студент року (протезування-ортезування)',desc:'Supporting prosthetics & orthotics students who demonstrate strong knowledge, practical skills, and professional motivation.',descUa:'Спрямована на підтримку студентів освітніх програм з протезування та ортезування, які демонструють високий рівень знань, практичних навичок і мотивації до професійного розвитку.',criteria:['Academic achievements & research activity','Practical competencies & skills','Professional activity (projects, volunteering, research)','Motivation for professional development'],criteriaUa:['Академічні досягнення та наукова діяльність','Практичні компетенції та навички','Професійна активність: проєкти, волонтерство','Мотивація до професійного розвитку']},
+  {id:5,en:'Effective Leadership',ua:'Ефективне управління',orig:'Керівник року (протезування-ортезування)',desc:'For managers who develop their teams, raise service quality, and implement modern management practices.',descUa:'Нагорода присуджується керівникам, які розвивають команди, підвищують якість послуг і впроваджують сучасні управлінські практики.',criteria:['Organizational development & management decisions','Team development & professional growth culture','Modern management practices & process quality','Partnership development & resource mobilization'],criteriaUa:['Розвиток організації та управлінські рішення','Розвиток команди та умов для зростання','Впровадження сучасних управлінських практик','Розвиток партнерств та залучення ресурсів']},
+  {id:6,en:'Recovery Journey',ua:'Шлях відновлення',orig:'Герой/героїня року (пацієнт)',desc:'For people who have completed a rehabilitation journey, achieved significant results, and inspire others.',descUa:'Присвячена людям, які пройшли шлях реабілітації, досягли значних результатів і власним прикладом надихають інших.',criteria:['Achievements during rehabilitation & return to active life','Post-rehabilitation achievements (sport, career, civic life)','Support for others (peer support, mentorship)','Social contribution & inclusion advocacy'],criteriaUa:['Досягнення у процесі реабілітації','Досягнення після реабілітації','Підтримка інших людей та розвиток спільноти',"Суспільний внесок та популяризація безбар'єрності"]},
+  {id:7,en:'Best Service',ua:'Найкращий сервіс',orig:'Найкращий сервіс року (протезування-ортезування)',desc:'Recognizes prosthetics and orthotics centers that ensure a high level of service, accessibility, and patient support.',descUa:'Відзначає центри протезування та ортезування, які забезпечують високий рівень сервісу, доступності та підтримки пацієнтів.',criteria:['Accessibility of services (physical, informational, organizational)','Patient communication & support quality','Comprehensive patient journey','Quality assurance system'],criteriaUa:['Доступність послуг','Взаємодія з пацієнтами та якість комунікації','Комплексний супровід пацієнтів','Система забезпечення якості']},
+  {id:8,en:'Industry Development Leader',ua:'Лідер розвитку галузі',orig:'Лідер року (сфера протезування-ортезування)',desc:'For professionals who shape systemic changes, develop the professional community, and advance prosthetics & orthotics in Ukraine.',descUa:'Вшановує фахівців, які формують системні зміни, розвивають професійну спільноту та сприяють розвитку сфери протезування та ортезування в Україні.',criteria:['Systemic impact & industry-wide initiatives','Professional community development','Profession popularization & advocacy','Long-term contribution with sustainable positive impact'],criteriaUa:['Системний вплив та реалізовані ініціативи','Розвиток професійної спільноти','Популяризація професії та адвокація','Довгостроковий внесок зі сталим позитивним впливом']},
+  {id:9,en:'International Partnership',ua:'Міжнародне партнерство',orig:'Міжнародний друг року (протезування-ортезування)',desc:'For international organizations, foreign specialists, and partners contributing to the development of prosthetics & orthotics in Ukraine.',descUa:'Нагорода присуджується міжнародним організаціям, іноземним фахівцям і партнерам, які сприяють розвитку сфери протезування та ортезування в Україні.',criteria:['Scale and sustainability of collaboration','Knowledge and expertise transfer to Ukrainian specialists','Practical contribution (projects, humanitarian, expert support)','International impact & promoting Ukrainian experience globally'],criteriaUa:['Масштаб і сталість співпраці','Передача знань і досвіду українським фахівцям','Практичний внесок та реалізовані проєкти','Міжнародний вплив та популяризація українського досвіду']}
+];
+
+const params = new URLSearchParams(location.search);
+const nomId = parseInt(params.get('n')) || 1;
+let lang = params.get('lang') === 'ua' ? 'ua' : 'en';
+
+const nom = NOMINATIONS.find(n => n.id === nomId) || NOMINATIONS[0];
+
+function render() {
+  const isUa = lang === 'ua';
+  document.getElementById('langToggle').textContent = isUa ? 'EN' : 'UA';
+
+  // Header
+  document.getElementById('hdr-num').textContent = nom.id;
+  document.getElementById('hdr-cat').textContent = isUa ? nom.ua : nom.en;
+  document.getElementById('hdr-eye').textContent = isUa ? 'Заявка на нагороду' : 'Award Application';
+  document.getElementById('hdr-title').textContent = isUa ? nom.ua : nom.en;
+  document.getElementById('hdr-desc').textContent = isUa ? nom.descUa : nom.desc;
+  document.getElementById('criteria-title').textContent = isUa ? 'Критерії оцінювання (по 25%)' : 'Evaluation Criteria (25% each)';
+  document.title = `Apply: ${isUa ? nom.ua : nom.en} — Limitless Abilities Awards 2026`;
+
+  // Criteria list
+  const criteria = isUa ? nom.criteriaUa : nom.criteria;
+  document.getElementById('criteriaList').innerHTML = criteria.map(c => `<li>${c}</li>`).join('');
+
+  // Hidden fields
+  document.getElementById('hiddenNomId').value = nom.id;
+  document.getElementById('hiddenNomName').value = isUa ? nom.ua : nom.en;
+  document.getElementById('formSubject').value = `Nomination #${nom.id}: ${isUa ? nom.ua : nom.en} — Limitless Abilities Awards 2026`;
+
+  // Criteria response fields
+  const fieldsEl = document.getElementById('criteriaFields');
+  fieldsEl.innerHTML = criteria.map((c, i) => `
+    <div class="form-group">
+      <div class="criteria-field-label">
+        <strong>${isUa ? `Критерій ${i+1}` : `Criterion ${i+1}`} (25%)</strong>
+        ${c}
+      </div>
+      <textarea name="criterion_${i+1}" rows="4" required placeholder="${isUa ? 'Опишіть…' : 'Describe…'}"></textarea>
+    </div>
+  `).join('');
+
+  // Nav & footer
+  const backText = isUa ? 'Усі номінації' : 'All nominations';
+  document.getElementById('nav-back-text').textContent = backText;
+  document.getElementById('footer-back-text').textContent = backText;
+
+  // Block titles
+  document.getElementById('block1-title').textContent = isUa ? 'Інформація про номінанта' : 'Nominee Information';
+  document.getElementById('block2-title').textContent = isUa ? 'Контактна інформація (заявника)' : 'Contact Information (Applicant)';
+  document.getElementById('block3-title').textContent = isUa ? 'Обґрунтування номінації' : 'Nomination Justification';
+  document.getElementById('block4-title').textContent = isUa ? 'Підтверджувальні матеріали' : 'Supporting Materials';
+
+  // Labels
+  document.getElementById('lbl-fn').innerHTML = (isUa ? "Ім'я" : 'First Name') + '<span>*</span>';
+  document.getElementById('lbl-ln').innerHTML = (isUa ? 'Прізвище' : 'Last Name') + '<span>*</span>';
+  document.getElementById('lbl-org').innerHTML = (isUa ? 'Організація / Установа' : 'Organization / Institution') + '<span>*</span>';
+  document.getElementById('lbl-pos').textContent = isUa ? 'Посада' : 'Position / Title';
+  document.getElementById('lbl-country').innerHTML = (isUa ? 'Країна' : 'Country') + '<span>*</span>';
+  document.getElementById('lbl-city').textContent = isUa ? 'Місто' : 'City';
+  document.getElementById('lbl-em').innerHTML = 'Email<span>*</span>';
+  document.getElementById('lbl-ph').textContent = isUa ? 'Телефон' : 'Phone';
+  document.getElementById('lbl-rel').innerHTML = (isUa ? "Ким є заявник щодо номінанта" : 'Relationship to Nominee') + '<span>*</span>';
+  document.getElementById('rel-placeholder').textContent = isUa ? 'Оберіть…' : 'Select…';
+  document.getElementById('rel-self').textContent = isUa ? 'Я номінуюся сам/сама' : 'I am nominating myself';
+  document.getElementById('rel-col').textContent = isUa ? 'Колега' : 'Colleague';
+  document.getElementById('rel-sup').textContent = isUa ? 'Керівник' : 'Supervisor / Manager';
+  document.getElementById('rel-pat').textContent = isUa ? 'Пацієнт або родич' : 'Patient or family member';
+  document.getElementById('rel-par').textContent = isUa ? 'Партнерська організація' : 'Partner organization';
+  document.getElementById('rel-oth').textContent = isUa ? 'Інше' : 'Other';
+  document.getElementById('lbl-mat').textContent = isUa ? 'Перелік підтверджувальних матеріалів' : 'List supporting materials you plan to submit';
+  document.getElementById('mat').placeholder = isUa ? 'Напр.: портфоліо PDF, рекомендаційний лист, дані клінічних результатів, сертифікати…' : 'e.g. Portfolio PDF, recommendation letter, clinical outcome data, certificates…';
+  document.getElementById('mat-hint').textContent = isUa
+    ? 'Документи можна надіслати окремо на awards@protezhub.com після подання форми.'
+    : 'Note: documents can be sent separately to awards@protezhub.com after submitting this form.';
+  document.getElementById('lbl-extra').textContent = isUa ? 'Додаткові коментарі' : 'Additional Comments';
+  document.getElementById('lbl-consent').innerHTML = isUa
+    ? 'Підтверджую, що надана інформація є достовірною і що номінант дав(ла) згоду на подання заявки (або я номінуюся сам/сама). Я погоджуюся з <a href="index.html" target="_blank">Політикою конфіденційності</a> та надаю згоду на обробку персональних даних у межах цієї нагороди.'
+    : 'I confirm that the information provided is accurate and that I have the nominee\'s permission to submit this application (or I am nominating myself). I agree to the <a href="index.html" target="_blank">Privacy Policy</a> and consent to processing of personal data for the purpose of this award.';
+  document.getElementById('submit-btn').textContent = isUa ? 'Подати заявку →' : 'Submit Application →';
+  document.getElementById('cancel-btn').textContent = isUa ? 'Скасувати' : 'Cancel';
+  document.getElementById('success-h3').textContent = isUa ? 'Заявку надіслано!' : 'Application Submitted!';
+  document.getElementById('success-p').textContent = isUa
+    ? 'Дякуємо. Ми розглянемо вашу заявку та зв\'яжемося з вами електронною поштою. Переможці будуть оголошені на церемонії нагородження 29 серпня 2026 року.'
+    : 'Thank you. We\'ll review your submission and be in touch by email. The winners will be announced at the Awards Ceremony on Aug 29, 2026.';
+  document.getElementById('success-back').textContent = isUa ? 'Переглянути всі номінації →' : 'View all nominations →';
+}
+
+render();
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  lang = lang === 'en' ? 'ua' : 'en';
+  render();
+});
+
+// Formspree AJAX submission
+document.getElementById('nomForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const isUa = lang === 'ua';
+  btn.disabled = true;
+  btn.textContent = isUa ? 'Надсилання…' : 'Submitting…';
+  try {
+    const res = await fetch(e.target.action, {
+      method: 'POST',
+      body: new FormData(e.target),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('nomForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      btn.disabled = false;
+      btn.textContent = isUa ? 'Спробуйте ще раз' : 'Try Again';
+      alert(isUa ? 'Помилка надсилання. Будь ласка, спробуйте ще раз.' : 'Submission error. Please try again.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = isUa ? 'Спробуйте ще раз' : 'Try Again';
+    alert(isUa ? 'Немає з\'єднання з мережею.' : 'Network error. Please try again.');
+  }
+});
+</script>
+</body>
+</html>

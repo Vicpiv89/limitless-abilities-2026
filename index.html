@@ -820,7 +820,7 @@
     .sp-partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
     .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; opacity: 0.7; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
-    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; }
+    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; filter: brightness(0) invert(1); }
     @media (max-width: 768px) { .sp-partners-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 480px) { .sp-partners-grid { grid-template-columns: repeat(3, 1fr); } }
 
@@ -1063,17 +1063,6 @@
       <div class="rule rule--c" style="margin-top:0.8rem;"></div>
     </div>
 
-    <div class="sp-tier sp-tier--awards sp-tier--shaded reveal">
-      <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/ossur.png" alt="Össur"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
     <div class="sp-tier sp-tier--gold reveal">
       <div class="sp-tier__label" data-i18n="sp.gold">Gold Sponsors</div>
       <div class="sp-carousel">
@@ -1114,6 +1103,17 @@
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
           <div class="sp-logo-item"><img src="assets/logos/dniproprotez.png" alt="Dniproprotez"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-tier sp-tier--awards sp-tier--shaded reveal">
+      <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
+      <div class="sp-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-logo-item"><img src="assets/logos/ossur.png" alt="Össur"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
@@ -1812,6 +1812,11 @@
 
     setWidths(); update();
     window.addEventListener('resize', () => { setWidths(); update(); });
+
+    let spkTimer = setInterval(() => { page = (page + 1) % pages; update(); }, 4000);
+    wrap.addEventListener('mouseenter', () => clearInterval(spkTimer));
+    wrap.addEventListener('mouseleave', () => { spkTimer = setInterval(() => { page = (page + 1) % pages; update(); }, 4000); });
+
     if (prevBtn) prevBtn.addEventListener('click', () => { if (page > 0) { page--; update(); } });
     if (nextBtn) nextBtn.addEventListener('click', () => { if (page < pages - 1) { page++; update(); } });
 
@@ -1852,6 +1857,22 @@
     if (prevBtn) prevBtn.addEventListener('click', () => { pos -= STEP; updateSp(); });
     if (nextBtn) nextBtn.addEventListener('click', () => { pos += STEP; updateSp(); });
     updateSp();
+
+    if (items.length > 1) {
+      let spTimer = setInterval(() => {
+        const max = getMax();
+        if (pos >= max) pos = 0; else pos += ITEM_W + ITEM_GAP;
+        updateSp();
+      }, 3500);
+      car.addEventListener('mouseenter', () => clearInterval(spTimer));
+      car.addEventListener('mouseleave', () => {
+        spTimer = setInterval(() => {
+          const max = getMax();
+          if (pos >= max) pos = 0; else pos += ITEM_W + ITEM_GAP;
+          updateSp();
+        }, 3500);
+      });
+    }
   });
 
   // ── Formspree AJAX submissions
