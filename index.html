@@ -740,7 +740,7 @@
       display: flex; align-items: center; justify-content: center;
       background: transparent; padding: 0; overflow: hidden;
     }
-    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; filter: invert(1); mix-blend-mode: screen; opacity: 0.85; transition: opacity 0.2s; }
+    .sp-logo-item img { max-width: 300px; max-height: 140px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
     .sp-logo-item img:hover { opacity: 1; }
     #sponsors .t-h2 { color: #fff; }
     #sponsors .sp-tier__label { color: rgba(255,255,255,0.55) !important; }
@@ -793,9 +793,11 @@
     .sp-tier--silver .sp-tier__label { color: #B0C0CC; }
     .sp-tier--bronze .sp-tier__label { color: #CD7F32; }
     .sp-tier--awards .sp-tier__label { color: var(--blue); }
-    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; width: 140px; flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s; }
+    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; width: 140px; flex-shrink: 0; opacity: 0.75; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
-    .sp-partner-item img { max-width: 120px; max-height: 52px; object-fit: contain; filter: invert(1); mix-blend-mode: screen; }
+    .sp-partner-item img { max-width: 120px; max-height: 52px; object-fit: contain; filter: brightness(0) invert(1); }
+    .sp-partners-carousel .sp-car-wrap { max-width: 462px; }
+    .sp-partners-carousel .sp-car-track { justify-content: flex-start; }
 
     .sp-logo-item--empty { background: transparent !important; }
 
@@ -1833,12 +1835,13 @@
     const isPartners = car.classList.contains('sp-partners-carousel');
     const ITEM_W = isPartners ? 140 : 180;
     const ITEM_GAP = 19;
-    const STEP = (ITEM_W + ITEM_GAP) * 3;
+    const STEP = isPartners ? (ITEM_W + ITEM_GAP) : (ITEM_W + ITEM_GAP) * 3;
     let pos = 0;
 
     function getMax() {
       const totalW = items.length * (ITEM_W + ITEM_GAP) - ITEM_GAP;
-      return Math.max(0, totalW - (carWrap ? carWrap.offsetWidth : 600));
+      const visibleW = isPartners ? (3 * ITEM_W + 2 * ITEM_GAP) : (carWrap ? carWrap.offsetWidth : 600);
+      return Math.max(0, totalW - visibleW);
     }
 
     function updateSp() {
