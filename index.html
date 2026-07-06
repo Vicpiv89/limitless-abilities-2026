@@ -607,14 +607,9 @@
       background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.06) 20%, rgba(255,255,255,0.06) 80%, transparent 100%);
     }
 
-    /* ── Sponsor tier alternating bands ── */
-    .sp-tier--shaded {
-      background: rgba(19,174,229,0.08);
-      border-radius: 0;
-      padding: 1.4rem 1.8rem;
-      margin: 0 -1.8rem;
-    }
-    .sp-tier:not(.sp-tier--shaded) { padding: 0 0; }
+    .sp-tier { padding: 0; }
+    .sp-row--two { display: flex; gap: 2.5rem; }
+    .sp-row--two .sp-tier { flex: 1; min-width: 0; margin-bottom: 0; }
 
     /* ── RESPONSIVE ── */
     @media (max-width:1024px) {
@@ -677,7 +672,7 @@
       .hero__btns { flex-direction: column; gap: 0.65rem; }
       .hero__btns .btn { flex: none; width: 100%; text-align: center; font-size: 0.75rem; padding: 0.75rem 1.2rem; }
       .section-hd { margin-bottom: 1.6rem; }
-      .sp-tier--shaded { margin: 0 -1.1rem; padding: 1.2rem 1.1rem; }
+      .sp-row--two { flex-direction: column; gap: 1.5rem; }
       .acc-time-col { min-width: 80px; font-size: 0.75rem; }
       .sched-tracks { grid-template-columns: 1fr; }
       .acc-hd { gap: 0.8rem; }
@@ -754,11 +749,12 @@
     #sponsors .sp-tier--bronze .sp-tier__label { color: #CD7F32 !important; }
     #sponsors .sp-tier--awards .sp-tier__label { color: var(--blue) !important; }
     #sponsors .rule { background: rgba(255,255,255,0.3); }
-    #sponsors .sp-tier--shaded { background: rgba(255,255,255,0.04); }
     #sponsors .sp-car-btn { border-color: rgba(255,255,255,0.2); color: #fff; }
     #sponsors .sp-car-btn:hover { background: rgba(255,255,255,0.1); }
     #sponsors .sp-logo-item--empty { border-color: rgba(255,255,255,0.15); }
-    .sp-tier--gold .sp-logo-item img { max-height: 160px; max-width: 320px; }
+    .sp-tier--gold .sp-logo-item img { max-height: 200px; max-width: 400px; }
+    .sp-tier--silver .sp-logo-item img,
+    .sp-tier--bronze .sp-logo-item img { max-height: 100px; max-width: 240px; }
     .sp-logo-item--empty { border: 1px dashed var(--border); border-radius: var(--r-md); }
     .sp-logo-item--empty:hover { border-color: var(--blue); }
     .sp-logo-item--empty span { font-size: 0.68rem; color: var(--muted); opacity: 0.45; font-family: var(--font-d); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; line-height: 1.4; }
@@ -797,12 +793,9 @@
     .sp-tier--silver .sp-tier__label { color: #B0C0CC; }
     .sp-tier--bronze .sp-tier__label { color: #CD7F32; }
     .sp-tier--awards .sp-tier__label { color: var(--blue); }
-    .sp-partners-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; }
-    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; opacity: 0.7; transition: opacity 0.2s; }
+    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 60px; width: 140px; flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
-    .sp-partner-item img { max-width: 100%; max-height: 52px; object-fit: contain; filter: invert(1); mix-blend-mode: screen; }
-    @media (max-width: 768px) { .sp-partners-grid { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 480px) { .sp-partners-grid { grid-template-columns: repeat(3, 1fr); } }
+    .sp-partner-item img { max-width: 120px; max-height: 52px; object-fit: contain; filter: invert(1); mix-blend-mode: screen; }
 
     .sp-logo-item--empty { background: transparent !important; }
 
@@ -1049,29 +1042,30 @@
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--silver sp-tier--shaded reveal">
-      <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/yourhealth.png" alt="Your Health Trading"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+    <div class="sp-row--two reveal">
+      <div class="sp-tier sp-tier--silver">
+        <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
+        <div class="sp-carousel">
+          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+          <div class="sp-car-wrap"><div class="sp-car-track">
+            <div class="sp-logo-item"><img src="assets/logos/yourhealth.png" alt="Your Health Trading"></div>
+          </div></div>
+          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+      <div class="sp-tier sp-tier--bronze">
+        <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
+        <div class="sp-carousel">
+          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+          <div class="sp-car-wrap"><div class="sp-car-track">
+            <div class="sp-logo-item"><img src="assets/logos/ortoped-new.png" alt="Ortoped"></div>
+          </div></div>
+          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+        </div>
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--bronze reveal">
-      <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/ortoped-new.png" alt="Ortoped"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="sp-tier sp-tier--shaded reveal">
+    <div class="sp-tier reveal">
       <div class="sp-tier__label" data-i18n="sp.simulation">Simulation Area Sponsor</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
@@ -1082,7 +1076,7 @@
       </div>
     </div>
 
-    <div class="sp-tier sp-tier--awards sp-tier--shaded reveal">
+    <div class="sp-tier sp-tier--awards reveal">
       <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
       <div class="sp-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
@@ -1095,27 +1089,31 @@
 
     <div class="sp-tier reveal" style="margin-top:2.5rem;">
       <div class="sp-tier__label" data-i18n="sp.partnerslabel" style="margin-bottom:1.2rem;">Partners</div>
-      <div class="sp-partners-grid">
-        <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
-        <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
-        <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
-        <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
-        <div class="sp-partner-item"><img src="assets/partners/GMKA.png" alt="GMKA"></div>
-        <div class="sp-partner-item"><img src="assets/partners/GUForum.png" alt="GU Forum"></div>
-        <div class="sp-partner-item"><img src="assets/partners/HNMU.png" alt="HNMU"></div>
-        <div class="sp-partner-item"><img src="assets/partners/HospPart.png" alt="Hospital Partners"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Jonkoping.png" alt="Jönköping University"></div>
-        <div class="sp-partner-item"><img src="assets/partners/LANG.png" alt="LANG"></div>
-        <div class="sp-partner-item"><img src="assets/partners/MinDig.png" alt="Ministry of Digital Transformation"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Prosthetika.png" alt="Prosthetika"></div>
-        <div class="sp-partner-item"><img src="assets/partners/PU.png" alt="Patients of Ukraine"></div>
-        <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
-        <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
-        <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
-        <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
+      <div class="sp-carousel sp-partners-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
+          <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
+          <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GMKA.png" alt="GMKA"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GUForum.png" alt="GU Forum"></div>
+          <div class="sp-partner-item"><img src="assets/partners/HNMU.png" alt="HNMU"></div>
+          <div class="sp-partner-item"><img src="assets/partners/HospPart.png" alt="Hospital Partners"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Jonkoping.png" alt="Jönköping University"></div>
+          <div class="sp-partner-item"><img src="assets/partners/LANG.png" alt="LANG"></div>
+          <div class="sp-partner-item"><img src="assets/partners/MinDig.png" alt="Ministry of Digital Transformation"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Prosthetika.png" alt="Prosthetika"></div>
+          <div class="sp-partner-item"><img src="assets/partners/PU.png" alt="Patients of Ukraine"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
+          <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
+          <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
+          <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
     </div>
 
@@ -1831,8 +1829,9 @@
     const prevBtn = car.querySelector('.sp-car-prev');
     const nextBtn = car.querySelector('.sp-car-next');
     const carWrap = car.querySelector('.sp-car-wrap');
-    const items = Array.from(track.querySelectorAll('.sp-logo-item'));
-    const ITEM_W = 180;
+    const items = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
+    const isPartners = car.classList.contains('sp-partners-carousel');
+    const ITEM_W = isPartners ? 140 : 180;
     const ITEM_GAP = 19;
     const STEP = (ITEM_W + ITEM_GAP) * 3;
     let pos = 0;
