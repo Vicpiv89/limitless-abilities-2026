@@ -546,20 +546,17 @@
       overflow: hidden;
     }
     #curtain__word {
-      position: fixed; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 1rem;
+      position: fixed;
+      display: flex;
       font-family: var(--font-d); font-weight: 700;
       letter-spacing: 0.04em; text-transform: uppercase;
       line-height: 0.97;
       color: #13AEE5;
-      text-align: center;
       opacity: 0;
-      transition: opacity 0.45s ease;
       pointer-events: none;
     }
-    #curtain__word span { display: block; }
-    #curtain__logo { width: 72px; height: auto; display: block; }
+    #curtain__logo { width: auto; display: block; flex-shrink: 0; }
+    #curtain__title { display: block; }
 
     /* ── SCHEDULE ── */
     .sched-tabs { display:flex; margin:0 auto 2.5rem; width:fit-content; border:1.5px solid var(--border); border-radius:var(--r-pill); overflow:hidden; background:rgba(255,255,255,0.05); }
@@ -858,8 +855,7 @@
 <div id="curtain" aria-hidden="true">
   <div id="curtain__word">
     <img src="assets/logo-icon-crop.png" id="curtain__logo" alt="">
-    <span>Limitless</span>
-    <span>Abilities</span>
+    <div id="curtain__title">Limitless<br>Abilities</div>
   </div>
 </div>
 
@@ -1658,28 +1654,54 @@
 
 <script>
   // ── Intro curtain
-  const curtain = document.getElementById('curtain');
-  const cw      = document.getElementById('curtain__word');
+  const curtain   = document.getElementById('curtain');
+  const cw        = document.getElementById('curtain__word');
+  const cwLogo    = document.getElementById('curtain__logo');
+  const cwTitle   = document.getElementById('curtain__title');
+  const heroBrand = document.querySelector('.hero__brand');
+
+  // Freeze hero brand at final state now so position measurement is accurate
+  // and so it's already in place when the curtain fades away
+  heroBrand.style.animation = 'none';
+  heroBrand.style.opacity   = '1';
+  heroBrand.style.transform = 'none';
 
   document.fonts.ready.then(() => {
-    const fs = getComputedStyle(document.querySelector('.t-hero')).fontSize;
-    cw.style.fontSize = fs;
+    // Measure the real hero brand's exact position and layout
+    const rect   = heroBrand.getBoundingClientRect();
+    const bStyle = getComputedStyle(heroBrand);
 
-    // Step 1: fade text + logo in (opacity only, no movement)
-    requestAnimationFrame(() => { cw.style.opacity = '1'; });
+    // Mirror position + layout exactly
+    cw.style.left           = rect.left   + 'px';
+    cw.style.top            = rect.top    + 'px';
+    cw.style.width          = rect.width  + 'px';
+    cw.style.height         = rect.height + 'px';
+    cw.style.flexDirection  = bStyle.flexDirection;
+    cw.style.gap            = bStyle.gap;
+    cw.style.alignItems     = bStyle.alignItems;
+    cw.style.justifyContent = bStyle.justifyContent;
 
-    // Step 2: transition background to the dark site color
+    // Mirror icon height
+    cwLogo.style.height = getComputedStyle(document.querySelector('.hero__icon')).height;
+
+    // Mirror title font size
+    cwTitle.style.fontSize = getComputedStyle(document.querySelector('.t-hero')).fontSize;
+
+    // Show immediately — no animation, background just appears around them
+    cw.style.opacity = '1';
+
+    // Transition background to the site's dark colour
     setTimeout(() => {
       curtain.style.transition = 'background-color 0.9s ease';
       curtain.style.backgroundColor = '#090C11';
-    }, 600);
+    }, 500);
 
-    // Step 3: fade out whole curtain
+    // Fade out curtain
     setTimeout(() => {
       curtain.style.transition = 'opacity 0.75s ease';
       curtain.style.opacity = '0';
       setTimeout(() => curtain.remove(), 800);
-    }, 1700);
+    }, 1600);
   });
 
   // ── Nav shadow on scroll
