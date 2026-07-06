@@ -40,11 +40,7 @@
     .rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; }
     .rule--c { margin-left: auto; margin-right: auto; }
     .rule--yellow { background: var(--yellow); }
-    @keyframes rule-glow {
-      0%, 100% { box-shadow: 0 0 6px rgba(19,174,229,0.4); }
-      50%       { box-shadow: 0 0 20px rgba(19,174,229,0.8); }
-    }
-    .rule { animation: rule-glow 2s ease-in-out infinite; }
+    /* glow animation removed */
 
     .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--r-sm); font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; }
     .btn--primary { background: var(--blue); color: #fff; }
@@ -72,7 +68,7 @@
 
     /* HERO */
     .nom-hero { background: #0D1116; padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
-    .nom-hero__mark { position: absolute; width: 480px; bottom: -60px; right: -60px; opacity: 0.12; pointer-events: none; }
+    .nom-hero__mark { position: absolute; width: 480px; bottom: -60px; right: -60px; opacity: 1; pointer-events: none; }
     .nom-hero__icon { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: rgba(246,196,22,0.1); margin: 0 auto 1.5rem; }
 
     /* GRID */
@@ -100,6 +96,17 @@
     .deadline-bar__icon { color: var(--yellow); flex-shrink: 0; }
     .deadline-bar__text { font-family: var(--font-d); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--yellow); }
     .deadline-bar__sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* DOCS SECTION */
+    .docs-section { background: var(--gray-bg); padding: 3rem 0; border-top: 1px solid var(--border); }
+    .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+    @media (max-width: 600px) { .docs-grid { grid-template-columns: 1fr; } }
+    .docs-card { display: flex; align-items: center; gap: 1rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1rem 1.2rem; text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    .docs-card:hover { border-color: rgba(19,174,229,0.35); box-shadow: 0 4px 16px rgba(19,174,229,0.08); }
+    .docs-card__icon { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 8px; background: rgba(19,174,229,0.1); color: var(--blue); flex-shrink: 0; }
+    .docs-card__body { display: flex; flex-direction: column; gap: 0.15rem; }
+    .docs-card__title { font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
+    .docs-card__sub { font-size: 0.75rem; color: var(--muted); }
 
     /* FOOTER */
     .footer { background: var(--gray-bg); padding: 3rem 0; border-top: 1px solid var(--border); }
@@ -161,6 +168,51 @@
       </div>
     </div>
     <div class="nom-grid" id="nomGrid"></div>
+  </div>
+</section>
+
+<section class="docs-section">
+  <div class="container">
+    <p class="eyebrow" id="docs-eye">Documents</p>
+    <h2 class="t-h2" style="font-size:1.6rem; margin-top:0.4rem;" id="docs-h2">Resources</h2>
+    <div class="docs-grid">
+      <a href="faq.html" class="docs-card">
+        <div class="docs-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="docs-card__body">
+          <div class="docs-card__title" id="docs-faq-title">FAQ</div>
+          <div class="docs-card__sub" id="docs-faq-sub">Frequently asked questions</div>
+        </div>
+      </a>
+      <a href="privacy-policy.html" class="docs-card">
+        <div class="docs-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="docs-card__body">
+          <div class="docs-card__title" id="docs-pp-title">Privacy Policy</div>
+          <div class="docs-card__sub" id="docs-pp-sub">Confidentiality &amp; data processing</div>
+        </div>
+      </a>
+      <a href="regulations.html" class="docs-card">
+        <div class="docs-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="docs-card__body">
+          <div class="docs-card__title" id="docs-reg-title">Regulations</div>
+          <div class="docs-card__sub" id="docs-reg-sub">Regulations / Регламент проведення</div>
+        </div>
+      </a>
+      <a href="assets/Додаток_1.pdf" class="docs-card">
+        <div class="docs-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <div class="docs-card__body">
+          <div class="docs-card__title" id="docs-app-title">Appendix 1</div>
+          <div class="docs-card__sub" id="docs-app-sub">Nomination criteria / Додаток 1</div>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -264,7 +316,6 @@ function buildCards() {
     const criteria = lang === 'ua' ? n.criteriaUa : n.criteria;
     const desc = lang === 'ua' ? n.descUa : n.desc;
     const name = lang === 'ua' ? n.ua : n.en;
-    const origLabel = lang === 'ua' ? 'Попередня назва: ' : 'Former name: ';
     const applyText = lang === 'ua' ? 'Подати заявку &rarr;' : 'Apply &rarr;';
     const criteriaTitle = lang === 'ua' ? 'Критерії (по 25%)' : 'Criteria (25% each)';
     card.innerHTML = `
@@ -272,7 +323,6 @@ function buildCards() {
         <span class="nom-card__num">${n.id}</span>
         <div>
           <div class="nom-card__name">${name}</div>
-          <div class="nom-card__name-ua">${origLabel}${n.orig}</div>
         </div>
       </div>
       <p class="nom-card__desc">${desc}</p>
@@ -302,6 +352,17 @@ function updateLang(l) {
     ? 'Надішліть заявку до 20 липня о 23:59 за київським часом'
     : 'Submit your application before July 20 at 23:59 Kyiv time';
   document.getElementById('back-text').textContent = lang === 'ua' ? 'На головну сторінку' : 'Back to main site';
+  const isUa = lang === 'ua';
+  document.getElementById('docs-eye').textContent = isUa ? 'Документи' : 'Documents';
+  document.getElementById('docs-h2').textContent = isUa ? 'Ресурси' : 'Resources';
+  document.getElementById('docs-faq-title').textContent = 'FAQ';
+  document.getElementById('docs-faq-sub').textContent = isUa ? 'Часті запитання' : 'Frequently asked questions';
+  document.getElementById('docs-pp-title').textContent = isUa ? 'Конфіденційність' : 'Privacy Policy';
+  document.getElementById('docs-pp-sub').textContent = isUa ? 'Політика конфіденційності та обробка даних' : 'Confidentiality & data processing';
+  document.getElementById('docs-reg-title').textContent = isUa ? 'Регламент' : 'Regulations';
+  document.getElementById('docs-reg-sub').textContent = isUa ? 'Регламент проведення премії' : 'Award regulations';
+  document.getElementById('docs-app-title').textContent = isUa ? 'Додаток 1' : 'Appendix 1';
+  document.getElementById('docs-app-sub').textContent = isUa ? 'Номінації та критерії оцінювання' : 'Nomination criteria';
   buildCards();
 }
 

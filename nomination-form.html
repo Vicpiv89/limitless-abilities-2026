@@ -36,8 +36,7 @@
     .eyebrow { font-family: var(--font-d); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); }
     .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); }
     .rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; margin: 0.9rem 0 1.8rem; }
-    @keyframes rule-glow { 0%,100%{box-shadow:0 0 6px rgba(19,174,229,0.4);}50%{box-shadow:0 0 20px rgba(19,174,229,0.8);} }
-    .rule { animation: rule-glow 2s ease-in-out infinite; }
+    /* glow animation removed */
 
     .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--r-sm); font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; }
     .btn--primary { background: var(--blue); color: #fff; }
@@ -56,7 +55,7 @@
     .nav__back:hover { color: var(--blue); }
 
     /* HEADER */
-    .form-header { background: #0D1116; padding: 3.5rem 0 3rem; border-bottom: 1px solid var(--border); }
+    .form-header { background: #0D1116; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); }
     .form-header__cat { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(19,174,229,0.1); border: 1px solid rgba(19,174,229,0.2); border-radius: 999px; padding: 0.3rem 0.9rem 0.3rem 0.5rem; margin-bottom: 1.2rem; }
     .form-header__num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff; font-family: var(--font-d); font-weight: 700; font-size: 0.8rem; }
     .form-header__cat-name { font-family: var(--font-d); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); }
@@ -71,7 +70,7 @@
     .criteria-box li strong { color: var(--ink); }
 
     /* FORM */
-    .form-section { padding: 3rem 0 5rem; }
+    .form-section { padding: 2.5rem 0 3rem; }
     .form-block { background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 2rem; margin-bottom: 1.5rem; }
     .form-block__title { font-family: var(--font-d); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.4rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -110,6 +109,10 @@
     .form-success svg { margin: 0 auto 1.2rem; color: var(--blue); }
     .form-success h3 { font-family: var(--font-d); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.5rem; }
     .form-success p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ENGLISH NOTICE */
+    .en-notice { background: rgba(246,196,22,0.08); border: 1px solid rgba(246,196,22,0.3); border-radius: var(--r-sm); padding: 0.75rem 1.2rem; margin: 0 0 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+    .en-notice span { font-family: var(--font-d); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; color: #F6C416; }
 
     /* FOOTER */
     .footer { background: var(--gray-bg); padding: 2.5rem 0; border-top: 1px solid var(--border); }
@@ -156,6 +159,9 @@
 
 <section class="form-section">
   <div class="container">
+    <div class="en-notice">
+      <span id="en-notice-text">⚠️ This form must be filled out in English only</span>
+    </div>
     <form id="nomForm" action="https://formspree.io/f/NOMINATION_FORM_ID" method="POST">
       <input type="hidden" name="_subject" id="formSubject" value="Nomination — Limitless Abilities Awards 2026">
       <input type="hidden" name="nomination_id" id="hiddenNomId">
@@ -326,9 +332,14 @@ function render() {
         <strong>${isUa ? `Критерій ${i+1}` : `Criterion ${i+1}`} (25%)</strong>
         ${c}
       </div>
-      <textarea name="criterion_${i+1}" rows="4" required placeholder="${isUa ? 'Опишіть…' : 'Describe…'}"></textarea>
+      <textarea name="criterion_${i+1}" rows="4" required placeholder="${isUa ? 'введіть текст англійською:' : 'Describe…'}"></textarea>
     </div>
   `).join('');
+
+  // English notice
+  document.getElementById('en-notice-text').textContent = isUa
+    ? '⚠️ Форма заповнюється виключно англійською мовою'
+    : '⚠️ This form must be filled out in English only';
 
   // Nav & footer
   const backText = isUa ? 'Усі номінації' : 'All nominations';
@@ -359,7 +370,7 @@ function render() {
   document.getElementById('rel-par').textContent = isUa ? 'Партнерська організація' : 'Partner organization';
   document.getElementById('rel-oth').textContent = isUa ? 'Інше' : 'Other';
   document.getElementById('lbl-mat').textContent = isUa ? 'Перелік підтверджувальних матеріалів' : 'List supporting materials you plan to submit';
-  document.getElementById('mat').placeholder = isUa ? 'Напр.: портфоліо PDF, рекомендаційний лист, дані клінічних результатів, сертифікати…' : 'e.g. Portfolio PDF, recommendation letter, clinical outcome data, certificates…';
+  document.getElementById('mat').placeholder = isUa ? 'введіть текст англійською: напр. портфоліо PDF, рекомендаційний лист, сертифікати…' : 'e.g. Portfolio PDF, recommendation letter, clinical outcome data, certificates…';
   document.getElementById('mat-hint').textContent = isUa
     ? 'Документи можна надіслати окремо на awards@protezhub.com після подання форми.'
     : 'Note: documents can be sent separately to awards@protezhub.com after submitting this form.';
