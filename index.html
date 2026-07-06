@@ -545,18 +545,6 @@
       pointer-events: none;
       overflow: hidden;
     }
-    #curtain__word {
-      position: fixed;
-      display: flex;
-      font-family: var(--font-d); font-weight: 700;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      line-height: 0.97;
-      color: #fff;
-      opacity: 0;
-      pointer-events: none;
-    }
-    #curtain__logo { width: auto; display: block; flex-shrink: 0; }
-    #curtain__title { display: block; }
 
     /* ── SCHEDULE ── */
     .sched-tabs { display:flex; margin:0 auto 2.5rem; width:fit-content; border:1.5px solid var(--border); border-radius:var(--r-pill); overflow:hidden; background:rgba(255,255,255,0.05); }
@@ -852,12 +840,7 @@
 <body>
 
 <!-- ── INTRO CURTAIN ── -->
-<div id="curtain" aria-hidden="true">
-  <div id="curtain__word">
-    <img src="assets/logo-icon-crop.png" id="curtain__logo" alt="">
-    <div id="curtain__title">Limitless<br>Abilities</div>
-  </div>
-</div>
+<div id="curtain" aria-hidden="true"></div>
 
 <!-- ── NAV ── -->
 <nav class="nav" id="nav">
@@ -1654,55 +1637,36 @@
 
 <script>
   // ── Intro curtain
-  const curtain   = document.getElementById('curtain');
-  const cw        = document.getElementById('curtain__word');
-  const cwLogo    = document.getElementById('curtain__logo');
-  const cwTitle   = document.getElementById('curtain__title');
-  const heroBrand = document.querySelector('.hero__brand');
+  const curtain      = document.getElementById('curtain');
+  const heroBrand    = document.querySelector('.hero__brand');
+  const heroContent  = document.querySelector('.hero__content');
+  const heroOtherEls = heroContent.querySelectorAll('.hero__meta, .hero__btns, .countdown');
 
-  // Freeze hero brand at final state now so position measurement is accurate
-  // and so it's already in place when the curtain fades away
+  // Lift real hero brand above curtain — freeze it at final state (no animation)
   heroBrand.style.animation = 'none';
   heroBrand.style.opacity   = '1';
   heroBrand.style.transform = 'none';
+  heroContent.style.zIndex  = '10001';
 
-  document.fonts.ready.then(() => {
-    // Measure the real hero brand's exact position and layout
-    const rect   = heroBrand.getBoundingClientRect();
-    const bStyle = getComputedStyle(heroBrand);
+  // Hide everything else in the hero until the curtain clears
+  heroOtherEls.forEach(el => el.style.visibility = 'hidden');
 
-    // Mirror position + layout exactly
-    cw.style.left           = rect.left   + 'px';
-    cw.style.top            = rect.top    + 'px';
-    cw.style.width          = rect.width  + 'px';
-    cw.style.height         = rect.height + 'px';
-    cw.style.flexDirection  = bStyle.flexDirection;
-    cw.style.gap            = bStyle.gap;
-    cw.style.alignItems     = bStyle.alignItems;
-    cw.style.justifyContent = bStyle.justifyContent;
+  // Transition background from lighter blue to site dark
+  setTimeout(() => {
+    curtain.style.transition      = 'background-color 0.9s ease';
+    curtain.style.backgroundColor = '#090C11';
+  }, 500);
 
-    // Mirror icon height
-    cwLogo.style.height = getComputedStyle(document.querySelector('.hero__icon')).height;
-
-    // Mirror title font size
-    cwTitle.style.fontSize = getComputedStyle(document.querySelector('.t-hero')).fontSize;
-
-    // Show immediately — no animation, background just appears around them
-    cw.style.opacity = '1';
-
-    // Transition background to the site's dark colour
+  // Fade out curtain, let other hero elements animate in
+  setTimeout(() => {
+    curtain.style.transition = 'opacity 0.75s ease';
+    curtain.style.opacity    = '0';
+    heroOtherEls.forEach(el => el.style.visibility = '');
     setTimeout(() => {
-      curtain.style.transition = 'background-color 0.9s ease';
-      curtain.style.backgroundColor = '#090C11';
-    }, 500);
-
-    // Fade out curtain
-    setTimeout(() => {
-      curtain.style.transition = 'opacity 0.75s ease';
-      curtain.style.opacity = '0';
-      setTimeout(() => curtain.remove(), 800);
-    }, 1600);
-  });
+      curtain.remove();
+      heroContent.style.zIndex = '';
+    }, 800);
+  }, 1600);
 
   // ── Nav shadow on scroll
   const nav = document.getElementById('nav');
