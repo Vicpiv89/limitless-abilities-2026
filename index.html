@@ -736,11 +736,11 @@
     .sp-car-wrap { flex: 1; overflow: hidden; }
     .sp-car-track { display: flex; gap: 1.2rem; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); justify-content: center; }
     .sp-logo-item {
-      flex: 0 0 220px; height: 130px;
+      flex: 0 0 280px; height: 180px;
       display: flex; align-items: center; justify-content: center;
       background: transparent; padding: 0; overflow: hidden;
     }
-    .sp-logo-item img { max-width: 340px; max-height: 160px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
+    .sp-logo-item img { max-width: 420px; max-height: 200px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
     .sp-logo-item img:hover { opacity: 1; }
     #sponsors .t-h2 { color: #fff; }
     #sponsors .sp-tier__label { color: rgba(255,255,255,0.55) !important; }
@@ -752,9 +752,9 @@
     #sponsors .sp-car-btn { border-color: rgba(255,255,255,0.2); color: #fff; }
     #sponsors .sp-car-btn:hover { background: rgba(255,255,255,0.1); }
     #sponsors .sp-logo-item--empty { border-color: rgba(255,255,255,0.15); }
-    .sp-tier--gold .sp-logo-item img { max-height: 220px; max-width: 440px; }
+    .sp-tier--gold .sp-logo-item img { max-height: 300px; max-width: 560px; }
     .sp-tier--silver .sp-logo-item img,
-    .sp-tier--bronze .sp-logo-item img { max-height: 120px; max-width: 260px; }
+    .sp-tier--bronze .sp-logo-item img { max-height: 160px; max-width: 320px; }
     .sp-logo-item--empty { border: 1px dashed var(--border); border-radius: var(--r-md); }
     .sp-logo-item--empty:hover { border-color: var(--blue); }
     .sp-logo-item--empty span { font-size: 0.68rem; color: var(--muted); opacity: 0.45; font-family: var(--font-d); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; line-height: 1.4; }
@@ -793,11 +793,11 @@
     .sp-tier--silver .sp-tier__label { color: #B0C0CC; }
     .sp-tier--bronze .sp-tier__label { color: #CD7F32; }
     .sp-tier--awards .sp-tier__label { color: var(--blue); }
-    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 80px; width: 180px; flex-shrink: 0; opacity: 0.8; transition: opacity 0.2s; }
+    .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 100px; width: 220px; flex-shrink: 0; opacity: 0.8; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
-    .sp-partner-item img { max-width: 160px; max-height: 72px; object-fit: contain; filter: brightness(0) invert(1); }
+    .sp-partner-item img { max-width: 200px; max-height: 96px; object-fit: contain; filter: brightness(0) invert(1); }
     .sp-partners-carousel { justify-content: center; }
-    .sp-partners-carousel .sp-car-wrap { max-width: 582px; flex: none; }
+    .sp-partners-carousel .sp-car-wrap { max-width: 698px; flex: none; }
     .sp-partners-carousel .sp-car-track { justify-content: flex-start; }
 
     .sp-logo-item--empty { background: transparent !important; }
@@ -1834,14 +1834,14 @@
     const carWrap = car.querySelector('.sp-car-wrap');
     const items = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
     const isPartners = car.classList.contains('sp-partners-carousel');
-    const ITEM_W = isPartners ? 180 : 180;
+    const ITEM_W = isPartners ? 220 : 280;
     const ITEM_GAP = 19;
     const STEP = isPartners ? (ITEM_W + ITEM_GAP) : (ITEM_W + ITEM_GAP) * 3;
     let pos = 0;
 
     function getMax() {
       const totalW = items.length * (ITEM_W + ITEM_GAP) - ITEM_GAP;
-      const visibleW = isPartners ? (3 * 180 + 2 * ITEM_GAP) : (carWrap ? carWrap.offsetWidth : 600);
+      const visibleW = isPartners ? (3 * 220 + 2 * ITEM_GAP) : (carWrap ? carWrap.offsetWidth : 600);
       return Math.max(0, totalW - visibleW);
     }
 
