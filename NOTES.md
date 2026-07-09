@@ -28,6 +28,10 @@
 
 ## Done
 
+- Program updated from Day 1.xlsx / Day 2.xlsx (Jul 9): new time slots, awards ceremony moved to Day 1 (Aug 28, 17:00–19:00), closing ceremony Day 2 16:00–17:00. Ceremony date updated on awards.html + nomination-form.html (was Aug 29)
+- Judges section on awards.html filled with real jury (7 judges from Judges Files: photos in assets/judges/, EN + UA bios)
+- Eriks Svede speaker photo replaced with new headshot
+
 - Redesigned from original index.html → option-a.html (white bg, SVG waves, scroll reveals, Raleway font)
 - Renamed throughout from "Endless Possibilities" → "Limitless Abilities"
 - Added animated hero blob (scale pulse, no translate to avoid clipping)

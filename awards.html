@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Awards — Limitless Abilities Awards 2026</title>
-  <meta name="description" content="Limitless Abilities Awards 2026 — recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Aug 29, 2026.">
+  <meta name="description" content="Limitless Abilities Awards 2026 — recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Aug 28, 2026.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://limitlessabilities.com/awards.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,10 +90,11 @@
     @media (max-width: 540px) { .judges-grid { grid-template-columns: 1fr; } }
     .judge-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.6rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; transition: border-color 0.2s; }
     .judge-card:hover { border-color: rgba(19,174,229,0.3); }
-    .judge-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .judge-avatar svg { color: var(--muted); }
+    .judge-avatar { width: 110px; height: 110px; border-radius: 50%; background: var(--border); overflow: hidden; flex-shrink: 0; border: 2px solid rgba(19,174,229,0.25); }
+    .judge-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .judge-name { font-family: var(--font-d); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); }
-    .judge-role { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .judge-role { font-size: 0.8rem; color: var(--blue); line-height: 1.4; }
+    .judge-bio { font-size: 0.78rem; color: var(--muted); line-height: 1.55; text-align: left; }
 
     /* DOCUMENTS */
     .docs-section { padding: 3rem 0; background: var(--white); }
@@ -160,7 +161,7 @@
     <h1 class="t-h2" style="color:#fff; margin:0.6rem 0;" id="hero-h1">Limitless Abilities Awards 2026</h1>
     <div class="rule rule--c rule--yellow" style="margin:1rem auto 1.2rem;"></div>
     <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; max-width:580px; margin:0 auto 2rem;" id="hero-sub">
-      9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 29, 2026.
+      9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 28, 2026.
     </p>
     <a href="nominations.html" class="btn btn--primary" id="hero-cta">View Nominations &rarr;</a>
   </div>
@@ -186,7 +187,7 @@
           <div class="intro-stat__label" id="stat1-label">Award Categories</div>
         </div>
         <div class="intro-stat">
-          <div class="intro-stat__num">Aug 29</div>
+          <div class="intro-stat__num">Aug 28</div>
           <div class="intro-stat__label" id="stat2-label">Ceremony Date</div>
         </div>
         <div class="intro-stat">
@@ -275,34 +276,105 @@
 
 <script>
 const JUDGES = [
-  { nameKey: 'judge1-name', roleKey: 'judge1-role' },
-  { nameKey: 'judge2-name', roleKey: 'judge2-role' },
-  { nameKey: 'judge3-name', roleKey: 'judge3-role' },
-  { nameKey: 'judge4-name', roleKey: 'judge4-role' },
-  { nameKey: 'judge5-name', roleKey: 'judge5-role' },
-  { nameKey: 'judge6-name', roleKey: 'judge6-role' },
+  {
+    img: 'assets/judges/brad-mattear.jpg',
+    name: { en: 'Brad Mattear', ua: 'Бред Маттеар' },
+    role: {
+      en: "LO, CPA, CFo · O&P Central Fabrication Director, Shriner's Children's",
+      ua: "LO, CPA, CFo · Директор центрального виробництва протезно-ортопедичних виробів, Shriner's Children's"
+    },
+    bio: {
+      en: "Over 25 years of experience in sales, marketing, and technology solutions for O&P fabrication facilities across North America. Chairperson of the American Orthotic & Prosthetic Association's Planning Committee and Technical Program Co-Chair of the AOPA National Assembly, and an active member of the ABC Certified Fitter Orthotics Committee, the US Member Society of ISPO Board, and the Orthotic & Prosthetic Technological Association.",
+      ua: "Понад 25 років досвіду у продажах, маркетингу та технологічних рішеннях для виробництва протезно-ортопедичних виробів у Північній Америці. Голова планувального комітету Американської асоціації ортезування та протезування (AOPA) і співголова технічної програми Національної асамблеї AOPA, активний член комітету ABC з ортезування, ради американського відділення ISPO та Асоціації протезно-ортопедичних технологій."
+    }
+  },
+  {
+    img: 'assets/judges/christopher-lindhe.jpg',
+    name: { en: 'Christopher Lindhe', ua: 'Крістофер Ліндхе' },
+    role: {
+      en: 'Paralympic Swimmer · Founder & CEO, Lindhe Xtend',
+      ua: 'Паралімпійський плавець · Засновник і CEO Lindhe Xtend'
+    },
+    bio: {
+      en: "Swedish Paralympic swimmer, entrepreneur, and amputee advocate. After surviving a severe railway accident in 2006 that took both legs and his left arm, he returned to elite sport — three bronze medals at the 2009 World Championships and two Paralympic Games for Sweden. He founded Lindhe Xtend in 2013 and co-designed the Xtend Foot, a prosthetic offering lateral flexibility for uneven terrain.",
+      ua: "Шведський паралімпійський плавець, підприємець та адвокат людей з ампутацією. Переживши тяжку залізничну аварію у 2006 році, в якій втратив обидві ноги та ліву руку, повернувся до великого спорту — три бронзові медалі Чемпіонату світу 2009 року та дві Паралімпіади за Швецію. У 2013 році заснував Lindhe Xtend і співрозробив протезну стопу Xtend Foot з бічною гнучкістю для нерівної місцевості."
+    }
+  },
+  {
+    img: 'assets/judges/kristi-turner.jpg',
+    name: { en: 'Kristi Turner', ua: 'Крісті Тернер' },
+    role: {
+      en: 'DHS, OTR/L · Senior Research Occupational Therapist, Shirley Ryan AbilityLab',
+      ua: 'DHS, OTR/L · Старша наукова ерготерапевтка, Shirley Ryan AbilityLab'
+    },
+    bio: {
+      en: "Senior research occupational therapist at the Center for Bionic Medicine, Shirley Ryan AbilityLab, specializing in advanced rehabilitation after upper limb loss, multiple amputations, and severe burn injuries. Her research focuses on maximizing control of multi-articulating prosthetic hands using Targeted Muscle Reinnervation (TMR) and pattern recognition. She also volunteers internationally with the Range of Motion Project (ROMP).",
+      ua: "Старша наукова ерготерапевтка Центру біонічної медицини Shirley Ryan AbilityLab, спеціалізується на реабілітації після втрати верхніх кінцівок, множинних ампутацій та тяжких опіків. Її дослідження зосереджені на керуванні багатошарнірними протезними кистями за допомогою цільової м'язової реіннервації (TMR) та розпізнавання патернів. Волонтерить у міжнародному проєкті Range of Motion Project (ROMP)."
+    }
+  },
+  {
+    img: 'assets/judges/kate-sherman.jpg',
+    name: { en: 'Kate Sherman', ua: 'Кейт Шерман' },
+    role: {
+      en: 'MBE · Clinical Specialist Physiotherapist, Dorset Orthopaedic',
+      ua: 'MBE · Клінічна фізіотерапевтка, Dorset Orthopaedic'
+    },
+    bio: {
+      en: "British clinical specialist physiotherapist in complex trauma and amputee rehabilitation. She spent over 15 years as a foundational member of the Complex Trauma team at Headley Court and Stanford Hall treating severely injured military casualties — work that earned her an MBE from Prince William in 2022. In 2023 she joined Dorset Orthopaedic to lead real-world prosthetic recovery and mobility programs.",
+      ua: "Британська клінічна фізіотерапевтка, спеціалістка з комплексної травми та реабілітації людей з ампутацією. Понад 15 років працювала у команді комплексної травми в Headley Court та Stanford Hall із тяжко пораненими військовими — за цю роботу у 2022 році отримала орден MBE від принца Вільяма. З 2023 року очолює програми протезної реабілітації та мобільності в Dorset Orthopaedic."
+    }
+  },
+  {
+    img: 'assets/judges/mary-jane-cole.jpg',
+    name: { en: 'Mary-Jane Cole', ua: 'Мері-Джейн Коул' },
+    role: {
+      en: 'Clinical Specialist Physiotherapist & Educator · BACPAR',
+      ua: 'Клінічна фізіотерапевтка та викладачка · BACPAR'
+    },
+    bio: {
+      en: "British physiotherapist and educator with a decades-long career in amputee rehabilitation — clinical practice at Queen Mary's Hospital, Roehampton, and a senior lectureship at City St George's, University of London. A cornerstone of BACPAR, where she has held nearly every executive seat including Chair, she co-authored the globally used BACPAR Toolbox of Outcome Measures and national evidence-based guidelines.",
+      ua: "Британська фізіотерапевтка та викладачка з багаторічною кар'єрою в реабілітації людей з ампутацією: клінічна практика в лікарні Queen Mary's у Рогемптоні та викладання в City St George's, University of London. Ключова постать BACPAR, де обіймала майже всі керівні посади, включно з головою; співавторка збірника оцінювальних інструментів BACPAR Toolbox of Outcome Measures та національних настанов, що використовуються в усьому світі."
+    }
+  },
+  {
+    img: 'assets/judges/nicky-eddison.jpg',
+    name: { en: 'Nicky Eddison', ua: 'Нікі Еддісон' },
+    role: {
+      en: 'Consultant Orthotist · Chair, BAPO',
+      ua: 'Консультант-ортезист · Голова BAPO'
+    },
+    bio: {
+      en: "The first Consultant Orthotist in the UK, Orthotics Service Manager at The Royal Wolverhampton NHS Trust, and Associate Professor at Staffordshire University's Centre for Biomechanics and Rehabilitation Technologies. As elected Chair of the British Association of Prosthetists and Orthotists (BAPO), her contributions have earned the AHP Gold Award for Excellence and the BAPO Hero Award.",
+      ua: "Перша у Великій Британії консультант-ортезист, керівниця ортезної служби The Royal Wolverhampton NHS Trust та доцентка Центру біомеханіки та реабілітаційних технологій Стаффордширського університету. Обрана голова Британської асоціації протезистів та ортезистів (BAPO); відзначена нагородами AHP Gold Award for Excellence та BAPO Hero Award."
+    }
+  },
+  {
+    img: 'assets/judges/rebekah-ray.jpg',
+    name: { en: 'Rebekah Freeman Ray', ua: 'Ребека Фріман Рей' },
+    role: {
+      en: 'MOT · Occupational Therapist',
+      ua: 'MOT · Ерготерапевтка'
+    },
+    bio: {
+      en: "Occupational therapist since 2005 with a Master's in Occupational Therapy from Texas Woman's University–Dallas, serving patients across acute care, inpatient and outpatient rehabilitation, and public schools. She has a deep history of service in Ukraine, visiting since 2013 — most recently in July 2024 to host a summer camp for over 100 orphans and disadvantaged youth.",
+      ua: "Ерготерапевтка з 2005 року, магістерка ерготерапії Texas Woman's University–Dallas; працювала у відділеннях гострої допомоги, стаціонарної та амбулаторної реабілітації і школах. Має глибокий зв'язок з Україною: приїздить сюди з 2013 року, востаннє — у липні 2024-го, щоб провести літній табір для понад 100 дітей-сиріт та дітей у складних життєвих обставинах."
+    }
+  },
 ];
-
-const AVATAR_SVG = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
 
 let lang = 'en';
 
 function buildJudges() {
   const grid = document.getElementById('judgesGrid');
   grid.innerHTML = '';
-  const names = lang === 'ua'
-    ? ['Ім\'я Прізвище', 'Ім\'я Прізвище', 'Ім\'я Прізвище', 'Ім\'я Прізвище', 'Ім\'я Прізвище', 'Ім\'я Прізвище']
-    : ['Judge Name', 'Judge Name', 'Judge Name', 'Judge Name', 'Judge Name', 'Judge Name'];
-  const roles = lang === 'ua'
-    ? ['Посада, Організація', 'Посада, Організація', 'Посада, Організація', 'Посада, Організація', 'Посада, Організація', 'Посада, Організація']
-    : ['Title, Organization', 'Title, Organization', 'Title, Organization', 'Title, Organization', 'Title, Organization', 'Title, Organization'];
-  JUDGES.forEach((_, i) => {
+  JUDGES.forEach((j) => {
     const card = document.createElement('div');
     card.className = 'judge-card';
     card.innerHTML = `
-      <div class="judge-avatar">${AVATAR_SVG}</div>
-      <div class="judge-name">${names[i]}</div>
-      <div class="judge-role">${roles[i]}</div>
+      <div class="judge-avatar"><img src="${j.img}" alt="${j.name[lang]}" loading="lazy"></div>
+      <div class="judge-name">${j.name[lang]}</div>
+      <div class="judge-role">${j.role[lang]}</div>
+      <div class="judge-bio">${j.bio[lang]}</div>
     `;
     grid.appendChild(card);
   });
@@ -317,8 +389,8 @@ function updateLang(l) {
   document.getElementById('hero-eye').textContent = isUa ? 'Нагороди 2026' : 'Awards 2026';
   document.getElementById('hero-h1').textContent = isUa ? 'Limitless Abilities Awards 2026' : 'Limitless Abilities Awards 2026';
   document.getElementById('hero-sub').textContent = isUa
-    ? '9 номінацій, які відзначають досягнення у протезуванні, ортезуванні, реабілітації та міжнародному партнерстві. Церемонія: 29 серпня 2026.'
-    : '9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 29, 2026.';
+    ? '9 номінацій, які відзначають досягнення у протезуванні, ортезуванні, реабілітації та міжнародному партнерстві. Церемонія: 28 серпня 2026.'
+    : '9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 28, 2026.';
   document.getElementById('hero-cta').innerHTML = isUa ? 'Переглянути номінації &rarr;' : 'View Nominations &rarr;';
 
   // Intro
