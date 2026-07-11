@@ -745,8 +745,10 @@
     #sponsors .sp-logo-item--empty { border-color: rgba(255,255,255,0.15); }
     .sp-tier--gold .sp-logo-item { flex-basis: 480px; height: 300px; }
     .sp-tier--gold .sp-logo-item img { max-height: 280px; opacity: 1; }
+    .sp-tier--silver .sp-logo-item,
+    .sp-tier--bronze .sp-logo-item { flex-basis: 440px; height: 275px; }
     .sp-tier--silver .sp-logo-item img,
-    .sp-tier--bronze .sp-logo-item img { max-height: 190px; max-width: 340px; }
+    .sp-tier--bronze .sp-logo-item img { max-height: 255px; max-width: 420px; opacity: 1; }
     .sp-logo-item--empty { border: 1px dashed var(--border); border-radius: var(--r-md); }
     .sp-logo-item--empty:hover { border-color: var(--blue); }
     .sp-logo-item--empty span { font-size: 0.68rem; color: var(--muted); opacity: 0.45; font-family: var(--font-d); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; line-height: 1.4; }
@@ -759,10 +761,14 @@
     .sp-car-btn:hover { border-color: var(--blue); color: var(--blue); }
     .sp-car-btn:disabled { opacity: 0.18; cursor: default; pointer-events: none; }
     @media (max-width: 600px) {
-      .sp-logo-item { flex-basis: 290px; height: 185px; }
-      .sp-logo-item img { max-height: 170px; }
-      .sp-tier--gold .sp-logo-item { flex-basis: 320px; height: 210px; }
-      .sp-tier--gold .sp-logo-item img { max-height: 195px; }
+      .sp-logo-item { flex: 0 0 100%; height: 190px; }
+      .sp-logo-item img { max-height: 175px; }
+      .sp-tier--gold .sp-logo-item { flex-basis: 100%; height: 215px; }
+      .sp-tier--gold .sp-logo-item img { max-height: 200px; }
+      .sp-tier--silver .sp-logo-item,
+      .sp-tier--bronze .sp-logo-item { flex-basis: 100%; height: 195px; }
+      .sp-tier--silver .sp-logo-item img,
+      .sp-tier--bronze .sp-logo-item img { max-height: 180px; max-width: 100%; }
       .sp-partner-item { width: 230px; min-height: 110px; }
       .sp-partner-item img { max-width: 210px; max-height: 100px; }
     }
@@ -853,8 +859,7 @@
         <li><a href="#speakers" data-i18n="nav.speakers">Speakers</a></li>
         <li><a href="#program" data-i18n="nav.program">Program</a></li>
         <li><a href="#sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
-        <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
-        <li><a href="nominations.html" data-i18n="nav.nominate">Nominate</a></li>
+        <li><a href="awards.html" data-i18n="nav.awards">Awards</a></li>
         <li><a href="#registration" data-i18n="nav.register">Register</a></li>
       </ul>
       <div class="nav__right">
@@ -1475,7 +1480,7 @@
         9 award categories · Organized by Protez Hub · General Sponsor: Össur
       </p>
       <p style="color:rgba(255,255,255,0.45); font-size:0.82rem; margin-bottom:2.2rem; font-family:var(--font-d); letter-spacing:0.06em; text-transform:uppercase;" data-i18n="aw.dates">Nominations open July 6 – 20, 2026</p>
-      <a href="nominations.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;" data-i18n="aw.cta">View Categories &amp; Nominate &rarr;</a>
+      <a href="awards.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;" data-i18n="aw.cta">Explore the Awards &rarr;</a>
     </div>
   </div>
 </section>
@@ -1587,7 +1592,7 @@
       <div>
         <div class="footer-col-title" data-i18n="ft.awards">Awards</div>
         <div class="footer-links">
-          <a href="nominations.html" data-i18n="nav.nominate">Nominate</a>
+          <a href="awards.html" data-i18n="nav.awards">Awards</a>
           <a href="regulations.html" data-i18n="ft.regulations">Regulations</a>
           <a href="faq.html" data-i18n="ft.faq">FAQ</a>
           <a href="privacy-policy.html" data-i18n="ft.privacy">Privacy Policy</a>
@@ -1805,12 +1810,13 @@
     const items = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
     const isPartners = car.classList.contains('sp-partners-carousel');
     const ITEM_GAP = 19;
-    const ITEM_W = items[0] ? items[0].offsetWidth : (isPartners ? 270 : 380);
-    const STEP = isPartners ? (ITEM_W + ITEM_GAP) : (ITEM_W + ITEM_GAP) * 3;
     let pos = 0;
 
+    const itemW = () => items[0] ? items[0].offsetWidth : (isPartners ? 270 : 380);
+    const step = () => itemW() + ITEM_GAP;
+
     function getMax() {
-      const totalW = items.length * (ITEM_W + ITEM_GAP) - ITEM_GAP;
+      const totalW = items.length * step() - ITEM_GAP;
       const visibleW = carWrap ? carWrap.offsetWidth : 600;
       return Math.max(0, totalW - visibleW);
     }
@@ -1818,29 +1824,27 @@
     function updateSp() {
       const max = getMax();
       pos = Math.max(0, Math.min(pos, max));
+      track.style.justifyContent = max > 0 ? 'flex-start' : 'center';
       track.style.transform = 'translateX(-' + pos + 'px)';
       if (prevBtn) prevBtn.disabled = pos <= 0;
       if (nextBtn) nextBtn.disabled = pos >= max;
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => { pos -= STEP; updateSp(); });
-    if (nextBtn) nextBtn.addEventListener('click', () => { pos += STEP; updateSp(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { pos -= step(); updateSp(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { pos += step(); updateSp(); });
+    window.addEventListener('resize', updateSp);
     updateSp();
 
     if (items.length > 1) {
-      let spTimer = setInterval(() => {
+      const tick = () => {
         const max = getMax();
-        if (pos >= max) pos = 0; else pos += ITEM_W + ITEM_GAP;
+        if (max <= 0) return;
+        if (pos >= max) pos = 0; else pos += step();
         updateSp();
-      }, 3500);
+      };
+      let spTimer = setInterval(tick, 3500);
       car.addEventListener('mouseenter', () => clearInterval(spTimer));
-      car.addEventListener('mouseleave', () => {
-        spTimer = setInterval(() => {
-          const max = getMax();
-          if (pos >= max) pos = 0; else pos += ITEM_W + ITEM_GAP;
-          updateSp();
-        }, 3500);
-      });
+      car.addEventListener('mouseleave', () => { spTimer = setInterval(tick, 3500); });
     }
   });
 
@@ -1953,7 +1957,7 @@
         'aw.h2':    'Limitless Abilities Awards 2026',
         'aw.info':  '9 award categories · Organized by Protez Hub · General Sponsor: Össur',
         'aw.dates': 'Nominations open July 6 – 20, 2026',
-        'aw.cta':   'View Categories &amp; Nominate &rarr;',
+        'aw.cta':   'Explore the Awards &rarr;',
         // registration
         'reg.h2':     'Register Now',
         'reg.cert':   'Only registered participants will receive a certificate',
@@ -2025,7 +2029,7 @@
         'aw.h2':    'Нагороди «Безмежні Можливості» 2026',
         'aw.info':  '9 категорій нагород · Організатор: Протез Хаб · Генеральний спонсор: Össur',
         'aw.dates': 'Номінації: 6–20 липня 2026',
-        'aw.cta':   'Категорії та номінація &rarr;',
+        'aw.cta':   'Дізнатися про нагороди &rarr;',
         // registration
         'reg.h2':     'Зареєструватись',
         'reg.cert':   'Лише зареєстровані учасники отримають сертифікат',
