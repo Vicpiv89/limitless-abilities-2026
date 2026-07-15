@@ -505,7 +505,6 @@
     .form textarea { resize:vertical; min-height:110px; }
     .form select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
     .form__sub { text-align:center; margin-top:0.5rem; }
-    .form-note { font-size:0.8rem; font-style:italic; color:var(--muted); text-align:center; line-height:1.65; max-width:540px; margin:1rem auto 0; }
     .form-success { display:none; text-align:center; padding:2.5rem 1rem; }
     .form-success svg { color:var(--blue); margin-bottom:1rem; }
     .form-success h3 { font-family:var(--font-d); font-size:1.3rem; font-weight:700; margin-bottom:0.5rem; color:var(--navy); }
@@ -750,16 +749,29 @@
     .sp-car-btn:hover { border-color: var(--blue); color: var(--blue); }
     .sp-car-btn:disabled { opacity: 0.18; cursor: default; pointer-events: none; }
     @media (max-width: 600px) {
+      .gmark { display: none; }
       .sp-logo-item { flex: 0 0 100%; height: 160px; }
-      .sp-logo-item img { max-height: 150px; }
+      .sp-logo-item img { max-height: 150px; max-width: 75%; }
       .sp-tier--gold .sp-logo-item { flex-basis: 100%; height: 215px; }
-      .sp-tier--gold .sp-logo-item img { max-height: 200px; }
+      .sp-tier--gold .sp-logo-item img { max-height: 200px; max-width: 100%; }
       .sp-tier--silver .sp-logo-item,
       .sp-tier--bronze .sp-logo-item { flex-basis: 100%; height: 160px; }
       .sp-tier--silver .sp-logo-item img,
-      .sp-tier--bronze .sp-logo-item img { max-height: 150px; max-width: 100%; }
+      .sp-tier--bronze .sp-logo-item img { max-height: 150px; max-width: 75%; }
       .sp-partner-item { width: 230px; min-height: 110px; }
       .sp-partner-item img { max-width: 210px; max-height: 100px; }
+    }
+
+    /* ── Awards teaser text ── */
+    .aw-p { color: #fff; font-size: 1rem; line-height: 1.75; margin-bottom: 1.2rem; }
+    .aw-p--lead { font-weight: 700; }
+    .aw-p--tight { margin-bottom: 0.4rem; }
+    .aw-p--last { margin-bottom: 2rem; }
+    @media (max-width: 600px) {
+      .aw-p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.9rem; }
+      .aw-p--last { margin-bottom: 1.6rem; }
+      #awards .t-h2 { font-size: 1.6rem; margin-bottom: 0.9rem; }
+      #awards .reveal { padding: 0 0.2rem; }
     }
 
     /* ── Awards ── */
@@ -986,6 +998,7 @@
           <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/olha-YyvDq4e02phX0Eex.jpg" alt="Olha Shchehliuk"><div class="speaker__info"><div class="speaker__name">Olha Shchehliuk</div><div class="speaker__role">Lt. Colonel, Head of Rehabilitation Dept (Irpin) · Ukraine</div></div></div>
           <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">MEd, Protez Hub Chief Director · Ukraine</div></div></div>
           <div class="speaker reveal"><img src="assets/speakers/arezoo.jpg" alt="Arezoo Eshraghi"><div class="speaker__info"><div class="speaker__name">Arezoo Eshraghi</div><div class="speaker__role">PhD, Certified Prosthetist · University Health Network, Toronto · Canada</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/derkach.png" alt="Peter Derkach"><div class="speaker__info"><div class="speaker__name">Peter Derkach</div><div class="speaker__role">MD · Medical Director, Copernicus Lodge, Toronto · Canada</div></div></div>
         </div>
       </div>
       <div class="spk-car-nav">
@@ -1353,22 +1366,22 @@
     <div style="max-width:720px; margin:0 auto; text-align:center;" class="reveal">
       <h2 class="t-h2" style="color:#fff; margin-bottom:1.2rem;">Limitless Abilities Awards 2026</h2>
       <div id="awards-teaser-body">
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+        <p class="aw-p aw-p--lead">
           Your work deserves recognition.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           If you are changing the field of rehabilitation, prosthetics, or orthotics, introducing new approaches,
           building quality services, or inspiring others by your own example — apply for the Limitless Abilities Awards 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           The award covers 9 categories recognizing specialists, teams, organizations, and people making a significant
           contribution to the development of prosthetics, orthotics, rehabilitation, and accessibility — from students
           and clinicians to center directors, international partners, and people whose stories inspire others.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+        <p class="aw-p aw-p--tight">
           The winners will be announced during the Limitless Abilities Conference 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+        <p class="aw-p aw-p--last">
           Applications are open until August 9, 2026.
         </p>
       </div>
@@ -1432,11 +1445,6 @@
         <h3 data-i18n="reg.ok.h3">You're registered!</h3>
         <p class="t-small" data-i18n="reg.ok.p">Check your email for a confirmation. See you Aug 28–29!</p>
       </div>
-      <p class="form-note reveal" id="form-note">
-        As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
-        Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
-        the Belgian Agency for International Cooperation Enabel.
-      </p>
     </div>
   </div>
 </section>
@@ -2028,30 +2036,26 @@
         <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Register Now</a>`,
 
         'awards-teaser-body': `
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+        <p class="aw-p aw-p--lead">
           Your work deserves recognition.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           If you are changing the field of rehabilitation, prosthetics, or orthotics, introducing new approaches,
           building quality services, or inspiring others by your own example — apply for the Limitless Abilities Awards 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           The award covers 9 categories recognizing specialists, teams, organizations, and people making a significant
           contribution to the development of prosthetics, orthotics, rehabilitation, and accessibility — from students
           and clinicians to center directors, international partners, and people whose stories inspire others.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+        <p class="aw-p aw-p--tight">
           The winners will be announced during the Limitless Abilities Conference 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+        <p class="aw-p aw-p--last">
           Applications are open until August 9, 2026.
         </p>`,
 
         'footer-desc': 'International conference on amputation, rehabilitation, and social adaptation. Organized by Protez Hub - Ukraine.',
-
-        'form-note': `As part of the project "The Road to Rehabilitation: From Region to Community," implemented by
-        Patients of Ukraine and Protez Hub within the "War Trauma Rehabilitation" initiative, thanks to
-        the Belgian Agency for International Cooperation Enabel.`,
 
         // Day 1 acc-bodies (ab-1 through ab-7)
         'ab-1': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Moment of Silence · Welcome: Protez Hub, Presidential Commissioners (Rehabilitation &amp; Barrier-Free), Ministries of Social Policy and Health, Oblast Administration, City Hall · Keynote: <strong style="color:var(--ink);">Jakob Kepka</strong></p>`,
@@ -2148,28 +2152,26 @@
         <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Зареєструватись</a>`,
 
         'awards-teaser-body': `
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+        <p class="aw-p aw-p--lead">
           Ваша робота заслуговує на визнання.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           Якщо ви змінюєте сферу реабілітації, протезування чи ортезування, впроваджуєте нові підходи,
           створюєте якісний сервіс або власним прикладом надихаєте інших — подайте заявку на Limitless Abilities Awards 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+        <p class="aw-p">
           Премія охоплює 9 номінацій, що відзначають фахівців, команди, організації та людей, які роблять вагомий внесок
           у розвиток протезування, ортезування, реабілітації та безбар'єрності — від студентів і клініцистів
           до керівників центрів, міжнародних партнерів і людей, які власною історією надихають інших.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+        <p class="aw-p aw-p--tight">
           Переможців буде оголошено під час Limitless Abilities Conference 2026.
         </p>
-        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+        <p class="aw-p aw-p--last">
           Подання заявок відкрите до 9 серпня 2026 року.
         </p>`,
 
         'footer-desc': 'Міжнародна конференція з ампутації, реабілітації та соціальної адаптації. Організатор: Протез Хаб – Україна.',
-
-        'form-note': `У рамках проєкту «Дорога до реабілітації: від регіону до громади», який реалізується Пацієнтами України та Протез Хабом у рамках ініціативи «Реабілітація після воєнної травми» за підтримки Бельгійського агентства міжнародного співробітництва Enabel.`,
 
         // Day 1 acc-bodies
         'ab-1': `<p style="font-size:0.85rem;color:var(--muted);line-height:1.65;">Хвилина мовчання · Привітання: Протез Хаб, Уповноважені Президента (Реабілітація &amp; Безбар'єрність), Міністерства соціальної політики та охорони здоров'я, Обласна адміністрація, Міська рада · Доповідь: <strong style="color:var(--ink);">Jakob Kepka</strong></p>`,
