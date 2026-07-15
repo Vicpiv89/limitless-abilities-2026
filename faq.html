@@ -15,9 +15,9 @@
   <style>
     :root {
       --blue:#13AEE5; --blue-dark:#0E8FBD; --yellow:#F6C416;
-      --navy:#D6EAF6; --ink:#BACCD8; --muted:#6A8A9A;
-      --border:#1E2E3A; --gray-bg:#141E26; --white:#0D1116;
-      --font-d:'Phenomena',sans-serif; --font-b:'Akrobat',sans-serif;
+      --navy:#FFFFFF; --ink:#FFFFFF; --muted:#FFFFFF;
+      --border:#2A2A2A; --gray-bg:#1B1B1B; --white:#121212;
+      --font-d:'Akrobat',sans-serif; --font-b:'Akrobat',sans-serif;
       --r-sm:8px; --r-md:16px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -27,17 +27,18 @@
     a{color:inherit;text-decoration:none;}
     .container{max-width:760px;margin:0 auto;padding:0 2rem;}
     .container--wide{max-width:1140px;margin:0 auto;padding:0 2rem;}
-    .eyebrow{font-family:var(--font-d);font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);}
-    .t-h2{font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.02em;text-transform:uppercase;color:var(--navy);}
-    .rule{width:48px;height:3px;background:var(--blue);border-radius:2px;}
+    .eyebrow{display:none;}
+    .t-h2{font-family:var(--font-d);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:.02em;text-transform:uppercase;color:var(--navy);line-height:1.12;}
+    .rule{display:none;}
     .rule--c{margin-left:auto;margin-right:auto;}
         
     /* NAV */
-    .nav{background:rgba(13,17,22,.92);backdrop-filter:blur(14px);padding:1.1rem 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(19,174,229,.12);}
+    .nav{background:rgba(18,18,18,.92);backdrop-filter:blur(14px);padding:1.1rem 0;position:sticky;top:0;z-index:100;border-bottom:none;}
     .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;}
     .nav__logo img{height:44px;display:block;}
     .nav__links{display:flex;align-items:center;gap:2rem;list-style:none;}
-    .nav__links a{font-family:var(--font-d);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color .2s;}
+    .nav__links a{font-family:var(--font-d);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;transition:color .2s;}
+    .nav__links a.nav-yellow,.nav__links a.nav-yellow.active{color:var(--yellow);}
     .nav__links a:hover,.nav__links a.active{color:var(--blue);}
     .nav__right{display:flex;align-items:center;gap:1rem;}
     .nav__lang{font-family:var(--font-d);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--blue);cursor:pointer;user-select:none;border:1.5px solid var(--blue);border-radius:4px;padding:.2rem .5rem;transition:background .2s,color .2s;}
@@ -53,26 +54,25 @@
     }
 
     /* HERO */
-    .page-hero{background:#0D1116;padding:4rem 0 3.5rem;text-align:center;border-bottom:1px solid var(--border);}
+    .page-hero{background:var(--white);padding:4rem 0 3.5rem;text-align:center;border-bottom:none;}
     .page-hero__icon{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(19,174,229,.1);margin:0 auto 1.2rem;}
 
     /* ACCORDION */
     .faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem;}
-    .faq-item{background:var(--gray-bg);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color .2s;}
-    .faq-item.open{border-color:rgba(19,174,229,.35);}
+    .faq-item{background:var(--gray-bg);border:none;border-radius:var(--r-md);overflow:hidden;}
     .faq-q{width:100%;display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 1.6rem;background:none;border:none;cursor:pointer;text-align:left;}
     .faq-q:hover .faq-q__text{color:var(--navy);}
-    .faq-q__num{font-family:var(--font-d);font-weight:700;font-size:.8rem;color:var(--blue);min-width:24px;padding-top:.1rem;}
+    .faq-q__num{font-family:var(--font-d);font-weight:700;font-size:.8rem;color:var(--yellow);min-width:24px;padding-top:.1rem;}
     .faq-q__text{font-family:var(--font-d);font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:.01em;flex:1;line-height:1.4;}
     .faq-q__chevron{width:16px;height:16px;color:var(--muted);flex-shrink:0;transition:transform .25s;margin-top:.15rem;}
     .faq-item.open .faq-q__chevron{transform:rotate(180deg);}
     .faq-a{display:none;padding:0 1.6rem 1.4rem 3.5rem;}
-    .faq-a p{font-size:.9rem;color:var(--muted);line-height:1.7;}
+    .faq-a p{font-size:.9rem;color:#fff;line-height:1.7;}
     .faq-a p+p{margin-top:.6rem;}
     .faq-item.open .faq-a{display:block;}
 
     /* FOOTER */
-    .footer{background:var(--gray-bg);padding:3rem 0;border-top:1px solid var(--border);}
+    .footer{background:var(--white);padding:3rem 0;border-top:none;}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
     .footer-logo img{height:36px;opacity:.7;}
     .footer-back{font-family:var(--font-d);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.4rem;transition:color .2s;}
@@ -85,15 +85,14 @@
 <nav class="nav">
   <div class="container--wide">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></a>
+      <a href="index.html" class="nav__logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:36px;width:auto;"></a>
       <ul class="nav__links" id="navLinks">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#speakers">Speakers</a></li>
-        <li><a href="index.html#program">Program</a></li>
-        <li><a href="index.html#awards">Awards</a></li>
-        <li><a href="nominations.html">Nominate</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="index.html#registration">Register</a></li>
+        <li><a href="index.html#about" id="nav-about">About</a></li>
+        <li><a href="index.html#speakers" id="nav-speakers">Speakers</a></li>
+        <li><a href="index.html#program" id="nav-program">Program</a></li>
+        <li><a href="index.html#registration" id="nav-register">Register</a></li>
+        <li><a href="awards.html" class="nav-yellow" id="nav-awards">Awards</a></li>
+        <li><a href="nominations.html" class="nav-yellow" id="nav-nominate">Apply</a></li>
       </ul>
       <div class="nav__right">
         <span class="nav__lang" id="langToggle">UA</span>
@@ -105,12 +104,6 @@
 
 <section class="page-hero">
   <div class="container">
-    <div class="page-hero__icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#13AEE5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-    </div>
-    <p class="eyebrow" id="hero-eye">Awards 2026</p>
     <h1 class="t-h2" style="color:#fff;margin:.5rem 0;" id="hero-h1">FAQ</h1>
     <div class="rule rule--c" style="margin:1rem auto;"></div>
     <p style="color:rgba(255,255,255,.6);font-size:.9rem;max-width:480px;margin:0 auto;" id="hero-sub">Common questions about submitting a nomination for the Limitless Abilities Awards 2026.</p>
@@ -133,7 +126,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span id="back-text">All nominations</span>
       </a>
-      <div class="footer-logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></div>
+      <div class="footer-logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:34px;width:auto;opacity:1;"></div>
       <div class="footer-copy">&copy; 2026 Protez Hub</div>
     </div>
   </div>
@@ -210,19 +203,26 @@ function buildFaq() {
 
 function updateLang(l) {
   lang = l;
-  document.getElementById('langToggle').textContent = lang === 'en' ? 'UA' : 'EN';
-  document.getElementById('hero-eye').textContent = lang === 'ua' ? 'Нагороди 2026' : 'Awards 2026';
-  document.getElementById('hero-sub').textContent = lang === 'ua'
-    ? 'Відповіді на поширені запитання щодо подання заявки на премію Limitless Abilities Awards 2026.'
-    : 'Common questions about submitting a nomination for the Limitless Abilities Awards 2026.';
-  document.getElementById('back-text').textContent = lang === 'ua' ? 'Усі номінації' : 'All nominations';
-  document.getElementById('more-q').innerHTML = lang === 'ua'
-    ? 'Ще є запитання? Напишіть нам на <a href="mailto:info@protezhub.com" style="color:var(--blue);">info@protezhub.com</a>'
-    : 'Still have questions? Email us at <a href="mailto:info@protezhub.com" style="color:var(--blue);">info@protezhub.com</a>';
+  const isUa = lang === 'ua';
+  document.getElementById('langToggle').textContent = isUa ? 'EN' : 'UA';
+  document.getElementById('nav-about').textContent = isUa ? 'Про захід' : 'About';
+  document.getElementById('nav-speakers').textContent = isUa ? 'Спікери' : 'Speakers';
+  document.getElementById('nav-program').textContent = isUa ? 'Програма' : 'Program';
+  document.getElementById('nav-register').textContent = isUa ? 'Реєстрація' : 'Register';
+  document.getElementById('nav-awards').textContent = isUa ? 'Премія' : 'Awards';
+  document.getElementById('nav-nominate').textContent = isUa ? 'Подати заявку' : 'Apply';
+  document.querySelectorAll('.js-event-logo').forEach(img => { img.src = isUa ? 'assets/logo-event-ua.png' : 'assets/logo-event-en.png'; });
+  document.getElementById('hero-sub').textContent = isUa
+    ? 'Відповіді на найпоширеніші запитання про участь у премії, подання заявки та процес оцінювання.'
+    : 'Answers to the most common questions about participating in the award, applying, and the evaluation process.';
+  document.getElementById('back-text').textContent = isUa ? 'Усі номінації' : 'All nominations';
+  document.getElementById('more-q').innerHTML = isUa
+    ? 'Не знайшли відповідь на своє запитання? Напишіть нам на <a href="mailto:info@protezhub.com" style="color:var(--yellow);">info@protezhub.com</a>'
+    : "Didn't find the answer to your question? Email us at <a href=\"mailto:info@protezhub.com\" style=\"color:var(--yellow);\">info@protezhub.com</a>";
   buildFaq();
 }
 
-buildFaq();
+updateLang('ua');
 document.getElementById('langToggle').addEventListener('click', () => updateLang(lang === 'en' ? 'ua' : 'en'));
 document.getElementById('burger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
 </script>

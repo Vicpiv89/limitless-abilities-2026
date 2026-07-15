@@ -18,12 +18,12 @@
       --blue-dark: #0E8FBD;
       --yellow:    #F6C416;
       --navy:      #ffffff;
-      --ink:       #BACCD8;
-      --muted:     #6A8A9A;
-      --border:    #1E2E3A;
-      --gray-bg:   #141E26;
-      --white:     #0D1116;
-      --font-d: 'Phenomena', sans-serif;
+      --ink:       #FFFFFF;
+      --muted:     #FFFFFF;
+      --border:    #2A2A2A;
+      --gray-bg:   #1B1B1B;
+      --white:     #121212;
+      --font-d: 'Akrobat', sans-serif;
       --font-b: 'Akrobat', sans-serif;
       --r-sm: 8px;
       --r-md: 16px;
@@ -35,26 +35,27 @@
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
 
-    .eyebrow { font-family: var(--font-d); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-    .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); }
+    .eyebrow { display: none; }
+    .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); line-height: 1.15; }
     .t-h3 { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); }
-    .rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; }
+    .rule { display: none; }
     .rule--c { margin-left: auto; margin-right: auto; }
     .rule--yellow { background: var(--yellow); }
 
     .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--r-sm); font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; }
-    .btn--primary { background: var(--blue); color: #fff; }
-    .btn--primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
-    .btn--outline { border-color: var(--muted); color: var(--muted); background: transparent; }
-    .btn--outline:hover { border-color: var(--blue); color: var(--blue); }
+    .btn--primary { background: var(--yellow); color: #000; }
+    .btn--primary:hover { background: #E3B512; color: #000; transform: translateY(-1px); }
+    .btn--outline { background: var(--yellow); color: #000; }
+    .btn--outline:hover { background: #E3B512; color: #000; }
 
     /* NAV */
-    .nav { background: rgba(13,17,22,0.92); backdrop-filter: blur(14px); padding: 1.1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(19,174,229,0.12); }
+    .nav { background: rgba(18,18,18,0.92); backdrop-filter: blur(14px); padding: 1.1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: none; }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; }
     .nav__logo img { height: 44px; display: block; }
     .nav__links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav__links a { font-family: var(--font-d); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .nav__links a { font-family: var(--font-d); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; transition: color 0.2s; }
     .nav__links a:hover, .nav__links a.active { color: var(--blue); }
+    .nav__links a.nav-yellow, .nav__links a.nav-yellow.active { color: var(--yellow); }
     .nav__right { display: flex; align-items: center; gap: 1rem; }
     .nav__lang { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--blue); cursor: pointer; user-select: none; border: 1.5px solid var(--blue); border-radius: 4px; padding: 0.2rem 0.5rem; transition: background 0.2s, color 0.2s; }
     .nav__lang:hover { background: var(--blue); color: #fff; }
@@ -69,54 +70,49 @@
     }
 
     /* HERO */
-    .awards-hero { background: #0D1116; padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
+    .awards-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
     .awards-hero__mark { position: absolute; width: 480px; bottom: -60px; right: -60px; opacity: 1; pointer-events: none; }
-    .awards-hero__icon { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.06); margin: 0 auto 1.5rem; }
 
     /* INTRO */
     .awards-intro { padding: 3rem 0; background: var(--white); }
-    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2rem; }
-    @media (max-width: 768px) { .intro-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .intro-stat { background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.6rem; text-align: center; }
-    .intro-stat__num { font-family: var(--font-d); font-weight: 700; font-size: 2.8rem; color: #fff; letter-spacing: -0.02em; }
-    .intro-stat__label { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
-    .intro-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    @media (max-width: 480px) { .intro-stats { grid-template-columns: 1fr; } }
+    .intro-grid { max-width: 720px; margin: 2rem auto 0; text-align: center; }
+    .intro-stat { background: var(--gray-bg); border: none; border-radius: var(--r-md); padding: 1.1rem 1.6rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
+    .intro-stat__num { font-family: var(--font-d); font-weight: 700; font-size: 1.9rem; color: var(--yellow); letter-spacing: -0.02em; white-space: nowrap; }
+    .intro-stat__label { font-size: 1rem; color: #fff; }
+    .intro-stats { display: flex; flex-direction: column; gap: 1rem; max-width: 520px; margin: 2.5rem auto 0; }
 
     /* JUDGES */
-    .judges-section { padding: 3rem 0; background: var(--gray-bg); }
-    .judges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    @media (max-width: 900px) { .judges-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 540px) { .judges-grid { grid-template-columns: 1fr; } }
-    .judge-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.6rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; transition: border-color 0.2s; }
-    .judge-card:hover { border-color: rgba(19,174,229,0.3); }
-    .judge-avatar { width: 110px; height: 110px; border-radius: 50%; background: var(--border); overflow: hidden; flex-shrink: 0; border: 2px solid rgba(19,174,229,0.25); }
-    .judge-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .judges-section { padding: 3rem 0; background: var(--white); }
+    .judges-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    @media (max-width: 700px) { .judges-grid { grid-template-columns: 1fr; } }
+    .judge-card { background: var(--gray-bg); border: none; border-radius: var(--r-md); padding: 1.8rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
+    .judge-avatar { width: 140px; height: 140px; border-radius: var(--r-sm); background: var(--gray-bg); overflow: hidden; flex-shrink: 0; border: none; }
+    .judge-avatar img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
     .judge-name { font-family: var(--font-d); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); }
-    .judge-role { font-size: 0.8rem; color: var(--blue); line-height: 1.4; }
-    .judge-bio { font-size: 0.78rem; color: var(--muted); line-height: 1.55; text-align: left; }
+    .judge-role { font-size: 0.8rem; color: var(--yellow); line-height: 1.4; }
+    .judge-bio { font-size: 0.78rem; color: #fff; line-height: 1.55; text-align: left; }
 
     /* DOCUMENTS */
     .docs-section { padding: 3rem 0; background: var(--white); }
     .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
     @media (max-width: 600px) { .docs-grid { grid-template-columns: 1fr; } }
-    .docs-card { display: flex; align-items: center; gap: 1.2rem; background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.4rem 1.6rem; text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s; }
-    .docs-card:hover { border-color: rgba(19,174,229,0.4); }
-    .docs-card__icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 10px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); flex-shrink: 0; }
+    .docs-card { display: flex; align-items: center; gap: 1.2rem; background: var(--gray-bg); border: none; border-radius: var(--r-md); padding: 1.4rem 1.6rem; text-decoration: none; transition: transform 0.2s; }
+    .docs-card:hover { transform: translateY(-2px); }
+    .docs-card__icon { display: none; }
     .docs-card__body { display: flex; flex-direction: column; gap: 0.25rem; }
-    .docs-card__label { font-size: 0.68rem; font-family: var(--font-d); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .docs-card__label { display: none; }
     .docs-card__title { font-family: var(--font-d); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); line-height: 1.3; }
-    .docs-card__sub { font-size: 0.78rem; color: var(--muted); }
-    .docs-card__dl { display: flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-family: var(--font-d); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+    .docs-card__sub { font-size: 0.78rem; color: #fff; }
+    .docs-card__dl { display: flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-family: var(--font-d); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yellow); margin-top: 0.3rem; }
 
     /* NOMINATE CTA */
-    .cta-section { padding: 3rem 0; background: var(--gray-bg); }
-    .cta-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r-md); padding: 2.5rem; text-align: center; }
+    .cta-section { padding: 3rem 0 4rem; background: var(--white); }
+    .cta-box { background: transparent; border: none; border-radius: 0; padding: 1rem 0; text-align: center; }
     .cta-box h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(1.4rem, 3vw, 2rem); text-transform: uppercase; letter-spacing: 0.04em; color: var(--navy); margin-bottom: 0.8rem; }
-    .cta-box p { color: var(--muted); font-size: 0.9rem; max-width: 520px; margin: 0 auto 1.8rem; }
+    .cta-box p { color: #fff; font-size: 0.95rem; max-width: 560px; margin: 0 auto 1.8rem; }
 
     /* FOOTER */
-    .footer { background: var(--gray-bg); padding: 3rem 0; border-top: 1px solid var(--border); }
+    .footer { background: var(--white); padding: 3rem 0; border-top: none; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
     .footer-logo img { height: 36px; width: auto; opacity: 0.7; }
     .footer-back { font-family: var(--font-d); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
@@ -129,15 +125,14 @@
 <nav class="nav">
   <div class="container">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></a>
+      <a href="index.html" class="nav__logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:36px;width:auto;"></a>
       <ul class="nav__links" id="navLinks">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#speakers">Speakers</a></li>
-        <li><a href="index.html#program">Program</a></li>
-        <li><a href="index.html#sponsors">Sponsors</a></li>
-        <li><a href="awards.html" class="active">Awards</a></li>
-        <li><a href="nominations.html">Nominate</a></li>
-        <li><a href="index.html#registration">Register</a></li>
+        <li><a href="index.html#about" id="nav-about">About</a></li>
+        <li><a href="index.html#speakers" id="nav-speakers">Speakers</a></li>
+        <li><a href="index.html#program" id="nav-program">Program</a></li>
+        <li><a href="index.html#registration" id="nav-register">Register</a></li>
+        <li><a href="awards.html" class="active nav-yellow" id="nav-awards">Awards</a></li>
+        <li><a href="nominations.html" class="nav-yellow" id="nav-nominate">Apply</a></li>
       </ul>
       <div class="nav__right">
         <span class="nav__lang" id="langToggle">UA</span>
@@ -151,17 +146,9 @@
 <section class="awards-hero">
   <img src="assets/mark-awards.png" alt="" aria-hidden="true" class="awards-hero__mark">
   <div class="container" style="position:relative;z-index:1;">
-    <div class="awards-hero__icon">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#F6C416" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M8 21h8M12 17v4M7 4H5a2 2 0 0 0-2 2v2c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V6a2 2 0 0 0-2-2h-2"/>
-        <rect x="7" y="2" width="10" height="11" rx="1"/>
-      </svg>
-    </div>
-    <p class="eyebrow" id="hero-eye">Awards 2026</p>
-    <h1 class="t-h2" style="color:#fff; margin:0.6rem 0;" id="hero-h1">Limitless Abilities Awards 2026</h1>
-    <div class="rule rule--c rule--yellow" style="margin:1rem auto 1.2rem;"></div>
-    <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; max-width:580px; margin:0 auto 2rem;" id="hero-sub">
-      9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 28, 2026.
+    <h1 class="t-h2" style="color:#fff; margin:0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
+    <p style="color:#fff; font-size:0.98rem; line-height:1.7; max-width:640px; margin:0 auto 2rem;" id="hero-sub">
+      Limitless Abilities Awards 2026 is a professional award recognizing people, teams, and organizations shaping the future of prosthetics, orthotics, and rehabilitation. If your solutions, professional mastery, or daily work change people's lives — apply by August 9, 2026.
     </p>
     <a href="nominations.html" class="btn btn--primary" id="hero-cta">View Nominations &rarr;</a>
   </div>
@@ -172,27 +159,23 @@
   <div class="container">
     <div class="intro-grid">
       <div>
-        <p class="eyebrow" id="intro-eye">About the Award</p>
         <h2 class="t-h3" style="margin:0.5rem 0 1rem;" id="intro-h2">Recognizing Those Who Move the Field Forward</h2>
-        <p style="color:var(--muted); font-size:0.92rem; line-height:1.7; margin-bottom:1rem;" id="intro-p1">
-          The Limitless Abilities Awards celebrate professionals, teams, and individuals who are transforming prosthetics, orthotics, and rehabilitation in Ukraine and internationally.
-        </p>
-        <p style="color:var(--muted); font-size:0.92rem; line-height:1.7;" id="intro-p2">
-          From clinical excellence to recovery journeys, from technical mastery to international collaboration — these awards acknowledge the full spectrum of contributions to the field.
+        <p style="color:#fff; font-size:0.95rem; line-height:1.7;" id="intro-p1">
+          Limitless Abilities Awards 2026 recognizes not individual projects but a real contribution to the development of the field. Each of the nine nominations represents a different area of professional activity and recognizes people, teams, and organizations shaping today's standards of prosthetics, orthotics, and rehabilitation.
         </p>
       </div>
       <div class="intro-stats">
         <div class="intro-stat">
-          <div class="intro-stat__num">9</div>
-          <div class="intro-stat__label" id="stat1-label">Award Categories</div>
+          <div class="intro-stat__num" id="stat1-num">9</div>
+          <div class="intro-stat__label" id="stat1-label">Nominations</div>
         </div>
         <div class="intro-stat">
-          <div class="intro-stat__num">Aug 28</div>
-          <div class="intro-stat__label" id="stat2-label">Ceremony Date</div>
+          <div class="intro-stat__num" id="stat2-num">Aug 9</div>
+          <div class="intro-stat__label" id="stat2-label">Applications close</div>
         </div>
         <div class="intro-stat">
-          <div class="intro-stat__num">Jul 20</div>
-          <div class="intro-stat__label" id="stat3-label">Nominations Close</div>
+          <div class="intro-stat__num" id="stat3-num">Aug 28</div>
+          <div class="intro-stat__label" id="stat3-label">Award ceremony</div>
         </div>
       </div>
     </div>
@@ -202,9 +185,7 @@
 <!-- JUDGES -->
 <section class="judges-section">
   <div class="container">
-    <p class="eyebrow" id="judges-eye">Jury</p>
-    <h2 class="t-h3" style="margin:0.5rem 0 0;" id="judges-h2">Judges</h2>
-    <div class="rule" style="margin:1rem 0 0;"></div>
+    <h2 class="t-h3" style="margin:0.5rem 0 0; text-align:center;" id="judges-h2">Judges</h2>
     <div class="judges-grid" id="judgesGrid">
       <!-- Injected by JS -->
     </div>
@@ -214,36 +195,21 @@
 <!-- DOCUMENTS -->
 <section class="docs-section">
   <div class="container">
-    <p class="eyebrow" id="docs-eye">Documents</p>
-    <h2 class="t-h3" style="margin:0.5rem 0 0;" id="docs-h2">Award Documents</h2>
-    <div class="rule" style="margin:1rem 0 0;"></div>
+    <h2 class="t-h3" style="margin:0.5rem 0 0; text-align:center;" id="docs-h2">Before You Apply</h2>
+    <p style="color:#fff; font-size:0.95rem; line-height:1.7; max-width:620px; margin:1rem auto 0; text-align:center;" id="docs-desc">
+      We recommend reviewing the award regulations and the nomination evaluation criteria before filling in your application.
+    </p>
     <div class="docs-grid">
-      <a href="assets/Регламент.pdf" download class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
+      <a href="regulations.html" class="docs-card">
         <div class="docs-card__body">
-          <div class="docs-card__label" id="reg-label">PDF — Regulations</div>
-          <div class="docs-card__title" id="reg-title">Regulations</div>
-          <div class="docs-card__sub" id="reg-sub">Регламент проведення премії Limitless Abilities Awards</div>
-          <div class="docs-card__dl">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="dl-reg-text">Download PDF</span>
-          </div>
+          <div class="docs-card__title" id="reg-title">Award Regulations</div>
+          <div class="docs-card__sub" id="reg-sub">Terms of participation, award procedure, selection stages, evaluation process, and determination of winners</div>
         </div>
       </a>
-      <a href="assets/Додаток_1.pdf" download class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
-        </div>
+      <a href="criteria.html" class="docs-card">
         <div class="docs-card__body">
-          <div class="docs-card__label" id="app-label">PDF — Appendix 1</div>
-          <div class="docs-card__title" id="app-title">Appendix 1: Nomination Criteria</div>
-          <div class="docs-card__sub" id="app-sub">Додаток 1: Номінації та критерії оцінювання</div>
-          <div class="docs-card__dl">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="dl-app-text">Download PDF</span>
-          </div>
+          <div class="docs-card__title" id="app-title">Nomination Evaluation Criteria</div>
+          <div class="docs-card__sub" id="app-sub">Description of all nominations, evaluation criteria, and the list of recommended supporting materials for each nomination</div>
         </div>
       </a>
     </div>
@@ -254,9 +220,9 @@
 <section class="cta-section">
   <div class="container">
     <div class="cta-box">
-      <h2 id="cta-h2">Ready to Nominate?</h2>
-      <p id="cta-p">Nominations are open July 6–20, 2026. Submit your application before July 20 at 23:59 Kyiv time.</p>
-      <a href="nominations.html" class="btn btn--primary" id="cta-btn">View All Nominations &rarr;</a>
+      <h2 id="cta-h2">Ready to Tell Us About Your Contribution?</h2>
+      <p id="cta-p">Applications are accepted until August 9, 2026, 23:59 (Kyiv time). Choose a nomination, prepare the required materials, and fill in the form. Good luck!</p>
+      <a href="nominations.html" class="btn btn--primary" id="cta-btn">View Nominations &rarr;</a>
     </div>
   </div>
 </section>
@@ -268,7 +234,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span id="back-text">Back to main site</span>
       </a>
-      <div class="footer-logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></div>
+      <div class="footer-logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:34px;width:auto;opacity:1;"></div>
       <div class="footer-copy">&copy; 2026 Protez Hub</div>
     </div>
   </div>
@@ -290,7 +256,7 @@ const JUDGES = [
   },
   {
     img: 'assets/judges/christopher-lindhe.jpg',
-    name: { en: 'Christopher Lindhe', ua: 'Крістофер Ліндхе' },
+    name: { en: 'Christoffer Lindhe', ua: 'Крістоффер Ліндхе' },
     role: {
       en: 'Paralympic Swimmer · Founder & CEO, Lindhe Xtend',
       ua: 'Паралімпійський плавець · Засновник і CEO Lindhe Xtend'
@@ -385,49 +351,59 @@ function updateLang(l) {
   const isUa = lang === 'ua';
   document.getElementById('langToggle').textContent = isUa ? 'EN' : 'UA';
 
+  // Nav
+  document.getElementById('nav-about').textContent = isUa ? 'Про захід' : 'About';
+  document.getElementById('nav-speakers').textContent = isUa ? 'Спікери' : 'Speakers';
+  document.getElementById('nav-program').textContent = isUa ? 'Програма' : 'Program';
+  document.getElementById('nav-register').textContent = isUa ? 'Реєстрація' : 'Register';
+  document.getElementById('nav-awards').textContent = isUa ? 'Премія' : 'Awards';
+  document.getElementById('nav-nominate').textContent = isUa ? 'Подати заявку' : 'Apply';
+
+  // Event logo
+  document.querySelectorAll('.js-event-logo').forEach(img => { img.src = isUa ? 'assets/logo-event-ua.png' : 'assets/logo-event-en.png'; });
+
   // Hero
-  document.getElementById('hero-eye').textContent = isUa ? 'Нагороди 2026' : 'Awards 2026';
-  document.getElementById('hero-h1').textContent = isUa ? 'Limitless Abilities Awards 2026' : 'Limitless Abilities Awards 2026';
+  document.getElementById('hero-h1').textContent = 'Limitless Abilities Awards 2026';
   document.getElementById('hero-sub').textContent = isUa
-    ? '9 номінацій, які відзначають досягнення у протезуванні, ортезуванні, реабілітації та міжнародному партнерстві. Церемонія: 28 серпня 2026.'
-    : '9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership. Ceremony: Aug 28, 2026.';
+    ? 'Limitless Abilities Awards 2026 – професійна премія, що відзначає людей, команди та організації, які формують майбутнє протезування, ортезування й реабілітації. Якщо ваші рішення, професійна майстерність або щоденна робота змінюють життя людей – подайте заявку до 9 серпня 2026 року.'
+    : "Limitless Abilities Awards 2026 is a professional award recognizing people, teams, and organizations shaping the future of prosthetics, orthotics, and rehabilitation. If your solutions, professional mastery, or daily work change people's lives — apply by August 9, 2026.";
   document.getElementById('hero-cta').innerHTML = isUa ? 'Переглянути номінації &rarr;' : 'View Nominations &rarr;';
 
   // Intro
-  document.getElementById('intro-eye').textContent = isUa ? 'Про нагороду' : 'About the Award';
   document.getElementById('intro-h2').textContent = isUa ? 'Визнання тих, хто рухає галузь вперед' : 'Recognizing Those Who Move the Field Forward';
   document.getElementById('intro-p1').textContent = isUa
-    ? 'Нагороди Limitless Abilities відзначають фахівців, команди та людей, які трансформують протезування, ортезування та реабілітацію в Україні та на міжнародному рівні.'
-    : 'The Limitless Abilities Awards celebrate professionals, teams, and individuals who are transforming prosthetics, orthotics, and rehabilitation in Ukraine and internationally.';
-  document.getElementById('intro-p2').textContent = isUa
-    ? 'Від клінічної майстерності до шляху відновлення, від технічної досконалості до міжнародного співробітництва — ці нагороди визнають увесь спектр внеску у галузь.'
-    : 'From clinical excellence to recovery journeys, from technical mastery to international collaboration — these awards acknowledge the full spectrum of contributions to the field.';
-  document.getElementById('stat1-label').textContent = isUa ? 'Номінації' : 'Award Categories';
-  document.getElementById('stat2-label').textContent = isUa ? 'Дата церемонії' : 'Ceremony Date';
-  document.getElementById('stat3-label').textContent = isUa ? 'Закінчення подання' : 'Nominations Close';
+    ? "Limitless Abilities Awards 2026 відзначає не окремі проєкти, а реальний внесок у розвиток галузі. Кожна з дев'яти номінацій представляє різні напрями професійної діяльності та визнає людей, команди й організації, які формують сучасні стандарти протезування, ортезування та реабілітації."
+    : "Limitless Abilities Awards 2026 recognizes not individual projects but a real contribution to the development of the field. Each of the nine nominations represents a different area of professional activity and recognizes people, teams, and organizations shaping today's standards of prosthetics, orthotics, and rehabilitation.";
+  document.getElementById('stat1-num').textContent = '9';
+  document.getElementById('stat1-label').textContent = isUa ? 'Номінацій' : 'Nominations';
+  document.getElementById('stat2-num').textContent = isUa ? '9 серпня' : 'Aug 9';
+  document.getElementById('stat2-label').textContent = isUa ? 'Завершення прийому заявок' : 'Applications close';
+  document.getElementById('stat3-num').textContent = isUa ? '28 серпня' : 'Aug 28';
+  document.getElementById('stat3-label').textContent = isUa ? 'Церемонія нагородження' : 'Award ceremony';
 
   // Judges
-  document.getElementById('judges-eye').textContent = isUa ? 'Журі' : 'Jury';
   document.getElementById('judges-h2').textContent = isUa ? 'Судді' : 'Judges';
 
   // Documents
-  document.getElementById('docs-eye').textContent = isUa ? 'Документи' : 'Documents';
-  document.getElementById('docs-h2').textContent = isUa ? 'Документи нагороди' : 'Award Documents';
-  document.getElementById('reg-label').textContent = isUa ? 'PDF — Регламент' : 'PDF — Regulations';
-  document.getElementById('reg-title').textContent = isUa ? 'Регламент' : 'Regulations';
-  document.getElementById('reg-sub').textContent = isUa ? 'Регламент проведення премії Limitless Abilities Awards' : 'Award Regulations — Limitless Abilities Awards';
-  document.getElementById('dl-reg-text').textContent = isUa ? 'Завантажити PDF' : 'Download PDF';
-  document.getElementById('app-label').textContent = isUa ? 'PDF — Додаток 1' : 'PDF — Appendix 1';
-  document.getElementById('app-title').textContent = isUa ? 'Додаток 1: Критерії номінацій' : 'Appendix 1: Nomination Criteria';
-  document.getElementById('app-sub').textContent = isUa ? 'Номінації та критерії оцінювання' : 'Nominations and evaluation criteria';
-  document.getElementById('dl-app-text').textContent = isUa ? 'Завантажити PDF' : 'Download PDF';
+  document.getElementById('docs-h2').textContent = isUa ? 'Перед поданням заявки' : 'Before You Apply';
+  document.getElementById('docs-desc').textContent = isUa
+    ? 'Рекомендуємо ознайомитися з регламентом премії та критеріями оцінювання номінацій перед заповненням заявки.'
+    : 'We recommend reviewing the award regulations and the nomination evaluation criteria before filling in your application.';
+  document.getElementById('reg-title').textContent = isUa ? 'Регламент премії' : 'Award Regulations';
+  document.getElementById('reg-sub').textContent = isUa
+    ? 'Умови участі, порядок проведення премії, етапи відбору, процедура оцінювання та визначення переможців'
+    : 'Terms of participation, award procedure, selection stages, evaluation process, and determination of winners';
+  document.getElementById('app-title').textContent = isUa ? 'Критерії оцінювання номінацій' : 'Nomination Evaluation Criteria';
+  document.getElementById('app-sub').textContent = isUa
+    ? 'Опис усіх номінацій, критерії оцінювання та перелік рекомендованих підтверджувальних матеріалів для кожної номінації'
+    : 'Description of all nominations, evaluation criteria, and the list of recommended supporting materials for each nomination';
 
   // CTA
-  document.getElementById('cta-h2').textContent = isUa ? 'Готові номінувати?' : 'Ready to Nominate?';
+  document.getElementById('cta-h2').textContent = isUa ? 'Готові розповісти про свій внесок?' : 'Ready to Tell Us About Your Contribution?';
   document.getElementById('cta-p').textContent = isUa
-    ? 'Прийом заявок: 6–20 липня 2026 року. Подайте заявку до 20 липня о 23:59 за київським часом.'
-    : 'Nominations are open July 6–20, 2026. Submit your application before July 20 at 23:59 Kyiv time.';
-  document.getElementById('cta-btn').innerHTML = isUa ? 'Переглянути всі номінації &rarr;' : 'View All Nominations &rarr;';
+    ? 'Заявки приймаються до 9 серпня 2026 року, 23:59 (за київським часом). Оберіть номінацію, підготуйте необхідні матеріали та заповніть форму. Бажаємо успіхів!'
+    : 'Applications are accepted until August 9, 2026, 23:59 (Kyiv time). Choose a nomination, prepare the required materials, and fill in the form. Good luck!';
+  document.getElementById('cta-btn').innerHTML = isUa ? 'Переглянути номінації &rarr;' : 'View Nominations &rarr;';
 
   // Footer
   document.getElementById('back-text').textContent = isUa ? 'На головну сторінку' : 'Back to main site';
@@ -435,7 +411,7 @@ function updateLang(l) {
   buildJudges();
 }
 
-buildJudges();
+updateLang('ua');
 document.getElementById('langToggle').addEventListener('click', () => updateLang(lang === 'en' ? 'ua' : 'en'));
 document.getElementById('burger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
 </script>

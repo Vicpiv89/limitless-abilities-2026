@@ -32,15 +32,15 @@
     :root {
       --blue:      #13AEE5;
       --blue-dark: #0E8FBD;
-      --blue-tint: #091820;
+      --blue-tint: #121212;
       --yellow:    #F6C416;
       --navy:      #ffffff;
-      --ink:       #BACCD8;
-      --muted:     #6A8A9A;
-      --border:    #1E2E3A;
-      --gray-bg:   #141E26;
-      --white:     #0D1116;
-      --font-d: 'Phenomena', sans-serif;
+      --ink:       #FFFFFF;
+      --muted:     #FFFFFF;
+      --border:    #2A2A2A;
+      --gray-bg:   #1B1B1B;
+      --white:     #121212;
+      --font-d: 'Akrobat', sans-serif;
       --font-b: 'Akrobat', sans-serif;
       --r-sm: 8px;
       --r-md: 16px;
@@ -71,11 +71,11 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .ha { animation: fadeUp 0.45s cubic-bezier(0.16,1,0.3,1) both; }
-    .ha-1 { animation-delay: 1.5s; }
-    .ha-2 { animation-delay: 1.65s; }
-    .ha-3 { animation-delay: 1.8s; }
-    .ha-4 { animation-delay: 1.95s; }
-    .ha-5 { animation-delay: 2.1s; }
+    .ha-1 { animation-delay: 0s; }
+    .ha-2 { animation-delay: 0.1s; }
+    .ha-3 { animation-delay: 0.2s; }
+    .ha-4 { animation-delay: 0.3s; }
+    .ha-5 { animation-delay: 0.4s; }
 
     /* ── Wave dividers ── */
     .wave { display: none; }
@@ -109,14 +109,7 @@
 
 
     /* ── Typography ── */
-    .eyebrow {
-      font-family: var(--font-d);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
+    .eyebrow { display: none; }
     .t-hero {
       font-family: var(--font-d);
       font-weight: 700;
@@ -141,11 +134,11 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    .t-body  { font-size: 1rem; line-height: 1.75; color: var(--muted); }
-    .t-small { font-size: 0.85rem; color: var(--muted); }
+    .t-body  { font-size: 1rem; line-height: 1.75; color: #fff; }
+    .t-small { font-size: 0.75rem; color: #fff; }
 
-    /* ── Rule ── */
-    .rule { width: 48px; height: 3px; background: var(--blue); margin: 0.9rem 0 1.8rem; border-radius: 2px; }
+    /* ── Rule (removed per design pass) ── */
+    .rule { display: none; }
     .rule--c { margin-left: auto; margin-right: auto; }
 
     /* ── Badge ── */
@@ -178,8 +171,10 @@
     }
     .btn--primary { background: var(--blue); color: #fff; }
     .btn--primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
-    .btn--outline { border-color: var(--blue); color: var(--blue); background: transparent; }
-    .btn--outline:hover { background: var(--blue); color: #fff; transform: translateY(-1px); }
+    .btn--yellow { background: var(--yellow); color: #000; }
+    .btn--yellow:hover { background: #E3B512; color: #000; transform: translateY(-1px); }
+    .btn--outline { background: var(--blue); color: #fff; }
+    .btn--outline:hover { background: var(--blue-dark); color: #fff; transform: translateY(-1px); }
     .btn--black { background: #0A1628; color: #fff; border-color: #0A1628; }
     .btn--black:hover { background: #000; border-color: #000; transform: translateY(-1px); }
     .btn--black-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
@@ -211,7 +206,7 @@
 
     /* ── NAV ── */
     .nav {
-      background: rgba(13,17,22,0.88);
+      background: rgba(18,18,18,0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       padding: 1.1rem 0;
@@ -219,7 +214,7 @@
       top: 0;
       z-index: 100;
       width: 100%;
-      border-bottom: 1px solid rgba(19,174,229,0.12);
+      border-bottom: none;
       transition: box-shadow 0.25s, background 0.25s;
     }
     .nav--shadow { box-shadow: 0 2px 16px rgba(0,0,0,0.35); }
@@ -243,10 +238,12 @@
       font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #fff;
       transition: color 0.2s;
     }
     .nav__links a:hover { color: var(--blue); }
+    .nav__links a.nav-yellow { color: var(--yellow); }
+    .nav__links a.nav-yellow:hover { color: #E3B512; }
     .nav__right { display: flex; align-items: center; gap: 1rem; }
     .nav__lang {
       font-family: var(--font-d);
@@ -281,7 +278,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: #000000;
+      background: var(--white);
       padding: 5rem 0;
       position: relative;
       overflow: hidden;
@@ -339,10 +336,10 @@
       font-size: 0.8rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--blue);
+      color: #fff;
     }
-    .hero__meta-badge svg { width: 13px; height: 13px; flex-shrink: 0; }
-    .hero__meta-badge--yellow { color: var(--yellow); }
+    .hero__meta-badge svg { display: none; }
+    .hero__meta-badge--yellow { color: #fff; }
     .hero__meta-sep { color: var(--border); font-size: 1.1rem; user-select: none; line-height: 1; }
     .hero__btns { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; justify-content: center; }
     /* ── Countdown ── */
@@ -423,31 +420,31 @@
     /* ── CARDS ── */
     .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
     .card {
-      background: var(--white);
+      background: var(--gray-bg);
       border-radius: var(--r-md);
       padding: 2rem;
-      border: 1px solid var(--border);
+      border: none;
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s, transform 0.2s;
     }
     .card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.10); transform: translateY(-3px); }
-    .card--top  { border-top: 3px solid var(--blue); }
+    .card--top  { border-top: none; }
 
     /* ── SPEAKERS ── */
     .grid-4s { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.4rem; }
     .speaker {
-      background: var(--white);
+      background: var(--gray-bg);
       border-radius: var(--r-md);
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: none;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .speaker:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,0.10); }
-    .speaker img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; }
-    .speaker__info { padding: 0.9rem 1rem; border-top: 2.5px solid var(--blue); }
-    .speaker__name { font-family:var(--font-d); font-weight:700; font-size:0.88rem; color:var(--navy); margin-bottom:0.2rem; }
-    .speaker__role { font-size:0.73rem; color:var(--muted); line-height:1.4; }
+    .speaker img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter: grayscale(1); }
+    .speaker__info { padding: 0.9rem 1rem; border-top: none; }
+    .speaker__name { font-family:var(--font-d); font-weight:700; font-size:0.88rem; color:#fff; margin-bottom:0.2rem; }
+    .speaker__role { font-size:0.73rem; color:var(--blue); line-height:1.4; }
 
 
     /* ── PROGRAM TAGS ── */
@@ -485,7 +482,7 @@
     .section--accent .t-body  { color: rgba(255,255,255,0.75); }
 
     /* ── FORM ── */
-    .form { background: var(--gray-bg); border-radius: var(--r-md); padding: 2.5rem; display:flex; flex-direction:column; gap:1.1rem; margin-top:2rem; border: 1px solid var(--border); }
+    .form { background: var(--gray-bg); border-radius: var(--r-md); padding: 2.5rem; display:flex; flex-direction:column; gap:1.1rem; margin-top:2rem; border: none; }
     .form label { display:block; font-family:var(--font-d); font-weight:600; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); margin-bottom:0.35rem; }
     .form input {
       width:100%; padding:0.75rem 1rem;
@@ -531,14 +528,6 @@
     .footer-soc a { color:var(--muted); transition:color 0.15s; }
     .footer-soc a:hover { color:var(--blue); }
     .footer-soc svg { width:17px; height:17px; }
-
-    /* ── Intro curtain ── */
-    #curtain {
-      position: fixed; inset: 0; z-index: 9999;
-      background-color: #1B3A5C;
-      pointer-events: none;
-      overflow: hidden;
-    }
 
     /* ── SCHEDULE ── */
     .sched-tabs { display:flex; margin:0 auto 2.5rem; width:fit-content; border:1.5px solid var(--border); border-radius:var(--r-pill); overflow:hidden; background:rgba(255,255,255,0.05); }
@@ -618,7 +607,7 @@
         display: flex; flex-direction: column;
         position: absolute; top: 100%;
         left: -2rem; right: -2rem;
-        background: #0D1116;
+        background: #121212;
         padding: 1.2rem 2rem 1.8rem;
         border-top: 1px solid rgba(255,255,255,0.06);
         gap: 0; z-index: 50;
@@ -727,11 +716,11 @@
     .sp-car-wrap { flex: 1; overflow: hidden; }
     .sp-car-track { display: flex; gap: 1.2rem; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); justify-content: center; }
     .sp-logo-item {
-      flex: 0 0 345px; height: 210px;
+      flex: 0 0 360px; height: 225px;
       display: flex; align-items: center; justify-content: center;
       background: transparent; padding: 0; overflow: hidden;
     }
-    .sp-logo-item img { max-width: 100%; max-height: 190px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
+    .sp-logo-item img { max-width: 100%; max-height: 205px; width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.85; transition: opacity 0.2s; }
     .sp-logo-item img:hover { opacity: 1; }
     #sponsors .t-h2 { color: #fff; }
     #sponsors .sp-tier__label { color: rgba(255,255,255,0.55) !important; }
@@ -746,9 +735,9 @@
     .sp-tier--gold .sp-logo-item { flex-basis: 480px; height: 300px; }
     .sp-tier--gold .sp-logo-item img { max-height: 280px; opacity: 1; }
     .sp-tier--silver .sp-logo-item,
-    .sp-tier--bronze .sp-logo-item { flex-basis: 400px; height: 250px; }
+    .sp-tier--bronze .sp-logo-item { flex-basis: 360px; height: 225px; }
     .sp-tier--silver .sp-logo-item img,
-    .sp-tier--bronze .sp-logo-item img { max-height: 230px; max-width: 380px; opacity: 1; }
+    .sp-tier--bronze .sp-logo-item img { max-height: 205px; max-width: 340px; opacity: 1; }
     .sp-logo-item--empty { border: 1px dashed var(--border); border-radius: var(--r-md); }
     .sp-logo-item--empty:hover { border-color: var(--blue); }
     .sp-logo-item--empty span { font-size: 0.68rem; color: var(--muted); opacity: 0.45; font-family: var(--font-d); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-align: center; line-height: 1.4; }
@@ -761,14 +750,14 @@
     .sp-car-btn:hover { border-color: var(--blue); color: var(--blue); }
     .sp-car-btn:disabled { opacity: 0.18; cursor: default; pointer-events: none; }
     @media (max-width: 600px) {
-      .sp-logo-item { flex: 0 0 100%; height: 175px; }
-      .sp-logo-item img { max-height: 160px; }
+      .sp-logo-item { flex: 0 0 100%; height: 160px; }
+      .sp-logo-item img { max-height: 150px; }
       .sp-tier--gold .sp-logo-item { flex-basis: 100%; height: 215px; }
       .sp-tier--gold .sp-logo-item img { max-height: 200px; }
       .sp-tier--silver .sp-logo-item,
-      .sp-tier--bronze .sp-logo-item { flex-basis: 100%; height: 180px; }
+      .sp-tier--bronze .sp-logo-item { flex-basis: 100%; height: 160px; }
       .sp-tier--silver .sp-logo-item img,
-      .sp-tier--bronze .sp-logo-item img { max-height: 165px; max-width: 100%; }
+      .sp-tier--bronze .sp-logo-item img { max-height: 150px; max-width: 100%; }
       .sp-partner-item { width: 230px; min-height: 110px; }
       .sp-partner-item img { max-width: 210px; max-height: 100px; }
     }
@@ -844,27 +833,23 @@
 </head>
 <body>
 
-<!-- ── INTRO CURTAIN ── -->
-<div id="curtain" aria-hidden="true"></div>
-
 <!-- ── NAV ── -->
 <nav class="nav" id="nav">
   <div class="container">
     <div class="nav__inner">
       <a class="nav__logo" href="#" aria-label="Limitless Abilities">
-        <img src="assets/logo-icon-crop.png" alt="Limitless Abilities" height="40" style="width:auto;">
+        <img src="assets/logo-event-ua.png" alt="Limitless Abilities" class="js-event-logo" height="40" style="width:auto;">
       </a>
       <ul class="nav__links" id="navLinks">
         <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#speakers" data-i18n="nav.speakers">Speakers</a></li>
         <li><a href="#program" data-i18n="nav.program">Program</a></li>
-        <li><a href="#sponsors" data-i18n="nav.sponsors">Sponsors</a></li>
-        <li><a href="awards.html" data-i18n="nav.awards">Awards</a></li>
         <li><a href="#registration" data-i18n="nav.register">Register</a></li>
+        <li><a href="awards.html" class="nav-yellow" data-i18n="nav.awards">Awards</a></li>
+        <li><a href="nominations.html" class="nav-yellow" data-i18n="nav.nominate">Apply</a></li>
       </ul>
       <div class="nav__right">
         <span class="nav__lang" id="langBtn" role="button" tabindex="0">EN | UA</span>
-        <a href="#registration" class="btn btn--nav" style="padding:0.5rem 1.3rem;font-size:0.72rem;">Register</a>
       </div>
       <button class="nav__burger" id="navBurger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -885,29 +870,22 @@
   <div class="container">
     <div class="hero__content">
 
-      <!-- Icon + Title -->
+      <!-- Event logo -->
       <div class="hero__brand ha ha-1">
-        <img src="assets/logo-icon-crop.png" alt="Limitless Abilities" class="hero__icon">
-        <h1 class="t-hero">Limitless<br>Abilities</h1>
+        <img src="assets/logo-event-ua.png" alt="Limitless Abilities" class="js-event-logo" style="height:auto;width:min(640px,90%);">
       </div>
 
-      <!-- Date / Location badges -->
+      <!-- Date / stream -->
       <div class="hero__meta ha ha-2">
-        <span class="hero__meta-badge hero__meta-badge--yellow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Aug 28–29, 2026
-        </span>
+        <span class="hero__meta-badge" data-i18n="hero.date">Aug 28–29, 2026</span>
         <span class="hero__meta-sep" aria-hidden="true">·</span>
-        <span class="hero__meta-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
-          <span data-i18n="hero.stream">Online Stream</span>
-        </span>
+        <span class="hero__meta-badge"><span data-i18n="hero.stream">Online Stream</span></span>
       </div>
 
       <!-- CTA buttons -->
       <div class="hero__btns ha ha-4">
-        <a href="#registration" class="btn btn--black-outline" data-i18n="hero.reg">Register Now &rarr;</a>
-        <a href="#program" class="btn btn--black" data-i18n="hero.prog">View Program</a>
+        <a href="#registration" class="btn btn--primary" data-i18n="hero.reg">Register Now &rarr;</a>
+        <a href="awards.html" class="btn btn--yellow">Limitless Abilities Awards</a>
       </div>
 
       <!-- Countdown -->
@@ -956,17 +934,21 @@
       <h2 class="t-h2" data-i18n="about.h2">Where Possibility Has No Limits</h2>
       <div class="rule rule--c rule--yellow" style="margin-top:0.8rem;"></div>
     </div>
-    <div style="max-width:720px; margin:0 auto;">
+    <div style="max-width:720px; margin:0 auto; text-align:center;">
       <div class="reveal" id="about-body">
         <p class="t-body" style="margin-bottom:1.2rem;">
-          The international conference <em>'Limitless Abilities: Amputation. Rehabilitation. Social Adaptation.'</em>
-          returns in 2026 - this time in person, with online streaming. In 2025, the two-day online marathon
-          attracted over 1,600 participants from across Ukraine and beyond.
+          The international conference <em>"Limitless Abilities: Amputation. Rehabilitation. Social Adaptation"</em>
+          returns in 2026 in a new format. After the success of the 2025 two-day online marathon, which brought together
+          over 1,600 participants from Ukraine and other countries, the conference will take place offline for the first time.
+        </p>
+        <p class="t-body" style="margin-bottom:1.2rem;">
+          Over two days, participants will join lectures, masterclasses, practical demonstrations, discussions,
+          a solutions exhibition, and a job fair for people with disabilities. The event will bring together specialists,
+          manufacturers, employers, the public sector, non-governmental organizations, and people with lived experience
+          to shape the future of prosthetics, orthotics, and rehabilitation in Ukraine together.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          This year we bring even more people together - in person and online worldwide.
-          Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
-          A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
+          All talks will be available to participants as recordings after the conference.
         </p>
         <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Register Now</a>
       </div>
@@ -1004,7 +986,8 @@
           <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/vadym-mP43Ln7VWVh3Nbjm.jpg" alt="Vadym Svyrydenko"><div class="speaker__info"><div class="speaker__name">Vadym Svyrydenko</div><div class="speaker__role">Advisor – Presidential Commissioner, Veterans · Ukraine</div></div></div>
           <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/iryna-m6L21Jnjb8uvNDaL.jpg" alt="Iryna Tkach"><div class="speaker__info"><div class="speaker__name">Iryna Tkach</div><div class="speaker__role">CPO and Team Lead, Dniproprotez State Center · Ukraine</div></div></div>
           <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/olha-YyvDq4e02phX0Eex.jpg" alt="Olha Shchehliuk"><div class="speaker__info"><div class="speaker__name">Olha Shchehliuk</div><div class="speaker__role">Lt. Colonel, Head of Rehabilitation Dept (Irpin) · Ukraine</div></div></div>
-          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">Moderator · MEd, Protez Hub Chief Director · Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">MEd, Protez Hub Chief Director · Ukraine</div></div></div>
+          <div class="speaker reveal"><img src="assets/speakers/arezoo.jpg" alt="Arezoo Eshraghi"><div class="speaker__info"><div class="speaker__name">Arezoo Eshraghi</div><div class="speaker__role">PhD, Certified Prosthetist · University Health Network, Toronto · Canada</div></div></div>
         </div>
       </div>
       <div class="spk-car-nav">
@@ -1030,109 +1013,10 @@
   </svg>
 </div>
 
-<!-- ── SPONSORS & PARTNERS ── -->
-<section class="section" id="sponsors" style="background:#0D1116; position:relative; overflow:visible;">
-  <div class="container">
-    <div class="section-hd reveal">
-      <h2 class="t-h2" data-i18n="sp.h2">Sponsors &amp; Partners</h2>
-      <div class="rule rule--c" style="margin-top:0.8rem;"></div>
-    </div>
 
-    <div class="sp-tier sp-tier--gold reveal">
-      <div class="sp-tier__label" data-i18n="sp.gold">Gold Sponsors</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/alps.png" alt="Alps Ukraine"></div>
-          <div class="sp-logo-item"><img src="assets/logos/fillauer.png" alt="Fillauer"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="sp-row--two reveal">
-      <div class="sp-tier sp-tier--silver">
-        <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
-        <div class="sp-carousel">
-          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-          <div class="sp-car-wrap"><div class="sp-car-track">
-            <div class="sp-logo-item"><img src="assets/logos/yourhealth.png" alt="Your Health Trading"></div>
-          </div></div>
-          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-        </div>
-      </div>
-      <div class="sp-tier sp-tier--bronze">
-        <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
-        <div class="sp-carousel">
-          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-          <div class="sp-car-wrap"><div class="sp-car-track">
-            <div class="sp-logo-item"><img src="assets/logos/ortoped-new.png" alt="Ortoped"></div>
-          </div></div>
-          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="sp-tier reveal">
-      <div class="sp-tier__label" data-i18n="sp.simulation">Simulation Area Sponsor</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/dniproprotez.png" alt="Dniproprotez"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="sp-tier sp-tier--awards reveal">
-      <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
-      <div class="sp-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-logo-item"><img src="assets/logos/ossur.png" alt="Össur"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="sp-tier reveal" style="margin-top:2.5rem;">
-      <div class="sp-tier__label" data-i18n="sp.partnerslabel" style="margin-bottom:1.2rem;">Partners</div>
-      <div class="sp-carousel sp-partners-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
-        <div class="sp-car-wrap"><div class="sp-car-track">
-          <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
-          <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
-          <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
-          <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
-          <div class="sp-partner-item"><img src="assets/partners/GMKA.png" alt="GMKA"></div>
-          <div class="sp-partner-item"><img src="assets/partners/GUForum.png" alt="GU Forum"></div>
-          <div class="sp-partner-item"><img src="assets/partners/HNMU.png" alt="HNMU"></div>
-          <div class="sp-partner-item"><img src="assets/partners/HospPart.png" alt="Hospital Partners"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Jonkoping.png" alt="Jönköping University"></div>
-          <div class="sp-partner-item"><img src="assets/partners/LANG.png" alt="LANG"></div>
-          <div class="sp-partner-item"><img src="assets/partners/MinDig.png" alt="Ministry of Digital Transformation"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Prosthetika.png" alt="Prosthetika"></div>
-          <div class="sp-partner-item"><img src="assets/partners/PU.png" alt="Patients of Ukraine"></div>
-          <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
-          <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
-          <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
-          <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
-        </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="reveal" style="text-align:center;margin-top:2.5rem;">
-      <a href="mailto:info@protezhub.com" class="btn btn--primary" data-i18n="sp.apply">Apply to Become a Sponsor</a>
-    </div>
-  </div>
-</section>
 
 <!-- Wave: sponsors → program -->
-<div class="wave" aria-hidden="true" style="background:#0D1116;">
+<div class="wave" aria-hidden="true" style="background:var(--white);">
   <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M-10 90 L-10 38 C120 12 300 58 500 32 C700 6 900 52 1100 28 C1270 8 1390 32 1460 24 L1460 90Z" fill="var(--white)"/>
   </svg>
@@ -1465,28 +1349,38 @@
 </section>
 
 <!-- ── AWARDS TEASER ── -->
-<section class="section" id="awards" style="background:#0D1116; position:relative; overflow:visible;">
+<section class="section" id="awards" style="background:var(--white); position:relative; overflow:visible;">
   <img src="assets/mark-awards.png" alt="" aria-hidden="true" class="gmark" style="width:340px; bottom:-30px; left:-50px; opacity:1; transform:rotate(8deg);">
   <div class="container">
-    <div style="max-width:680px; margin:0 auto; text-align:center;" class="reveal">
-      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#E0B83C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 1.4rem;" aria-hidden="true">
-        <path d="M8 21h8M12 17v4M7 4H5a2 2 0 0 0-2 2v2c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V6a2 2 0 0 0-2-2h-2"/>
-        <rect x="7" y="2" width="10" height="11" rx="1"/>
-      </svg>
-      <p class="eyebrow" style="color:rgba(255,255,255,0.55);" data-i18n="aw.eye">Awards 2026</p>
-      <h2 class="t-h2" style="color:#fff; margin-bottom:0.6rem;" data-i18n="aw.h2">Limitless Abilities Awards 2026</h2>
-      <div class="rule rule--c rule--yellow" style="margin:0.9rem auto;"></div>
-      <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; margin-bottom:0.5rem;">
-        9 award categories · Organized by Protez Hub · General Sponsor: Össur
-      </p>
-      <p style="color:rgba(255,255,255,0.45); font-size:0.82rem; margin-bottom:2.2rem; font-family:var(--font-d); letter-spacing:0.06em; text-transform:uppercase;" data-i18n="aw.dates">Nominations open July 6 – 20, 2026</p>
-      <a href="awards.html" class="btn btn--primary" style="font-size:0.85rem; padding:0.8rem 2rem;" data-i18n="aw.cta">Explore the Awards &rarr;</a>
+    <div style="max-width:720px; margin:0 auto; text-align:center;" class="reveal">
+      <h2 class="t-h2" style="color:#fff; margin-bottom:1.2rem;">Limitless Abilities Awards 2026</h2>
+      <div id="awards-teaser-body">
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+          Your work deserves recognition.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          If you are changing the field of rehabilitation, prosthetics, or orthotics, introducing new approaches,
+          building quality services, or inspiring others by your own example — apply for the Limitless Abilities Awards 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          The award covers 9 categories recognizing specialists, teams, organizations, and people making a significant
+          contribution to the development of prosthetics, orthotics, rehabilitation, and accessibility — from students
+          and clinicians to center directors, international partners, and people whose stories inspire others.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+          The winners will be announced during the Limitless Abilities Conference 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+          Applications are open until August 9, 2026.
+        </p>
+      </div>
+      <a href="nominations.html" class="btn btn--yellow" style="font-size:0.85rem; padding:0.8rem 2rem;" data-i18n="aw.cta">View Nominations &rarr;</a>
     </div>
   </div>
 </section>
 
 <!-- Wave: awards → registration -->
-<div class="wave" aria-hidden="true" style="background:#0D1116;">
+<div class="wave" aria-hidden="true" style="background:var(--white);">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M-10 80 L-10 34 C140 8 340 52 540 28 C740 4 940 46 1140 24 C1300 6 1400 24 1460 18 L1460 80Z" fill="var(--white)"/>
   </svg>
@@ -1497,9 +1391,8 @@
   <div class="container">
     <div style="max-width:600px;margin:0 auto;">
       <div style="text-align:center;" class="reveal">
-        <h2 class="t-h2" style="margin-bottom:0.5rem;" data-i18n="reg.h2">Register Now</h2>
-        <div class="rule rule--c" style="margin-top:0.8rem;margin-bottom:0.5rem;"></div>
-        <p class="t-small" data-i18n="reg.cert">Only registered participants will receive a certificate</p>
+        <h2 class="t-h2" style="margin-bottom:0.5rem;" data-i18n="reg.h2">Conference Registration</h2>
+        <p class="t-body" style="max-width:540px;margin:0.6rem auto 0;" data-i18n="reg.cert">Registration for the conference is open. The number of in-person places is limited, so we recommend registering in advance. All registered participants will receive a certificate of participation.</p>
       </div>
       <form class="form reveal" id="reg-form" name="registration" action="https://formspree.io/f/REGISTRATION_FORM_ID" method="post">
         <input type="hidden" name="_subject" value="New Registration — Limitless Abilities 2026">
@@ -1525,11 +1418,11 @@
           <input type="text" id="pr" name="profession">
         </div>
         <div>
-          <label for="attend" data-i18n="reg.att">Attendance / Участь *</label>
+          <label for="attend" data-i18n="reg.att">How do you plan to join? *</label>
           <select id="attend" name="attendance" required>
             <option value="" disabled selected data-i18n="reg.sel">Select…</option>
-            <option value="in-person" data-i18n="reg.opt.inperson">In Person · Очно</option>
-            <option value="online" data-i18n="reg.opt.online">Online · Онлайн</option>
+            <option value="in-person" data-i18n="reg.opt.inperson">I will attend the conference in person</option>
+            <option value="recordings" data-i18n="reg.opt.online">I will watch the recordings after the conference</option>
           </select>
         </div>
         <div class="form__sub">
@@ -1550,6 +1443,107 @@
   </div>
 </section>
 
+<!-- ── SPONSORS & PARTNERS ── -->
+<section class="section" id="sponsors" style="background:var(--white); position:relative; overflow:visible;">
+  <div class="container">
+    <div class="section-hd reveal">
+      <h2 class="t-h2" data-i18n="sp.h2">Sponsors &amp; Partners</h2>
+      <div class="rule rule--c" style="margin-top:0.8rem;"></div>
+    </div>
+
+    <div class="sp-tier sp-tier--gold reveal">
+      <div class="sp-tier__label" data-i18n="sp.gold">Gold Sponsors</div>
+      <div class="sp-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-logo-item"><img src="assets/logos/alps.png" alt="Alps Ukraine"></div>
+          <div class="sp-logo-item"><img src="assets/logos/fillauer.png" alt="Fillauer"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-row--two reveal">
+      <div class="sp-tier sp-tier--silver">
+        <div class="sp-tier__label" data-i18n="sp.silver">Silver Sponsors</div>
+        <div class="sp-carousel">
+          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+          <div class="sp-car-wrap"><div class="sp-car-track">
+            <div class="sp-logo-item"><img src="assets/logos/yourhealth.png" alt="Your Health Trading"></div>
+          </div></div>
+          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+      <div class="sp-tier sp-tier--bronze">
+        <div class="sp-tier__label" data-i18n="sp.bronze">Bronze Sponsors</div>
+        <div class="sp-carousel">
+          <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+          <div class="sp-car-wrap"><div class="sp-car-track">
+            <div class="sp-logo-item"><img src="assets/logos/ortoped-new.png" alt="Ortoped"></div>
+          </div></div>
+          <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sp-tier reveal">
+      <div class="sp-tier__label" data-i18n="sp.simulation">Simulation Area Sponsor</div>
+      <div class="sp-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-logo-item"><img src="assets/logos/dniproprotez.png" alt="Dniproprotez"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-tier sp-tier--awards reveal">
+      <div class="sp-tier__label" data-i18n="sp.awards">Awards Sponsor</div>
+      <div class="sp-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-logo-item"><img src="assets/logos/ossur.png" alt="Össur"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="sp-tier reveal" style="margin-top:2.5rem;">
+      <div class="sp-tier__label" data-i18n="sp.partnerslabel" style="margin-bottom:1.2rem;">Partners</div>
+      <div class="sp-carousel sp-partners-carousel">
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
+          <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
+          <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GMKA.png" alt="GMKA"></div>
+          <div class="sp-partner-item"><img src="assets/partners/GUForum.png" alt="GU Forum"></div>
+          <div class="sp-partner-item"><img src="assets/partners/HNMU.png" alt="HNMU"></div>
+          <div class="sp-partner-item"><img src="assets/partners/HospPart.png" alt="Hospital Partners"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Jonkoping.png" alt="Jönköping University"></div>
+          <div class="sp-partner-item"><img src="assets/partners/LANG.png" alt="LANG"></div>
+          <div class="sp-partner-item"><img src="assets/partners/MinDig.png" alt="Ministry of Digital Transformation"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Prosthetika.png" alt="Prosthetika"></div>
+          <div class="sp-partner-item"><img src="assets/partners/PU.png" alt="Patients of Ukraine"></div>
+          <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
+          <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
+          <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
+          <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
+        </div></div>
+        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-top:2.5rem;">
+      <a href="mailto:info@protezhub.com" class="btn btn--primary" data-i18n="sp.apply">Apply to Become a Sponsor</a>
+    </div>
+  </div>
+</section>
+
 <!-- Wave: registration → footer -->
 <div class="wave" aria-hidden="true" style="background:var(--white);">
   <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -1562,7 +1556,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer__brand"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities" style="height:44px;width:auto;display:block;margin-bottom:0.85rem;"></div>
+        <div class="footer__brand"><img src="assets/logo-event-ua.png" alt="Limitless Abilities" class="js-event-logo" style="height:40px;width:auto;display:block;margin-bottom:0.85rem;"></div>
         <p style="font-size:0.85rem;max-width:280px;line-height:1.65;" id="footer-desc">
           International conference on amputation, rehabilitation, and social adaptation.
           Organized by Protez Hub - Ukraine.
@@ -1615,38 +1609,6 @@
 </footer>
 
 <script>
-  // ── Intro curtain
-  const curtain      = document.getElementById('curtain');
-  const heroBrand    = document.querySelector('.hero__brand');
-  const heroContent  = document.querySelector('.hero__content');
-  const heroOtherEls = heroContent.querySelectorAll('.hero__meta, .hero__btns, .countdown');
-
-  // Lift real hero brand above curtain — freeze it at final state (no animation)
-  heroBrand.style.animation = 'none';
-  heroBrand.style.opacity   = '1';
-  heroBrand.style.transform = 'none';
-  heroContent.style.zIndex  = '10001';
-
-  // Hide everything else in the hero until the curtain clears
-  heroOtherEls.forEach(el => el.style.visibility = 'hidden');
-
-  // Transition background from lighter blue to site dark
-  setTimeout(() => {
-    curtain.style.transition      = 'background-color 0.9s ease';
-    curtain.style.backgroundColor = '#000000';
-  }, 500);
-
-  // Fade out curtain, let other hero elements animate in
-  setTimeout(() => {
-    curtain.style.transition = 'opacity 0.75s ease';
-    curtain.style.opacity    = '0';
-    heroOtherEls.forEach(el => el.style.visibility = '');
-    setTimeout(() => {
-      curtain.remove();
-      heroContent.style.zIndex = '';
-    }, 800);
-  }, 1600);
-
   // ── Nav shadow on scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1912,6 +1874,7 @@
     const T = {
       en: {
         // hero
+        'hero.date':   'Aug 28–29, 2026',
         'hero.stream': 'Online Stream',
         'hero.reg':    'Register Now &rarr;',
         'hero.prog':   'View Program',
@@ -1921,7 +1884,7 @@
         'nav.program':  'Program',
         'nav.sponsors': 'Sponsors',
         'nav.awards':   'Awards',
-        'nav.nominate': 'Nominate',
+        'nav.nominate': 'Apply',
         'nav.register': 'Register',
         // countdown
         'cd.days':  'Days',
@@ -1953,23 +1916,19 @@
         'prog.legm': 'Main Hall',
         'prog.leg3': 'Zone 3 - Persons with Amputation',
         // awards
-        'aw.eye':   'Awards 2026',
-        'aw.h2':    'Limitless Abilities Awards 2026',
-        'aw.info':  '9 award categories · Organized by Protez Hub · General Sponsor: Össur',
-        'aw.dates': 'Nominations open July 6 – 20, 2026',
-        'aw.cta':   'Explore the Awards &rarr;',
+        'aw.cta':   'View Nominations &rarr;',
         // registration
-        'reg.h2':     'Register Now',
-        'reg.cert':   'Only registered participants will receive a certificate',
+        'reg.h2':     'Conference Registration',
+        'reg.cert':   'Registration for the conference is open. The number of in-person places is limited, so we recommend registering in advance. All registered participants will receive a certificate of participation.',
         'reg.fn':     'Name / Ім\'я *',
         'reg.ln':     'Last Name / Прізвище *',
         'reg.em':     'Email *',
         'reg.ph':     'Phone Number / Номер телефону',
         'reg.pr':     'Profession / Ким працюєте і де',
-        'reg.att':    'Attendance / Участь *',
+        'reg.att':    'How do you plan to join? *',
         'reg.sel':             'Select…',
-        'reg.opt.inperson':    'In Person · Очно',
-        'reg.opt.online':      'Online · Онлайн',
+        'reg.opt.inperson':    'I will attend the conference in person',
+        'reg.opt.online':      'I will watch the recordings after the conference',
         'reg.submit':          'Submit Registration',
         'reg.ok.h3':           'You\'re registered!',
         'reg.ok.p':            'Check your email for a confirmation. See you Aug 28–29!',
@@ -1984,16 +1943,17 @@
       },
       ua: {
         // hero
-        'hero.stream': 'Онлайн трансляція',
+        'hero.date':   '28–29 серпня 2026',
+        'hero.stream': 'Онлайн-трансляція',
         'hero.reg':    'Зареєструватись &rarr;',
         'hero.prog':   'Програма',
         // nav
-        'nav.about':    'Про нас',
+        'nav.about':    'Про захід',
         'nav.speakers': 'Спікери',
         'nav.program':  'Програма',
         'nav.sponsors': 'Спонсори',
-        'nav.awards':   'Нагороди',
-        'nav.nominate': 'Номінувати',
+        'nav.awards':   'Премія',
+        'nav.nominate': 'Подати заявку',
         'nav.register': 'Реєстрація',
         // countdown
         'cd.days':  'Днів',
@@ -2001,7 +1961,7 @@
         'cd.mins':  'Хвилин',
         'cd.secs':  'Секунд',
         // about
-        'about.h2':  'Де Можливості Не Знають Меж',
+        'about.h2':  'Де можливості не знають меж',
         'about.cta': 'Зареєструватись',
         // speakers
         'spk.h2':  'Спікери 2026',
@@ -2018,30 +1978,26 @@
         'sp.apply':        'Стати спонсором',
         // program
         'prog.h2':   'Програма конференції',
-        'prog.day1': 'День 1 · 28 серп',
-        'prog.day2': 'День 2 · 29 серп',
+        'prog.day1': '1 день · 28.08',
+        'prog.day2': '2 день · 29.08',
         'prog.leg1': 'Зона 1 – Фахівці',
         'prog.leg2': 'Зона 2 – Фахівці',
         'prog.legm': 'Головна зала',
         'prog.leg3': 'Зона 3 – Люди з ампутацією',
         // awards
-        'aw.eye':   'Нагороди 2026',
-        'aw.h2':    'Нагороди «Безмежні Можливості» 2026',
-        'aw.info':  '9 категорій нагород · Організатор: Протез Хаб · Генеральний спонсор: Össur',
-        'aw.dates': 'Номінації: 6–20 липня 2026',
-        'aw.cta':   'Дізнатися про нагороди &rarr;',
+        'aw.cta':   'Переглянути номінації &rarr;',
         // registration
-        'reg.h2':     'Зареєструватись',
-        'reg.cert':   'Лише зареєстровані учасники отримають сертифікат',
+        'reg.h2':     'Реєстрація на конференцію',
+        'reg.cert':   'Реєстрація на конференцію відкрита. Кількість місць для офлайн-учасників обмежена, тому рекомендуємо зареєструватися заздалегідь. Усі зареєстровані учасники отримають сертифікат про участь.',
         'reg.fn':     'Ім\'я / Name *',
         'reg.ln':     'Прізвище / Last Name *',
         'reg.em':     'Email *',
         'reg.ph':     'Номер телефону / Phone Number',
         'reg.pr':     'Ким працюєте і де / Profession',
-        'reg.att':    'Участь / Attendance *',
+        'reg.att':    'Як ви плануєте долучитися? *',
         'reg.sel':             'Оберіть…',
-        'reg.opt.inperson':    'Очно · In Person',
-        'reg.opt.online':      'Онлайн · Online',
+        'reg.opt.inperson':    'Буду на конференції особисто',
+        'reg.opt.online':      'Перегляну записи після завершення конференції',
         'reg.submit':          'Надіслати реєстрацію',
         'reg.ok.h3':           'Ви зареєстровані!',
         'reg.ok.p':            'Перевірте пошту для підтвердження. До зустрічі 28–29 серпня!',
@@ -2060,16 +2016,40 @@
     const HTML = {
       en: {
         'about-body': `<p class="t-body" style="margin-bottom:1.2rem;">
-          The international conference <em>'Limitless Abilities: Amputation. Rehabilitation. Social Adaptation.'</em>
-          returns in 2026 - this time in person, with online streaming. In 2025, the two-day online marathon
-          attracted over 1,600 participants from across Ukraine and beyond.
+          The international conference <em>"Limitless Abilities: Amputation. Rehabilitation. Social Adaptation"</em>
+          returns in 2026 in a new format. After the success of the 2025 two-day online marathon, which brought together
+          over 1,600 participants from Ukraine and other countries, the conference will take place offline for the first time.
+        </p>
+        <p class="t-body" style="margin-bottom:1.2rem;">
+          Over two days, participants will join lectures, masterclasses, practical demonstrations, discussions,
+          a solutions exhibition, and a job fair for people with disabilities. The event will bring together specialists,
+          manufacturers, employers, the public sector, non-governmental organizations, and people with lived experience
+          to shape the future of prosthetics, orthotics, and rehabilitation in Ukraine together.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          This year we bring even more people together - in person and online worldwide.
-          Two days of masterclasses, seminars, solution showcases, and a job fair for people with disabilities.
-          A catalyst for systemic change in prosthetics, orthotics, and rehabilitation.
+          All talks will be available to participants as recordings after the conference.
         </p>
         <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Register Now</a>`,
+
+        'awards-teaser-body': `
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+          Your work deserves recognition.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          If you are changing the field of rehabilitation, prosthetics, or orthotics, introducing new approaches,
+          building quality services, or inspiring others by your own example — apply for the Limitless Abilities Awards 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          The award covers 9 categories recognizing specialists, teams, organizations, and people making a significant
+          contribution to the development of prosthetics, orthotics, rehabilitation, and accessibility — from students
+          and clinicians to center directors, international partners, and people whose stories inspire others.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+          The winners will be announced during the Limitless Abilities Conference 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+          Applications are open until August 9, 2026.
+        </p>`,
 
         'footer-desc': 'International conference on amputation, rehabilitation, and social adaptation. Organized by Protez Hub - Ukraine.',
 
@@ -2156,16 +2136,40 @@
       },
       ua: {
         'about-body': `<p class="t-body" style="margin-bottom:1.2rem;">
-          Міжнародна конференція <em>«Безмежні Можливості: Ампутація. Реабілітація. Соціальна Адаптація.»</em>
-          повертається у 2026 році — цього разу очно, з онлайн-трансляцією. У 2025 році дводенний
-          онлайн-марафон зібрав понад 1&nbsp;600 учасників з усієї України та інших країн.
+          Міжнародна конференція <em>«Безмежні Можливості: Ампутація. Реабілітація. Соціальна адаптація»</em>
+          повертається у 2026 році в новому форматі. Після успіху дводенного онлайн-марафону 2025 року,
+          який об'єднав понад 1&nbsp;600 учасників з України та інших країн, конференція вперше відбудеться офлайн.
+        </p>
+        <p class="t-body" style="margin-bottom:1.2rem;">
+          Протягом двох днів учасники зможуть долучитися до лекцій, майстер-класів, практичних демонстрацій,
+          дискусій, виставки рішень та ярмарку вакансій для людей з інвалідністю. Подія збере фахівців, виробників,
+          роботодавців, державний сектор, громадські організації та людей із власним досвідом, щоб разом формувати
+          майбутнє протезування, ортезування та реабілітації в Україні.
         </p>
         <p class="t-body" style="margin-bottom:2rem;">
-          Цього року ми об'єднуємо ще більше людей — очно та онлайн по всьому світу.
-          Два дні майстер-класів, семінарів, демонстрацій рішень та ярмарку вакансій для людей з інвалідністю.
-          Каталізатор системних змін у протезуванні, ортезуванні та реабілітації.
+          Усі виступи будуть доступні учасникам у записі після завершення конференції.
         </p>
         <a href="#registration" class="btn btn--primary" data-i18n="about.cta">Зареєструватись</a>`,
+
+        'awards-teaser-body': `
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem; font-weight:700;">
+          Ваша робота заслуговує на визнання.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          Якщо ви змінюєте сферу реабілітації, протезування чи ортезування, впроваджуєте нові підходи,
+          створюєте якісний сервіс або власним прикладом надихаєте інших — подайте заявку на Limitless Abilities Awards 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:1.2rem;">
+          Премія охоплює 9 номінацій, що відзначають фахівців, команди, організації та людей, які роблять вагомий внесок
+          у розвиток протезування, ортезування, реабілітації та безбар'єрності — від студентів і клініцистів
+          до керівників центрів, міжнародних партнерів і людей, які власною історією надихають інших.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:0.4rem;">
+          Переможців буде оголошено під час Limitless Abilities Conference 2026.
+        </p>
+        <p style="color:#fff; font-size:1rem; line-height:1.75; margin-bottom:2rem;">
+          Подання заявок відкрите до 9 серпня 2026 року.
+        </p>`,
 
         'footer-desc': 'Міжнародна конференція з ампутації, реабілітації та соціальної адаптації. Організатор: Протез Хаб – Україна.',
 
@@ -2268,6 +2272,7 @@
       },
       ua: {
         'Registration &amp; Coffee': 'Реєстрація та кава',
+        'Award ceremony - Main Hall': 'Церемонія нагородження — Головна зала',
         'EXPO Break': 'EXPO перерва',
         'Lunch': 'Обід',
         'Networking &amp; Free Communication': 'Нетворкінг та вільне спілкування',
@@ -2316,6 +2321,10 @@
       // Update html lang attribute
       document.documentElement.lang = lang === 'ua' ? 'uk' : 'en';
 
+      // Swap event logos (nav, hero, footer)
+      const logoSrc = lang === 'ua' ? 'assets/logo-event-ua.png' : 'assets/logo-event-en.png';
+      document.querySelectorAll('.js-event-logo').forEach(img => { img.src = logoSrc; });
+
       // Update button label
       const btn = document.getElementById('langBtn');
       if (btn) btn.textContent = lang === 'ua' ? 'UA | EN' : 'EN | UA';
@@ -2329,6 +2338,9 @@
       btn.addEventListener('click', () => setLang(currentLang === 'en' ? 'ua' : 'en'));
       btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLang(currentLang === 'en' ? 'ua' : 'en'); } });
     }
+
+    // Ukrainian by default
+    setLang('ua');
   })();
 
 </script>

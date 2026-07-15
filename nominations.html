@@ -18,12 +18,12 @@
       --blue-dark: #0E8FBD;
       --yellow:    #F6C416;
       --navy:      #ffffff;
-      --ink:       #BACCD8;
-      --muted:     #6A8A9A;
-      --border:    #1E2E3A;
-      --gray-bg:   #141E26;
-      --white:     #0D1116;
-      --font-d: 'Phenomena', sans-serif;
+      --ink:       #FFFFFF;
+      --muted:     #FFFFFF;
+      --border:    #2A2A2A;
+      --gray-bg:   #1B1B1B;
+      --white:     #121212;
+      --font-d: 'Akrobat', sans-serif;
       --font-b: 'Akrobat', sans-serif;
       --r-sm: 8px;
       --r-md: 16px;
@@ -35,24 +35,25 @@
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
 
-    .eyebrow { font-family: var(--font-d); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .eyebrow { display: none; }
     .t-h2 { font-family: var(--font-d); font-weight: 700; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); }
-    .rule { width: 48px; height: 3px; background: var(--blue); border-radius: 2px; }
+    .rule { display: none; }
     .rule--c { margin-left: auto; margin-right: auto; }
     .rule--yellow { background: var(--yellow); }
     /* glow animation removed */
 
     .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--r-sm); font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; }
-    .btn--primary { background: var(--blue); color: #fff; }
-    .btn--primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn--primary { background: var(--yellow); color: #000; }
+    .btn--primary:hover { background: #E3B512; color: #000; transform: translateY(-1px); }
 
     /* NAV */
-    .nav { background: rgba(13,17,22,0.92); backdrop-filter: blur(14px); padding: 1.1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(19,174,229,0.12); }
+    .nav { background: rgba(18,18,18,0.92); backdrop-filter: blur(14px); padding: 1.1rem 0; position: sticky; top: 0; z-index: 100; border-bottom: none; }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; }
     .nav__logo img { height: 44px; display: block; }
     .nav__links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav__links a { font-family: var(--font-d); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .nav__links a { font-family: var(--font-d); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; transition: color 0.2s; }
     .nav__links a:hover, .nav__links a.active { color: var(--blue); }
+    .nav__links a.nav-yellow, .nav__links a.nav-yellow.active { color: var(--yellow); }
     .nav__right { display: flex; align-items: center; gap: 1rem; }
     .nav__lang { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--blue); cursor: pointer; user-select: none; border: 1.5px solid var(--blue); border-radius: 4px; padding: 0.2rem 0.5rem; transition: background 0.2s, color 0.2s; }
     .nav__lang:hover { background: var(--blue); color: #fff; }
@@ -67,9 +68,8 @@
     }
 
     /* HERO */
-    .nom-hero { background: #0D1116; padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; }
+    .nom-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; min-height: calc(100vh - 76px); display: flex; align-items: center; justify-content: center; }
     .nom-hero__mark { position: absolute; width: 480px; bottom: -60px; right: -60px; opacity: 1; pointer-events: none; }
-    .nom-hero__icon { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.06); margin: 0 auto 1.5rem; }
 
     /* GRID */
     .nom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -77,39 +77,39 @@
     @media (max-width: 600px) { .nom-grid { grid-template-columns: 1fr; } }
 
     /* CARDS */
-    .nom-card { background: var(--gray-bg); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
-    .nom-card:hover { border-color: rgba(19,174,229,0.35); }
-    .nom-card__num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4); font-family: var(--font-d); font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
-    .nom-card__name { font-family: var(--font-d); font-weight: 700; font-size: 1.1rem; color: var(--navy); letter-spacing: 0.02em; text-transform: uppercase; }
+    .nom-card { background: var(--gray-bg); border: none; border-radius: var(--r-md); padding: 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: transform 0.2s; }
+    .nom-card:hover { transform: translateY(-2px); }
+    .nom-card__num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 9px; background: rgba(246,196,22,0.14); color: var(--yellow); font-family: var(--font-d); font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+    .nom-card__name { font-family: var(--font-d); font-weight: 700; font-size: 1.1rem; color: var(--navy); letter-spacing: 0.02em; text-transform: uppercase; min-height: 3.6rem; display: flex; align-items: center; }
     .nom-card__name-ua { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
-    .nom-card__desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .nom-card__desc { font-size: 0.88rem; color: #fff; line-height: 1.65; flex: 1; min-height: 7.2rem; }
     .nom-card__criteria { margin-top: 0.5rem; }
     .nom-card__criteria-title { font-family: var(--font-d); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
     .nom-card__criteria ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-    .nom-card__criteria li { font-size: 0.82rem; color: var(--muted); padding-left: 1rem; position: relative; line-height: 1.5; }
+    .nom-card__criteria li { font-size: 0.82rem; color: #fff; padding-left: 1rem; position: relative; line-height: 1.5; }
     .nom-card__criteria li::before { content: '·'; position: absolute; left: 0; color: var(--muted); }
-    .nom-card__footer { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .nom-card__footer { margin-top: auto; padding-top: 1rem; border-top: none; }
     .nom-card .btn { width: 100%; text-align: center; display: block; }
 
     /* DEADLINE */
-    .deadline-bar { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--r-md); padding: 1.2rem 1.8rem; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; text-align: center; }
+    .deadline-bar { background: transparent; border: none; padding: 0.4rem 0; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; text-align: center; }
     .deadline-bar__icon { color: var(--muted); flex-shrink: 0; }
-    .deadline-bar__text { font-family: var(--font-d); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
-    .deadline-bar__sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .deadline-bar__text { font-family: var(--font-d); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; }
+    .deadline-bar__sub { display: none; }
 
     /* DOCS SECTION */
-    .docs-section { background: var(--gray-bg); padding: 3rem 0; border-top: 1px solid var(--border); }
+    .docs-section { background: var(--white); padding: 3rem 0; border-top: none; }
     .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
     @media (max-width: 600px) { .docs-grid { grid-template-columns: 1fr; } }
-    .docs-card { display: flex; align-items: center; gap: 1rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 1rem 1.2rem; text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s; }
-    .docs-card:hover { border-color: rgba(19,174,229,0.35); }
-    .docs-card__icon { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); flex-shrink: 0; }
+    .docs-card { display: flex; align-items: center; gap: 1rem; background: var(--gray-bg); border: none; border-radius: var(--r-md); padding: 1.2rem 1.4rem; text-decoration: none; transition: transform 0.2s; }
+    .docs-card:hover { transform: translateY(-2px); }
+    .docs-card__icon { display: none; }
     .docs-card__body { display: flex; flex-direction: column; gap: 0.15rem; }
     .docs-card__title { font-family: var(--font-d); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
-    .docs-card__sub { font-size: 0.75rem; color: var(--muted); }
+    .docs-card__sub { font-size: 0.78rem; color: #fff; }
 
     /* FOOTER */
-    .footer { background: var(--gray-bg); padding: 3rem 0; border-top: 1px solid var(--border); }
+    .footer { background: var(--white); padding: 3rem 0; border-top: none; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
     .footer-logo img { height: 36px; width: auto; opacity: 0.7; }
     .footer-back { font-family: var(--font-d); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
@@ -122,15 +122,14 @@
 <nav class="nav">
   <div class="container">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></a>
+      <a href="index.html" class="nav__logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:36px;width:auto;"></a>
       <ul class="nav__links" id="navLinks">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#speakers">Speakers</a></li>
-        <li><a href="index.html#program">Program</a></li>
-        <li><a href="index.html#sponsors">Sponsors</a></li>
-        <li><a href="index.html#awards">Awards</a></li>
-        <li><a href="nominations.html" class="active">Nominate</a></li>
-        <li><a href="index.html#registration">Register</a></li>
+        <li><a href="index.html#about" id="nav-about">About</a></li>
+        <li><a href="index.html#speakers" id="nav-speakers">Speakers</a></li>
+        <li><a href="index.html#program" id="nav-program">Program</a></li>
+        <li><a href="index.html#registration" id="nav-register">Register</a></li>
+        <li><a href="awards.html" class="nav-yellow" id="nav-awards">Awards</a></li>
+        <li><a href="nominations.html" class="active nav-yellow" id="nav-nominate">Apply</a></li>
       </ul>
       <div class="nav__right">
         <span class="nav__lang" id="langToggle">UA</span>
@@ -143,17 +142,9 @@
 <section class="nom-hero">
   <img src="assets/mark-awards.png" alt="" aria-hidden="true" class="nom-hero__mark">
   <div class="container" style="position:relative;z-index:1;">
-    <div class="nom-hero__icon">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#F6C416" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M8 21h8M12 17v4M7 4H5a2 2 0 0 0-2 2v2c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V6a2 2 0 0 0-2-2h-2"/>
-        <rect x="7" y="2" width="10" height="11" rx="1"/>
-      </svg>
-    </div>
-    <p class="eyebrow" id="hero-eye">Awards 2026</p>
-    <h1 class="t-h2" style="color:#fff; margin: 0.6rem 0;" id="hero-h1">Limitless Abilities Awards 2026</h1>
-    <div class="rule rule--c rule--yellow" style="margin: 1rem auto 1.2rem;"></div>
-    <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; max-width:580px; margin:0 auto;" id="hero-sub">
-      9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership.
+    <h1 class="t-h2" style="color:#fff; margin: 0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
+    <p style="color:#fff; font-size:0.98rem; line-height:1.7; max-width:620px; margin:0 auto;" id="hero-sub">
+      Choose the nomination that best reflects your professional contribution and apply for the Limitless Abilities Awards 2026.
     </p>
   </div>
 </section>
@@ -161,10 +152,9 @@
 <section style="padding: 5rem 0; background: var(--white);">
   <div class="container">
     <div class="deadline-bar">
-      <svg class="deadline-bar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       <div>
-        <div class="deadline-bar__text" id="deadline-text">Nominations open: July 6 – 20, 2026</div>
-        <div class="deadline-bar__sub" id="deadline-sub">Submit your application before July 20 at 23:59 Kyiv time</div>
+        <div class="deadline-bar__text" id="deadline-text">Applications can be submitted until August 9, 2026, 23:59 (Kyiv time)</div>
+        <div class="deadline-bar__sub" id="deadline-sub"></div>
       </div>
     </div>
     <div class="nom-grid" id="nomGrid"></div>
@@ -173,43 +163,30 @@
 
 <section class="docs-section">
   <div class="container">
-    <p class="eyebrow" id="docs-eye">Documents</p>
-    <h2 class="t-h2" style="font-size:1.6rem; margin-top:0.4rem;" id="docs-h2">Resources</h2>
+    <h2 class="t-h2" style="font-size:1.6rem; margin-top:0.4rem; text-align:center;" id="docs-h2">Terms of Participation</h2>
     <div class="docs-grid">
       <a href="faq.html" class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
         <div class="docs-card__body">
           <div class="docs-card__title" id="docs-faq-title">FAQ</div>
-          <div class="docs-card__sub" id="docs-faq-sub">Frequently asked questions</div>
+          <div class="docs-card__sub" id="docs-faq-sub">Answers to the most common questions about participation and applying</div>
         </div>
       </a>
       <a href="privacy-policy.html" class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
         <div class="docs-card__body">
           <div class="docs-card__title" id="docs-pp-title">Privacy Policy</div>
-          <div class="docs-card__sub" id="docs-pp-sub">Confidentiality &amp; data processing</div>
+          <div class="docs-card__sub" id="docs-pp-sub">How we process, store, and protect participants' personal data</div>
         </div>
       </a>
       <a href="regulations.html" class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
         <div class="docs-card__body">
-          <div class="docs-card__title" id="docs-reg-title">Regulations</div>
-          <div class="docs-card__sub" id="docs-reg-sub">Regulations / Регламент проведення</div>
+          <div class="docs-card__title" id="docs-reg-title">Award Regulations</div>
+          <div class="docs-card__sub" id="docs-reg-sub">Terms of participation, award stages, and the application evaluation procedure</div>
         </div>
       </a>
-      <a href="assets/Додаток_1.pdf" class="docs-card">
-        <div class="docs-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
-        </div>
+      <a href="criteria.html" class="docs-card">
         <div class="docs-card__body">
-          <div class="docs-card__title" id="docs-app-title">Appendix 1</div>
-          <div class="docs-card__sub" id="docs-app-sub">Nomination criteria / Додаток 1</div>
+          <div class="docs-card__title" id="docs-app-title">Nomination Evaluation Criteria</div>
+          <div class="docs-card__sub" id="docs-app-sub">Description of all nominations, evaluation criteria, and recommended supporting materials</div>
         </div>
       </a>
     </div>
@@ -223,7 +200,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span id="back-text">Back to main site</span>
       </a>
-      <div class="footer-logo"><img src="assets/logo-icon-crop.png" alt="Limitless Abilities"></div>
+      <div class="footer-logo"><img src="assets/logo-event-ua.png" class="js-event-logo" alt="Limitless Abilities" style="height:34px;width:auto;opacity:1;"></div>
       <div class="footer-copy">&copy; 2026 Protez Hub</div>
     </div>
   </div>
@@ -340,33 +317,40 @@ function buildCards() {
 
 function updateLang(l) {
   lang = l;
-  document.getElementById('langToggle').textContent = lang === 'en' ? 'UA' : 'EN';
-  document.getElementById('hero-eye').textContent = lang === 'ua' ? 'Нагороди 2026' : 'Awards 2026';
-  document.getElementById('hero-sub').textContent = lang === 'ua'
-    ? '9 номінацій, які відзначають досягнення у протезуванні, ортезуванні, реабілітації та міжнародному партнерстві.'
-    : '9 award categories recognizing excellence in prosthetics, orthotics, rehabilitation, and international partnership.';
-  document.getElementById('deadline-text').textContent = lang === 'ua'
-    ? 'Прийом заявок: 6 – 20 липня 2026'
-    : 'Nominations open: July 6 – 20, 2026';
-  document.getElementById('deadline-sub').textContent = lang === 'ua'
-    ? 'Надішліть заявку до 20 липня о 23:59 за київським часом'
-    : 'Submit your application before July 20 at 23:59 Kyiv time';
-  document.getElementById('back-text').textContent = lang === 'ua' ? 'На головну сторінку' : 'Back to main site';
   const isUa = lang === 'ua';
-  document.getElementById('docs-eye').textContent = isUa ? 'Документи' : 'Documents';
-  document.getElementById('docs-h2').textContent = isUa ? 'Ресурси' : 'Resources';
+  document.getElementById('langToggle').textContent = isUa ? 'EN' : 'UA';
+
+  // Nav
+  document.getElementById('nav-about').textContent = isUa ? 'Про захід' : 'About';
+  document.getElementById('nav-speakers').textContent = isUa ? 'Спікери' : 'Speakers';
+  document.getElementById('nav-program').textContent = isUa ? 'Програма' : 'Program';
+  document.getElementById('nav-register').textContent = isUa ? 'Реєстрація' : 'Register';
+  document.getElementById('nav-awards').textContent = isUa ? 'Премія' : 'Awards';
+  document.getElementById('nav-nominate').textContent = isUa ? 'Подати заявку' : 'Apply';
+
+  // Event logo
+  document.querySelectorAll('.js-event-logo').forEach(img => { img.src = isUa ? 'assets/logo-event-ua.png' : 'assets/logo-event-en.png'; });
+
+  document.getElementById('hero-sub').textContent = isUa
+    ? 'Оберіть номінацію, що найкраще відповідає вашому професійному внеску, та подайте заявку на Limitless Abilities Awards 2026.'
+    : 'Choose the nomination that best reflects your professional contribution and apply for the Limitless Abilities Awards 2026.';
+  document.getElementById('deadline-text').textContent = isUa
+    ? 'Подати заявку можна до 9 серпня 2026 року, 23:59 (за київським часом)'
+    : 'Applications can be submitted until August 9, 2026, 23:59 (Kyiv time)';
+  document.getElementById('back-text').textContent = isUa ? 'На головну сторінку' : 'Back to main site';
+  document.getElementById('docs-h2').textContent = isUa ? 'Умови участі' : 'Terms of Participation';
   document.getElementById('docs-faq-title').textContent = 'FAQ';
-  document.getElementById('docs-faq-sub').textContent = isUa ? 'Часті запитання' : 'Frequently asked questions';
-  document.getElementById('docs-pp-title').textContent = isUa ? 'Конфіденційність' : 'Privacy Policy';
-  document.getElementById('docs-pp-sub').textContent = isUa ? 'Політика конфіденційності та обробка даних' : 'Confidentiality & data processing';
-  document.getElementById('docs-reg-title').textContent = isUa ? 'Регламент' : 'Regulations';
-  document.getElementById('docs-reg-sub').textContent = isUa ? 'Регламент проведення премії' : 'Award regulations';
-  document.getElementById('docs-app-title').textContent = isUa ? 'Додаток 1' : 'Appendix 1';
-  document.getElementById('docs-app-sub').textContent = isUa ? 'Номінації та критерії оцінювання' : 'Nomination criteria';
+  document.getElementById('docs-faq-sub').textContent = isUa ? 'Відповіді на найпоширеніші питання щодо участі та подання заявки' : 'Answers to the most common questions about participation and applying';
+  document.getElementById('docs-pp-title').textContent = isUa ? 'Політика конфіденційності' : 'Privacy Policy';
+  document.getElementById('docs-pp-sub').textContent = isUa ? 'Як ми обробляємо, зберігаємо та захищаємо персональні дані учасників' : "How we process, store, and protect participants' personal data";
+  document.getElementById('docs-reg-title').textContent = isUa ? 'Регламент премії' : 'Award Regulations';
+  document.getElementById('docs-reg-sub').textContent = isUa ? 'Умови участі, етапи проведення премії та процедура оцінювання заявок' : 'Terms of participation, award stages, and the application evaluation procedure';
+  document.getElementById('docs-app-title').textContent = isUa ? 'Критерії оцінювання номінацій' : 'Nomination Evaluation Criteria';
+  document.getElementById('docs-app-sub').textContent = isUa ? 'Опис усіх номінацій, критерії оцінювання та рекомендовані підтверджувальні матеріали' : 'Description of all nominations, evaluation criteria, and recommended supporting materials';
   buildCards();
 }
 
-buildCards();
+updateLang('ua');
 
 document.getElementById('langToggle').addEventListener('click', () => updateLang(lang === 'en' ? 'ua' : 'en'));
 document.getElementById('burger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
