@@ -160,7 +160,7 @@
     <div class="en-notice">
       <span id="en-notice-text">⚠️ This form must be filled out in English only</span>
     </div>
-    <form id="nomForm" action="https://formspree.io/f/NOMINATION_FORM_ID" method="POST">
+    <form id="nomForm" method="POST">
       <input type="hidden" name="_subject" id="formSubject" value="Nomination — Limitless Abilities Awards 2026">
       <input type="hidden" name="nomination_id" id="hiddenNomId">
       <input type="hidden" name="nomination_name" id="hiddenNomName">
@@ -281,6 +281,7 @@
   </div>
 </footer>
 
+<script src="assets/forms-endpoint.js"></script>
 <script>
 const NOMINATIONS = [
   {id:1,en:'Clinical Excellence',ua:'Клінічна майстерність',orig:'Протезист-ортезист року',desc:"Recognizes prosthetists and orthotists who demonstrate high professional expertise and outstanding patient care outcomes.",descUa:"Номінація об'єднує протезистів-ортезистів, які демонструють високий рівень професійної експертизи та досягають визначних результатів у роботі з пацієнтами.",criteria:['Clinical outcomes & complexity of cases','Professional expertise & evidence-based practice','Continuing professional development','Contribution to the profession (mentorship, publications, teaching)'],criteriaUa:['Клінічні результати та складність клінічних випадків','Професійна експертиза та сучасні доказові практики','Безперервний розвиток та підвищення кваліфікації','Внесок у розвиток професії: менторство, публікації, викладання']},
@@ -400,23 +401,23 @@ document.getElementById('nomForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('submit-btn');
   const isUa = lang === 'ua';
+  if (!window.FORMS_ENDPOINT || window.FORMS_ENDPOINT.indexOf('http') !== 0) {
+    alert(isUa ? 'Надсилання тимчасово недоступне. Напишіть нам на info@protezhub.com' : 'Submission is temporarily unavailable. Please email info@protezhub.com');
+    return;
+  }
   btn.disabled = true;
   btn.textContent = isUa ? 'Надсилання…' : 'Submitting…';
   try {
-    const res = await fetch(e.target.action, {
+    const fd = new FormData(e.target);
+    fd.append('_form', 'nomination');
+    await fetch(window.FORMS_ENDPOINT, {
       method: 'POST',
-      body: new FormData(e.target),
-      headers: { 'Accept': 'application/json' }
+      mode: 'no-cors',
+      body: new URLSearchParams(fd)
     });
-    if (res.ok) {
-      document.getElementById('nomForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      btn.disabled = false;
-      btn.textContent = isUa ? 'Спробуйте ще раз' : 'Try Again';
-      alert(isUa ? 'Помилка надсилання. Будь ласка, спробуйте ще раз.' : 'Submission error. Please try again.');
-    }
+    document.getElementById('nomForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch {
     btn.disabled = false;
     btn.textContent = isUa ? 'Спробуйте ще раз' : 'Try Again';

@@ -68,8 +68,14 @@
     }
 
     /* HERO */
-    .nom-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; min-height: calc(100vh - 76px); display: flex; align-items: center; justify-content: center; }
-    .nom-hero__mark { position: absolute; width: 480px; bottom: -60px; right: -60px; opacity: 1; pointer-events: none; }
+    .nom-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; min-height: calc(100vh - 76px); display: flex; align-items: flex-end; justify-content: center; }
+    .nom-hero__visual { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; }
+    .nom-hero__title { display: none; }
+    @media (max-width: 768px) {
+      .nom-hero { min-height: 0; align-items: center; padding: 4rem 0 3rem; }
+      .nom-hero__visual { display: none; }
+      .nom-hero__title { display: block; }
+    }
 
     /* GRID */
     .nom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -140,9 +146,9 @@
 </nav>
 
 <section class="nom-hero">
-  <img src="assets/mark-awards.png" alt="" aria-hidden="true" class="nom-hero__mark">
+  <img src="assets/hero-nominations.svg" alt="Limitless Abilities Awards 2026" class="nom-hero__visual">
   <div class="container" style="position:relative;z-index:1;">
-    <h1 class="t-h2" style="color:#fff; margin: 0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
+    <h1 class="t-h2 nom-hero__title" style="color:#fff; margin: 0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
     <p style="color:#fff; font-size:0.98rem; line-height:1.7; max-width:620px; margin:0 auto;" id="hero-sub">
       Choose the nomination that best reflects your professional contribution and apply for the Limitless Abilities Awards 2026.
     </p>
