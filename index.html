@@ -296,12 +296,16 @@
       object-position: center top;
       pointer-events: none;
     }
+    .hero__corner-blob { display: none; }
     @media (max-width: 768px) {
-      .hero { flex-direction: column; align-items: stretch; min-height: 100svh; justify-content: center; padding: 0 0 2rem; }
+      .hero { flex-direction: column; align-items: stretch; min-height: calc(100svh - 76px); justify-content: center; padding: 0 0 2rem; }
       /* Scale the artwork up and center on the logo lockup so it reads
-         as large as the old standalone logo; blobs bleed off-screen. */
-      .hero__visual { position: static; width: 143vw; max-width: none; height: auto; margin-left: -21.5vw; object-fit: contain; }
-      .hero__content { margin-top: 1rem; }
+         as large as the old standalone logo; blobs bleed off-screen.
+         Bottom-right blob is clipped out here and pinned to the fold corner instead. */
+      .hero__visual { position: static; width: 143vw; max-width: none; height: auto; margin-left: -21.5vw; object-fit: contain; clip-path: inset(0 0 22% 0); margin-bottom: -16vw; }
+      .hero__content { margin-top: 0.5rem; }
+      .hero__corner-blob { display: block; position: absolute; right: 0; bottom: 0; width: 40vw; height: 15.5vw; overflow: hidden; pointer-events: none; }
+      .hero__corner-blob img { position: absolute; right: 0; bottom: 0; width: 148vw; max-width: none; height: auto; }
     }
     .hero__content {
       position: relative;
@@ -664,7 +668,7 @@
       .awards-grid { grid-template-columns: 1fr; }
       .footer-grid  { grid-template-columns:1fr; }
       .footer-bot   { flex-direction:column; gap:0.5rem; }
-      .hero { padding: 0 0 2rem; min-height: 100svh; }
+      .hero { padding: 0 0 2rem; min-height: calc(100svh - 76px); }
       .hero__btns { flex-direction: column; gap: 0.65rem; }
       .hero__btns .btn { flex: none; width: 100%; text-align: center; font-size: 0.75rem; padding: 0.75rem 1.2rem; }
       .section-hd { margin-bottom: 1.6rem; }
@@ -907,6 +911,8 @@
 
   <!-- Full-screen visual (client artwork, includes logo lockup) -->
   <img src="assets/hero-index-ua.svg" alt="Безмежні Можливості — Ампутація. Реабілітація. Соціальна адаптація" class="hero__visual js-hero-visual">
+  <!-- Mobile: bottom-right blob pinned to the corner of the first fold -->
+  <div class="hero__corner-blob" aria-hidden="true"><img src="assets/hero-index-ua.svg" alt="" class="js-hero-visual"></div>
 
   <div class="container" style="position:relative; z-index:1;">
     <div class="hero__content">
@@ -1018,7 +1024,7 @@
           <div class="speaker"><img src="assets/speakers/jakob.png" alt="Jakob Kepka"><div class="speaker__info"><div class="speaker__name">Jakob Kepka</div><div class="speaker__role">Cyclist &amp; former US Marine · Prosthetics User · Day 1 Keynote</div></div></div>
           <div class="speaker"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/vadym-mP43Ln7VWVh3Nbjm.jpg" alt="Vadym Svyrydenko"><div class="speaker__info"><div class="speaker__name">Vadym Svyrydenko</div><div class="speaker__role">Advisor – Presidential Commissioner, Veterans · Ukraine</div></div></div>
           <div class="speaker"><img src="assets/speakers/nerrolyn.png" alt="Nerrolyn Ramstrand"><div class="speaker__info"><div class="speaker__name">Nerrolyn Ramstrand</div><div class="speaker__role">Prosthetist &amp; Orthotist · Professor, Jönköping University, Sweden · Day 2 Keynote</div></div></div>
-          <div class="speaker"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">MEd, Protez Hub Chief Director · Ukraine</div></div></div>
+          <div class="speaker"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/kumka-YbN45vvxGlf4PqqV.jpg" alt="Antonina Kumka"><div class="speaker__info"><div class="speaker__name">Antonina Kumka</div><div class="speaker__role">MEd · Strategic Author of Educational Reforms in Prosthetics &amp; Orthotics in Ukraine · Protez Hub Chief Director</div></div></div>
           <div class="speaker"><img src="assets/speakers/eriks.png" alt="Eriks Svede"><div class="speaker__info"><div class="speaker__name">Eriks Svede</div><div class="speaker__role">Certified Prosthetist-Orthotist · Manager, Vaivaru O&amp;P Center, Latvia</div></div></div>
           <div class="speaker"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=476,fit=crop/YZ9ED41x2lH4P1WD/iryna-m6L21Jnjb8uvNDaL.jpg" alt="Iryna Tkach"><div class="speaker__info"><div class="speaker__name">Iryna Tkach</div><div class="speaker__role">CPO and Team Lead, Dniproprotez State Center · Ukraine</div></div></div>
           <div class="speaker"><img src="assets/speakers/eric.jpg" alt="Eric Ramcharran"><div class="speaker__info"><div class="speaker__name">Eric Ramcharran</div><div class="speaker__role">Certified Prosthetist-Orthotist (USA) · Upper Limb Specialist, Fillauer</div></div></div>
@@ -1546,8 +1552,8 @@
       <div class="sp-carousel sp-partners-carousel">
         <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
         <div class="sp-car-wrap"><div class="sp-car-track">
+          <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="ВОФТ — Всеукраїнське об'єднання фізичних терапевтів"></div>
           <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
-          <div class="sp-partner-item"><img src="assets/partners/DenDef.png" alt="Danish Defence"></div>
           <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
           <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
           <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
@@ -1567,7 +1573,6 @@
           <div class="sp-partner-item"><img src="assets/partners/Swiss.png" alt="Switzerland"></div>
           <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
           <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
-          <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="UPTA"></div>
         </div></div>
         <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
       </div>
@@ -1881,15 +1886,20 @@
 
   // ── Parallax graphic marks + hero blobs
   (function() {
-    const blobWrap = document.getElementById('hero__blobs-wrap');
+    const heroVisual = document.querySelector('.hero__visual');
     const items = [
-      ...(blobWrap ? [{ el: blobWrap, base: '' }] : []),
       ...Array.from(document.querySelectorAll('.gmark')).map(el => ({ el, base: el.style.transform || '' }))
     ];
-    if (!items.length) return;
+    if (!items.length && !heroVisual) return;
     let ticking = false;
     function update() {
       const vh = window.innerHeight;
+      // Hero artwork drifts slower than the page (desktop only, where it is absolute)
+      if (heroVisual && getComputedStyle(heroVisual).position === 'absolute') {
+        heroVisual.style.transform = 'translateY(' + (window.scrollY * 0.22).toFixed(1) + 'px)';
+      } else if (heroVisual) {
+        heroVisual.style.transform = '';
+      }
       items.forEach(({ el, base }) => {
         const rect = el.getBoundingClientRect();
         const offset = (rect.top + rect.height / 2 - vh / 2) * 0.12;
@@ -2325,7 +2335,7 @@
       'Jakob Kepka':        { ua: { n: 'Якоб Кепка',          r: 'Велосипедист і ветеран морської піхоти США · Користувач протезів · Головний спікер дня 1' } },
       'Vadym Svyrydenko':   { ua: { n: 'Вадим Свириденко',    r: 'Радник — Уповноважений Президента України з питань реабілітації учасників бойових дій' } },
       'Nerrolyn Ramstrand': { ua: { n: 'Нерролін Рамстранд',  r: 'Протезистка-ортезистка · Професорка Університету Йончопінга, Швеція · Головна спікерка дня 2' } },
-      'Antonina Kumka':     { ua: { n: 'Антоніна Кумка',      r: 'MEd, керівниця Протез Хаб · Україна' } },
+      'Antonina Kumka':     { ua: { n: 'Антоніна Кумка',      r: 'Магістерка освіти, стратегічна авторка освітніх реформ у сфері протезування-ортезування України · Керівниця Протез Хаб' } },
       'Eriks Svede':        { ua: { n: 'Ерікс Свєде',         r: 'Сертифікований протезист-ортезист · Керівник центру протезування Vaivaru, Латвія' } },
       'Iryna Tkach':        { ua: { n: 'Ірина Ткач',          r: 'Протезистка-ортезистка, керівниця команди, Державний центр «Дніпропротез» · Україна' } },
       'Eric Ramcharran':    { ua: { n: 'Ерік Рамчарран',      r: 'Сертифікований протезист-ортезист (США) · Спеціаліст з верхніх кінцівок, Fillauer' } },
