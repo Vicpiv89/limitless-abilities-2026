@@ -1444,11 +1444,11 @@
       <form class="form reveal" id="reg-form" name="registration" method="post">
         <div>
           <label for="fn" data-i18n="reg.fn">Name / Ім'я *</label>
-          <input type="text" id="fn" name="firstName" required>
+          <input type="text" id="fn" name="firstName" required pattern="[^0-9]*" minlength="2" title="No numbers, at least 2 characters">
         </div>
         <div>
           <label for="ln" data-i18n="reg.ln">Last Name / Прізвище *</label>
-          <input type="text" id="ln" name="lastName" required>
+          <input type="text" id="ln" name="lastName" required pattern="[^0-9]*" minlength="2" title="No numbers, at least 2 characters">
         </div>
         <div>
           <label for="em" data-i18n="reg.em">Email *</label>
@@ -1456,7 +1456,7 @@
         </div>
         <div>
           <label for="ph" data-i18n="reg.ph">Phone Number / Номер телефону</label>
-          <input type="tel" id="ph" name="phone">
+          <input type="tel" id="ph" name="phone" pattern="^\+?[0-9\s\-\(\)]{6,20}$" inputmode="tel" title="Enter a valid phone number (digits, spaces, +, -, ( ) allowed)">
         </div>
         <div>
           <label for="pr" data-i18n="reg.pr">Current Profession / Ким працюєте</label>
@@ -1889,6 +1889,9 @@
     });
   }
   wireForm('reg-form', 'reg-success', 'registration');
+  var dobEl = document.getElementById('dob');
+  if (dobEl) dobEl.max = new Date().toISOString().slice(0,10);
+
 
   // ── Parallax graphic marks + hero blobs
   (function() {

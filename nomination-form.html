@@ -174,15 +174,15 @@
         <div class="form-row">
           <div class="form-group">
             <label id="lbl-fn">First Name<span>*</span></label>
-            <input type="text" name="firstName" id="fn" required>
+            <input type="text" name="firstName" id="fn" required pattern="[^0-9]*" minlength="2" title="No numbers, at least 2 characters">
           </div>
           <div class="form-group">
             <label id="lbl-ln">Last Name<span>*</span></label>
-            <input type="text" name="lastName" id="ln" required>
+            <input type="text" name="lastName" id="ln" required pattern="[^0-9]*" minlength="2" title="No numbers, at least 2 characters">
           </div>
           <div class="form-group">
             <label id="lbl-org">Organization / Institution<span>*</span></label>
-            <input type="text" name="organization" id="org" required>
+            <input type="text" name="organization" id="org" required minlength="2">
           </div>
           <div class="form-group">
             <label id="lbl-pos">Position / Title</label>
@@ -190,7 +190,7 @@
           </div>
           <div class="form-group">
             <label id="lbl-country">Country<span>*</span></label>
-            <input type="text" name="country" id="country" required>
+            <input type="text" name="country" id="country" required minlength="2">
           </div>
           <div class="form-group">
             <label id="lbl-city">City</label>
@@ -209,7 +209,7 @@
           </div>
           <div class="form-group">
             <label id="lbl-ph">Phone</label>
-            <input type="tel" name="phone" id="ph">
+            <input type="tel" name="phone" id="ph" pattern="^\+?[0-9\s\-\(\)]{6,20}$" inputmode="tel" title="Enter a valid phone number (digits, spaces, +, -, ( ) allowed)">
           </div>
           <div class="form-group form-full">
             <label id="lbl-rel">Relationship to Nominee<span>*</span></label>
