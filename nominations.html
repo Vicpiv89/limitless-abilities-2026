@@ -81,8 +81,7 @@
       .nom-hero__corner { display: block; position: absolute; left: 0; bottom: 0; width: 100vw; height: 21vw; overflow: hidden; pointer-events: none; }
       .nom-hero__corner img { position: absolute; left: 0; bottom: 0; width: 130vw; max-width: none; height: auto; }
     }
-    @keyframes blob-breathe { from { transform: scale(1); } to { transform: scale(1.035); } }
-    .nom-hero__visual, .nom-hero__corner img { animation: blob-breathe 7s ease-in-out infinite alternate; transform-origin: center; }
+
 
     /* GRID */
     .nom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -368,6 +367,15 @@ updateLang('ua');
 
 document.getElementById('langToggle').addEventListener('click', () => updateLang(lang === 'en' ? 'ua' : 'en'));
 document.getElementById('burger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+</script>
+<script>
+(function(){
+  var els = document.querySelectorAll('.hero__visual,.hero__corner-blob img,.awards-hero__visual,.awards-hero__corner img,.nom-hero__visual,.nom-hero__corner img');
+  if (!els.length) return;
+  var t = false;
+  function u(){ var y = (window.scrollY * 0.28).toFixed(1); els.forEach(function(el){ el.style.transform = 'translateY(' + y + 'px)'; }); t = false; }
+  window.addEventListener('scroll', function(){ if (!t){ requestAnimationFrame(u); t = true; } }, { passive: true });
+})();
 </script>
 </body>
 </html>
