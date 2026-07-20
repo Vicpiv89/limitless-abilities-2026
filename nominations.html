@@ -74,10 +74,15 @@
     .nom-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; min-height: calc(100vh - 76px); display: flex; align-items: flex-end; justify-content: center; }
     .nom-hero__visual { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; }
     .nom-hero__title { display: none; }
+    .nom-hero__corner { display: none; }
     @media (max-width: 768px) {
-      .nom-hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 0 0 2.5rem; }
-      .nom-hero__visual { position: static; width: 118vw; max-width: none; height: auto; margin-left: -9vw; object-fit: contain; }
+      .nom-hero { flex-direction: column; align-items: stretch; min-height: calc(100svh - 76px); justify-content: center; padding: 0 0 2.5rem; }
+      .nom-hero__visual { position: static; width: 130vw; max-width: none; height: auto; margin-left: -15vw; object-fit: contain; clip-path: inset(13% 0 48% 0); margin-top: -8vw; margin-bottom: -30vw; }
+      .nom-hero__corner { display: block; position: absolute; left: 0; bottom: 0; width: 100vw; height: 21vw; overflow: hidden; pointer-events: none; }
+      .nom-hero__corner img { position: absolute; left: 0; bottom: 0; width: 130vw; max-width: none; height: auto; }
     }
+    @keyframes blob-breathe { from { transform: scale(1); } to { transform: scale(1.035); } }
+    .nom-hero__visual, .nom-hero__corner img { animation: blob-breathe 7s ease-in-out infinite alternate; transform-origin: center; }
 
     /* GRID */
     .nom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
@@ -149,6 +154,7 @@
 
 <section class="nom-hero">
   <img src="assets/hero-nominations.svg" alt="Limitless Abilities Awards 2026" class="nom-hero__visual">
+  <div class="nom-hero__corner" aria-hidden="true"><img src="assets/hero-nominations.svg" alt=""></div>
   <div class="container" style="position:relative;z-index:1;">
     <h1 class="t-h2 nom-hero__title" style="color:#fff; margin: 0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
     <p style="color:#fff; font-size:0.98rem; line-height:1.7; max-width:620px; margin:0 auto;" id="hero-sub">
