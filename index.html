@@ -735,8 +735,9 @@
       text-align: center; justify-content: center;
     }
     .sp-carousel { display: flex; align-items: center; gap: 0.65rem; }
-    .sp-car-wrap { flex: 1; overflow: hidden; }
-    .sp-car-track { display: flex; gap: 1.2rem; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); justify-content: center; }
+    .sp-car-wrap { flex: 1; overflow-x: auto; overflow-y: hidden; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .sp-car-wrap::-webkit-scrollbar { display: none; }
+    .sp-car-track { display: flex; gap: 1.2rem; justify-content: center; }
     .sp-logo-item {
       flex: 0 0 360px; height: 225px;
       display: flex; align-items: center; justify-content: center;
@@ -1562,6 +1563,7 @@
           <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
           <div class="sp-partner-item"><img src="assets/partners/Dignitas.png" alt="Dignitas"></div>
           <div class="sp-partner-item"><img src="assets/partners/DSZ.png" alt="DSZ"></div>
+          <div class="sp-partner-item"><img src="assets/partners/ElevateUkraine.png" alt="Elevate Ukraine"></div>
           <div class="sp-partner-item"><img src="assets/partners/Enabel.png" alt="Enabel"></div>
           <div class="sp-partner-item"><img src="assets/partners/Germany.png" alt="Germany"></div>
           <div class="sp-partner-item"><img src="assets/partners/GIZ.png" alt="GIZ"></div>
@@ -1810,50 +1812,40 @@
     });
   })();
 
-  // ── Sponsor carousels
+  // ── Sponsor carousels (native scroll: manual drag/swipe + auto-advance)
   document.querySelectorAll('.sp-carousel').forEach(car => {
+    const wrap = car.querySelector('.sp-car-wrap');
     const track = car.querySelector('.sp-car-track');
     const prevBtn = car.querySelector('.sp-car-prev');
     const nextBtn = car.querySelector('.sp-car-next');
-    const carWrap = car.querySelector('.sp-car-wrap');
     const items = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
-    const isPartners = car.classList.contains('sp-partners-carousel');
+    if (!wrap || !items.length) return;
     const ITEM_GAP = 19;
-    let pos = 0;
+    const step = () => (items[0].offsetWidth || 270) + ITEM_GAP;
 
-    const itemW = () => items[0] ? items[0].offsetWidth : (isPartners ? 270 : 380);
-    const step = () => itemW() + ITEM_GAP;
-
-    function getMax() {
-      const totalW = items.length * step() - ITEM_GAP;
-      const visibleW = carWrap ? carWrap.offsetWidth : 600;
-      return Math.max(0, totalW - visibleW);
+    function updateBtns() {
+      if (prevBtn) prevBtn.disabled = wrap.scrollLeft <= 2;
+      if (nextBtn) nextBtn.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 2;
     }
-
-    function updateSp() {
-      const max = getMax();
-      pos = Math.max(0, Math.min(pos, max));
-      track.style.justifyContent = max > 0 ? 'flex-start' : 'center';
-      track.style.transform = 'translateX(-' + pos + 'px)';
-      if (prevBtn) prevBtn.disabled = pos <= 0;
-      if (nextBtn) nextBtn.disabled = pos >= max;
-    }
-
-    if (prevBtn) prevBtn.addEventListener('click', () => { pos -= step(); updateSp(); });
-    if (nextBtn) nextBtn.addEventListener('click', () => { pos += step(); updateSp(); });
-    window.addEventListener('resize', updateSp);
-    updateSp();
+    wrap.addEventListener('scroll', updateBtns, { passive: true });
+    if (prevBtn) prevBtn.addEventListener('click', () => wrap.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (nextBtn) nextBtn.addEventListener('click', () => wrap.scrollBy({ left: step(), behavior: 'smooth' }));
+    window.addEventListener('resize', updateBtns);
+    updateBtns();
 
     if (items.length > 1) {
+      let paused = false;
       const tick = () => {
-        const max = getMax();
-        if (max <= 0) return;
-        if (pos >= max) pos = 0; else pos += step();
-        updateSp();
+        if (paused) return;
+        const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+        if (maxScroll <= 0) return;
+        if (wrap.scrollLeft >= maxScroll - 2) wrap.scrollTo({ left: 0, behavior: 'smooth' });
+        else wrap.scrollBy({ left: step(), behavior: 'smooth' });
       };
       let spTimer = setInterval(tick, 3500);
-      car.addEventListener('mouseenter', () => clearInterval(spTimer));
-      car.addEventListener('mouseleave', () => { spTimer = setInterval(tick, 3500); });
+      car.addEventListener('mouseenter', () => { paused = true; });
+      car.addEventListener('mouseleave', () => { paused = false; });
+      wrap.addEventListener('touchstart', () => { paused = true; }, { passive: true });
     }
   });
 
