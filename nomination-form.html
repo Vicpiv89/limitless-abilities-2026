@@ -405,7 +405,7 @@ document.getElementById('nomForm').addEventListener('submit', async (e) => {
   const btn = document.getElementById('submit-btn');
   const isUa = lang === 'ua';
   if (!window.FORMS_ENDPOINT || window.FORMS_ENDPOINT.indexOf('http') !== 0) {
-    alert(isUa ? 'Надсилання тимчасово недоступне. Напишіть нам на info@protezhub.com' : 'Submission is temporarily unavailable. Please email info@protezhub.com');
+    alert(isUa ? 'Надсилання тимчасово недоступне. Напишіть нам на contact@protezhub.com' : 'Submission is temporarily unavailable. Please email contact@protezhub.com');
     return;
   }
   btn.disabled = true;
