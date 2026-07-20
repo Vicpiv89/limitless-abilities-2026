@@ -298,6 +298,8 @@
       object-position: center top;
       pointer-events: none;
     }
+    @keyframes blob-breathe { from { transform: scale(1); } to { transform: scale(1.035); } }
+    .hero__visual, .hero__corner-blob img { animation: blob-breathe 7s ease-in-out infinite alternate; transform-origin: center; }
     .hero__corner-blob { display: none; }
     @media (max-width: 768px) {
       .hero { flex-direction: column; align-items: stretch; min-height: calc(100svh - 76px); justify-content: center; padding: 0 0 2rem; }
@@ -1897,11 +1899,6 @@
     function update() {
       const vh = window.innerHeight;
       // Hero artwork drifts slower than the page (desktop only, where it is absolute)
-      if (heroVisual && getComputedStyle(heroVisual).position === 'absolute') {
-        heroVisual.style.transform = 'translateY(' + (window.scrollY * 0.22).toFixed(1) + 'px)';
-      } else if (heroVisual) {
-        heroVisual.style.transform = '';
-      }
       items.forEach(({ el, base }) => {
         const rect = el.getBoundingClientRect();
         const offset = (rect.top + rect.height / 2 - vh / 2) * 0.12;

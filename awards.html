@@ -76,10 +76,15 @@
     .awards-hero { background: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; text-align: center; min-height: 72vh; display: flex; align-items: flex-end; justify-content: center; }
     .awards-hero__visual { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; }
     .awards-hero__title { display: none; }
+    .awards-hero__corner { display: none; }
     @media (max-width: 768px) {
-      .awards-hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 0 0 2.5rem; }
-      .awards-hero__visual { position: static; width: 118vw; max-width: none; height: auto; margin-left: -9vw; object-fit: contain; }
+      .awards-hero { flex-direction: column; align-items: stretch; min-height: calc(100svh - 76px); justify-content: center; padding: 0 0 2.5rem; }
+      .awards-hero__visual { position: static; width: 130vw; max-width: none; height: auto; margin-left: -15vw; object-fit: contain; clip-path: inset(0 0 24% 0); margin-bottom: -14vw; }
+      .awards-hero__corner { display: block; position: absolute; left: 0; bottom: 0; width: 62vw; height: 18vw; overflow: hidden; pointer-events: none; }
+      .awards-hero__corner img { position: absolute; left: 0; bottom: 0; width: 130vw; max-width: none; height: auto; }
     }
+    @keyframes blob-breathe { from { transform: scale(1); } to { transform: scale(1.035); } }
+    .awards-hero__visual, .awards-hero__corner img { animation: blob-breathe 7s ease-in-out infinite alternate; transform-origin: center; }
 
     /* INTRO */
     .awards-intro { padding: 3rem 0; background: var(--white); }
@@ -153,6 +158,7 @@
 <!-- HERO -->
 <section class="awards-hero">
   <img src="assets/hero-awards.svg" alt="Limitless Abilities Awards 2026" class="awards-hero__visual">
+  <div class="awards-hero__corner" aria-hidden="true"><img src="assets/hero-awards.svg" alt=""></div>
   <div class="container" style="position:relative;z-index:1;">
     <h1 class="t-h2 awards-hero__title" style="color:#fff; margin:0.6rem 0 1.2rem;" id="hero-h1">Limitless Abilities Awards 2026</h1>
     <p style="color:#fff; font-size:0.98rem; line-height:1.7; max-width:640px; margin:0 auto 2rem;" id="hero-sub">
