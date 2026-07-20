@@ -77,7 +77,7 @@
     .nom-hero__corner { display: none; }
     @media (max-width: 768px) {
       .nom-hero { flex-direction: column; align-items: stretch; min-height: calc(100svh - 76px); justify-content: center; padding: 0 0 2.5rem; }
-      .nom-hero__visual { position: static; width: 130vw; max-width: none; height: auto; margin-left: -15vw; object-fit: contain; clip-path: inset(13% 0 48% 0); margin-top: -8vw; margin-bottom: -30vw; }
+      .nom-hero__visual { position: static; width: 100vw; max-width: none; height: auto; margin-left: 0; object-fit: contain; clip-path: inset(13% 0 48% 0); margin-top: -6vw; margin-bottom: -24vw; }
       .nom-hero__corner { display: block; position: absolute; left: 0; bottom: 0; width: 100vw; height: 21vw; overflow: hidden; pointer-events: none; }
       .nom-hero__corner img { position: absolute; left: 0; bottom: 0; width: 130vw; max-width: none; height: auto; }
     }
@@ -370,7 +370,7 @@ document.getElementById('burger').addEventListener('click', () => document.getEl
 </script>
 <script>
 (function(){
-  var els = document.querySelectorAll('.hero__visual,.hero__corner-blob img,.awards-hero__visual,.awards-hero__corner img,.nom-hero__visual,.nom-hero__corner img');
+  var els = document.querySelectorAll('.hero__corner-blob img,.awards-hero__corner img,.nom-hero__corner img');
   if (!els.length) return;
   var t = false;
   function u(){ var y = (window.scrollY * 0.28).toFixed(1); els.forEach(function(el){ el.style.transform = 'translateY(' + y + 'px)'; }); t = false; }
