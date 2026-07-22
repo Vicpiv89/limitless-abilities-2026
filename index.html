@@ -282,20 +282,17 @@
     /* ── HERO ── */
     .hero {
       background: var(--white);
-      padding: 5rem 0 4rem;
+      padding: 0 0 3rem;
       position: relative;
       overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-end;
     }
     .hero__visual {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+      height: auto;
+      clip-path: inset(0 0 22% 0);
+      margin-bottom: -11.3%;
       pointer-events: none;
     }
     .hero__corner-blob { display: none; }
@@ -770,6 +767,7 @@
       font-size: 0.85rem; color: var(--muted); transition: all 0.18s;
       display: flex; align-items: center; justify-content: center; line-height: 1;
     }
+    .sp-car-btn svg { width: 13px; height: 13px; }
     .sp-car-btn:hover { border-color: var(--blue); color: var(--blue); }
     .sp-car-btn:disabled { opacity: 0.18; cursor: default; pointer-events: none; }
     @media (max-width: 600px) {
@@ -782,8 +780,6 @@
       .sp-tier--bronze .sp-logo-item { flex-basis: 100%; height: 160px; }
       .sp-tier--silver .sp-logo-item img,
       .sp-tier--bronze .sp-logo-item img { max-height: 150px; max-width: 75%; }
-      .sp-partner-item { width: 230px; min-height: 110px; }
-      .sp-partner-item img { max-width: 210px; max-height: 100px; }
     }
 
     /* ── Sponsor rows (one-line, partner-sized) ── */
@@ -842,8 +838,12 @@
     .sp-partner-item { display: flex; align-items: center; justify-content: center; min-height: 130px; width: 270px; flex-shrink: 0; opacity: 0.8; transition: opacity 0.2s; }
     .sp-partner-item:hover { opacity: 1; }
     .sp-partner-item img { max-width: 245px; max-height: 120px; object-fit: contain; filter: brightness(0) invert(1); }
+    @media (max-width: 600px) {
+      .sp-partner-item { width: 200px; min-height: 100px; }
+      .sp-partner-item img { max-width: 180px; max-height: 90px; }
+    }
     .sp-partners-carousel { justify-content: center; }
-    .sp-partners-carousel .sp-car-wrap { max-width: 848px; flex: none; }
+    .sp-partners-carousel .sp-car-wrap { max-width: 848px; flex: 1 1 auto; min-width: 0; }
     .sp-partners-carousel .sp-car-track { justify-content: flex-start; }
 
     .sp-logo-item--empty { background: transparent !important; }
@@ -1557,7 +1557,7 @@
     <div class="sp-tier reveal" style="margin-top:2.5rem;">
       <div class="sp-tier__label" data-i18n="sp.partnerslabel" style="margin-bottom:1.2rem;">Partners</div>
       <div class="sp-carousel sp-partners-carousel">
-        <button class="sp-car-btn sp-car-prev" aria-label="Previous">&#8592;</button>
+        <button class="sp-car-btn sp-car-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
         <div class="sp-car-wrap"><div class="sp-car-track">
           <div class="sp-partner-item"><img src="assets/partners/UPTA.png" alt="ВОФТ — Всеукраїнське об'єднання фізичних терапевтів"></div>
           <div class="sp-partner-item"><img src="assets/partners/Belg.png" alt="Belgium"></div>
@@ -1583,7 +1583,7 @@
           <div class="sp-partner-item"><img src="assets/partners/TNMU.png" alt="TNMU"></div>
           <div class="sp-partner-item"><img src="assets/partners/TRUE.png" alt="TRUE"></div>
         </div></div>
-        <button class="sp-car-btn sp-car-next" aria-label="Next">&#8594;</button>
+        <button class="sp-car-btn sp-car-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
 
@@ -1813,41 +1813,57 @@
     });
   })();
 
-  // ── Sponsor carousels (native scroll: manual drag/swipe + auto-advance)
+  // ── Sponsor carousels (true infinite loop via cloned items + native swipe/drag)
   document.querySelectorAll('.sp-carousel').forEach(car => {
     const wrap = car.querySelector('.sp-car-wrap');
     const track = car.querySelector('.sp-car-track');
     const prevBtn = car.querySelector('.sp-car-prev');
     const nextBtn = car.querySelector('.sp-car-next');
-    const items = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
-    if (!wrap || !items.length) return;
+    const originals = Array.from(track.querySelectorAll('.sp-logo-item, .sp-partner-item'));
+    if (!wrap || originals.length < 2) return;
     const ITEM_GAP = 19;
-    const step = () => (items[0].offsetWidth || 270) + ITEM_GAP;
+    const step = () => (originals[0].offsetWidth || 270) + ITEM_GAP;
 
-    function updateBtns() {
-      if (prevBtn) prevBtn.disabled = wrap.scrollLeft <= 2;
-      if (nextBtn) nextBtn.disabled = wrap.scrollLeft >= wrap.scrollWidth - wrap.clientWidth - 2;
+    // Clone the full set before and after the originals so scrolling never runs out of items
+    originals.map(el => el.cloneNode(true)).reverse().forEach(el => track.insertBefore(el, track.firstChild));
+    originals.map(el => el.cloneNode(true)).forEach(el => track.appendChild(el));
+
+    let setWidth = 0;
+    const measure = () => { setWidth = originals.reduce((sum, el) => sum + el.offsetWidth + ITEM_GAP, 0); };
+    measure();
+    wrap.style.scrollBehavior = 'auto';
+    wrap.scrollLeft = setWidth; // land on the real (middle) copy
+    wrap.offsetHeight;
+    wrap.style.scrollBehavior = '';
+
+    // Silently jump back into the middle copy once scroll drifts into a cloned copy.
+    // scroll-behavior:smooth on the wrap makes a direct scrollLeft assignment animate too,
+    // so it must be switched off for the instant the jump happens or the reset is visible.
+    function normalize() {
+      if (setWidth <= 0) return;
+      const past = wrap.scrollLeft < setWidth * 0.5;
+      const future = wrap.scrollLeft > setWidth * 1.5;
+      if (!past && !future) return;
+      wrap.style.scrollBehavior = 'auto';
+      wrap.scrollLeft += past ? setWidth : -setWidth;
+      wrap.offsetHeight; // force reflow so the jump commits before behavior is restored
+      wrap.style.scrollBehavior = '';
     }
-    wrap.addEventListener('scroll', updateBtns, { passive: true });
+    wrap.addEventListener('scroll', normalize, { passive: true });
+    window.addEventListener('resize', measure);
+
     if (prevBtn) prevBtn.addEventListener('click', () => wrap.scrollBy({ left: -step(), behavior: 'smooth' }));
     if (nextBtn) nextBtn.addEventListener('click', () => wrap.scrollBy({ left: step(), behavior: 'smooth' }));
-    window.addEventListener('resize', updateBtns);
-    updateBtns();
 
-    if (items.length > 1) {
-      let paused = false;
-      const tick = () => {
-        if (paused) return;
-        const maxScroll = wrap.scrollWidth - wrap.clientWidth;
-        if (maxScroll <= 0) return;
-        if (wrap.scrollLeft >= maxScroll - 2) wrap.scrollTo({ left: 0, behavior: 'smooth' });
-        else wrap.scrollBy({ left: step(), behavior: 'smooth' });
-      };
-      let spTimer = setInterval(tick, 3500);
-      car.addEventListener('mouseenter', () => { paused = true; });
-      car.addEventListener('mouseleave', () => { paused = false; });
-      wrap.addEventListener('touchstart', () => { paused = true; }, { passive: true });
-    }
+    let paused = false, resumeTimer;
+    const pause = () => { paused = true; clearTimeout(resumeTimer); };
+    const resume = (delay) => { clearTimeout(resumeTimer); resumeTimer = setTimeout(() => { paused = false; }, delay); };
+    setInterval(() => { if (!paused) wrap.scrollBy({ left: step(), behavior: 'smooth' }); }, 3500);
+    car.addEventListener('mouseenter', pause);
+    car.addEventListener('mouseleave', () => resume(0));
+    wrap.addEventListener('touchstart', pause, { passive: true });
+    wrap.addEventListener('touchend', () => resume(1200), { passive: true });
+    wrap.addEventListener('touchcancel', () => resume(1200), { passive: true });
   });
 
   // ── Form submissions → Google Sheet (Apps Script backend, see apps-script/Code.gs)
