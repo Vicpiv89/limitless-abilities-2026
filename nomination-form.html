@@ -240,7 +240,7 @@
         <div class="form-group">
           <label id="lbl-mat">List supporting materials you plan to submit</label>
           <textarea name="materials" id="mat" rows="4" placeholder="e.g. Portfolio PDF, recommendation letter from Dr. X, clinical outcome data, certificates..."></textarea>
-          <div class="hint" id="mat-hint">Note: detailed documents can be sent separately to awards@protezhub.com after submitting this form.</div>
+          <div class="hint" id="mat-hint">Note: detailed documents can be sent separately to contact@protezhub.com after submitting this form.</div>
         </div>
         <div class="form-group" style="margin-top:1rem;">
           <label id="lbl-extra">Additional Comments</label>
@@ -374,8 +374,8 @@ function render() {
   document.getElementById('lbl-mat').textContent = isUa ? 'Перелік підтверджувальних матеріалів' : 'List supporting materials you plan to submit';
   document.getElementById('mat').placeholder = isUa ? 'введіть текст англійською: напр. портфоліо PDF, рекомендаційний лист, сертифікати…' : 'e.g. Portfolio PDF, recommendation letter, clinical outcome data, certificates…';
   document.getElementById('mat-hint').textContent = isUa
-    ? 'Документи можна надіслати окремо на awards@protezhub.com після подання форми.'
-    : 'Note: documents can be sent separately to awards@protezhub.com after submitting this form.';
+    ? 'Документи можна надіслати окремо на contact@protezhub.com після подання форми.'
+    : 'Note: documents can be sent separately to contact@protezhub.com after submitting this form.';
   document.getElementById('lbl-extra').textContent = isUa ? 'Додаткові коментарі' : 'Additional Comments';
   document.getElementById('lbl-consent').innerHTML = isUa
     ? 'Підтверджую, що надана інформація є достовірною і що номінант дав(ла) згоду на подання заявки (або я номінуюся сам/сама). Я погоджуюся з <a href="index.html" target="_blank">Політикою конфіденційності</a> та надаю згоду на обробку персональних даних у межах цієї нагороди.'
